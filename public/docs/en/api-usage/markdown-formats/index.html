@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PhyAgentOS API Reference - Markdown File Formats</title>
+  <title>PhyAgentOS API Usage - Markdown File Formats</title>
   <link rel="stylesheet" href="../../../docs-common.css" />
   <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
 </head>
@@ -17,10 +17,16 @@
       <div class="nav-categories">
         <a href="../../architecture.html" class="nav-category">Architecture</a>
         <div class="nav-dropdown">
-          <a href="../../api-reference.html" class="nav-category active">API Reference</a>
+          <a href="../../api-reference.html" class="nav-category active">API Usage</a>
           <div class="nav-dropdown-menu">
-            <a href="../plugin-usage/index.html">Plugin Usage</a>
-            <a href="../markdown-formats/index.html">Markdown Formats</a>
+            <a href="../getting-started/index.html">Getting Started</a>
+            <a href="../cli-reference/index.html">CLI Reference</a>
+            <a href="../configuration/index.html">Configuration</a>
+            <a href="../workspace-protocols/index.html">Workspace & Protocols</a>
+            <a href="../plugins-drivers/index.html">Plugins & Drivers</a>
+            <a href="../fleet-mode/index.html">Fleet Mode</a>
+            <a href="../runtime-session/index.html">Runtime Session</a>
+            <a href="../troubleshooting/index.html">Troubleshooting</a>
           </div>
         </div>
         <div class="nav-dropdown">
@@ -245,17 +251,132 @@ Pick up the red apple from the table and place it into the blue basket in the ki
 | T3 | pick_up | franka_001 | pending | T2 | — |
 | T4 | navigate_to | go2_edu_001 | pending | T3 | — |
 | T5 | place_in | franka_001 | pending | T4 | — |</code></pre>
+        </section>
+
+        <section class="card" id="sessions-md">
+          <h2>SESSIONS.md · Runtime Session Queue</h2>
+          <p class="lead">
+            The runtime session loop replaces the old single-action <code>ACTION.md</code> queue for structured execution. Each session binds a target and a skill, with priority-based scheduling, timeouts, retry policy, and routing metadata.
+          </p>
+          <pre><code># Runtime Sessions
+
+```yaml
+version: runtime_sessions_v1
+sessions:
+  - session_id: sess_pick_apple_001
+    goal_id: goal_pick_apple
+    target_ref: target://franka_lab_a
+    skill_ref: skill://rekep_grasp
+    task_description: "pick up the red apple on the table"
+    status: pending
+    priority: high
+    timeouts:
+      queue_timeout_s: 30
+      execute_timeout_s: 120
+      policy_timeout_s: 5
+    retry:
+      max_retries: 1
+      attempted: 0
+    routing:
+      policy_endpoint: dummy://local
+      adapter: franka_real_adapter
+```</code></pre>
           <table>
             <thead>
               <tr><th>Field</th><th>Description</th></tr>
             </thead>
             <tbody>
-              <tr><td><code>ID</code></td><td>Unique sub-task identifier</td></tr>
-              <tr><td><code>Action</code></td><td>Action type — should correspond to capabilities in EMBODIED.md</td></tr>
-              <tr><td><code>Target Device</code></td><td>Robot instance to execute this sub-task</td></tr>
-              <tr><td><code>Status</code></td><td>pending / running / completed / failed</td></tr>
-              <tr><td><code>Depends On</code></td><td>Predecessor task IDs — determines scheduling order</td></tr>
-              <tr><td><code>Result</code></td><td>Human-readable summary after completion</td></tr>
+              <tr><td><code>session_id</code></td><td>Unique session identifier</td></tr>
+              <tr><td><code>target_ref</code></td><td>Reference to a target in TARGETS.md</td></tr>
+              <tr><td><code>skill_ref</code></td><td>Reference to a skill in SKILLS.md</td></tr>
+              <tr><td><code>status</code></td><td>pending / running / succeeded / failed / rejected</td></tr>
+              <tr><td><code>priority</code></td><td>high / normal / low — scheduler picks higher priority first</td></tr>
+              <tr><td><code>timeouts</code></td><td>Queue, execute, and policy timeout in seconds</td></tr>
+              <tr><td><code>retry</code></td><td>Max retries and attempt counter</td></tr>
+              <tr><td><code>routing</code></td><td>Policy endpoint and adapter selection</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="card" id="targets-md">
+          <h2>TARGETS.md · Runtime Target Registry</h2>
+          <p class="lead">
+            Declares available rollout targets (sim, real_robot) with perception config, adapter selection, and skill compatibility. Target observation and action dimensions are declared in <code>config</code>.
+          </p>
+          <pre><code># Runtime Targets
+
+```yaml
+version: runtime_target_registry_v1
+targets:
+  - id: dummy_sim
+    type: sim
+    backend: dummy
+    enabled: true
+    workspace: workspaces/dummy_sim
+    supported_skills:
+      - openpi_sim_vla
+    adapter: dummy_openpi_adapter
+    perception:
+      enabled: false
+      strict_preflight: true
+      sensor_config_ref: configs/runtime/sensors/dummy_sim.sensors.yaml
+      perception_config_ref: configs/runtime/perception/dummy_sim.perception.yaml
+    config:
+      success_after_steps: 3
+      observation:
+        image_size: 16
+        state_dim: 8
+      action:
+        action_dim: 7
+        chunk_size: 4
+```</code></pre>
+          <table>
+            <thead>
+              <tr><th>Field</th><th>Description</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><code>id</code></td><td>Unique target identifier</td></tr>
+              <tr><td><code>type</code></td><td>sim / real_robot</td></tr>
+              <tr><td><code>supported_skills</code></td><td>Skills that can run on this target</td></tr>
+              <tr><td><code>perception.enabled</code></td><td>Whether perception pipeline runs for this target</td></tr>
+              <tr><td><code>perception.strict_preflight</code></td><td>Requires all sensor and perception checks to pass before execution</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="card" id="skills-md">
+          <h2>SKILLS.md · Runtime Skill Registry</h2>
+          <p class="lead">
+            Skills declare what they need (sensors, environment outputs) and what runtime handles execution. Skills do not select perception plugins — the runtime resolves that from the perception config.
+          </p>
+          <pre><code># Runtime Skills
+
+```yaml
+version: runtime_skill_registry_v1
+skills:
+  - id: openpi_sim_vla
+    category: vla
+    runtime: OpenPISimSkillRuntime
+    supported_target_types:
+      - sim
+    policy_client: dummy
+    supports_chunk: true
+    default_replan_every: 4
+    requires:
+      sensors: []
+      environment_outputs: []
+      strict_environment_contract: true
+```</code></pre>
+          <table>
+            <thead>
+              <tr><th>Field</th><th>Description</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><code>id</code></td><td>Unique skill identifier</td></tr>
+              <tr><td><code>category</code></td><td>Skill category: vla / builtin</td></tr>
+              <tr><td><code>runtime</code></td><td>SkillRuntime class that orchestrates execution</td></tr>
+              <tr><td><code>requires.sensors</code></td><td>Sensors required by this skill</td></tr>
+              <tr><td><code>requires.environment_outputs</code></td><td>Perception outputs needed (objects_3d, scene_graph, etc.)</td></tr>
             </tbody>
           </table>
         </section>
@@ -310,6 +431,7 @@ Pick up the red apple from the table and place it into the blue basket.
               <tr><td>Critic</td><td>shared ENVIRONMENT.md + target robot EMBODIED.md</td><td>ACTION.md or LESSONS.md</td></tr>
               <tr><td>Watchdog</td><td>robot workspace ACTION.md + shared ENVIRONMENT.md</td><td>EMBODIED.md / ENVIRONMENT.md / ROBOTS.md</td></tr>
               <tr><td>Orchestrator</td><td>TASK.md / ENVIRONMENT.md / per-robot ACTION.md status</td><td>ORCHESTRATOR.md / update TASK.md status</td></tr>
+              <tr><td>Runtime Watchdog</td><td>SESSIONS.md / TARGETS.md / SKILLS.md + perception configs</td><td>SESSIONS.md (status) / ENVIRONMENT.md (v2) / LOG.md / artifacts</td></tr>
             </tbody>
           </table>
         </section>
@@ -330,6 +452,9 @@ Pick up the red apple from the table and place it into the blue basket.
         <a href="#embodied-md">EMBODIED.md</a>
         <a href="#action-md">ACTION.md</a>
         <a href="#task-md">TASK.md</a>
+        <a href="#sessions-md">SESSIONS.md</a>
+        <a href="#targets-md">TARGETS.md</a>
+        <a href="#skills-md">SKILLS.md</a>
         <a href="#orchestrator-md">ORCHESTRATOR.md</a>
         <a href="#readers">Who Reads, Who Writes</a>
         <div style="margin-top: 24px; margin-bottom: 12px; font-family: 'Space Grotesk', 'Segoe UI', sans-serif; font-size: 15px; color: var(--ink);">Related Pages</div>

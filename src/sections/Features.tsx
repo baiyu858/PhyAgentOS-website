@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { FileText, GitBranch, Puzzle, Shield, Cpu, Brain } from 'lucide-react';
+import { FileText, GitBranch, Puzzle, Shield, Cpu, Brain, FlaskConical } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -35,6 +35,11 @@ const features = [
     icon: Brain,
     title: 'Self-Evolving',
     description: 'Automatically update SKILL.md and LESSONS.md based on execution experience for continuous workflow optimization.',
+  },
+  {
+    icon: FlaskConical,
+    title: 'Runtime Session Loop',
+    description: 'Session-centered runtime with WatchdogSupervisor, priority scheduling, preflight checks, and perception plugin pipeline for structured execution.',
   },
 ];
 

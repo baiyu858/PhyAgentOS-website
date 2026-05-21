@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { FileText, Code2, Shield, Cpu, Brain } from 'lucide-react';
+import { FileText, Code2, Shield, Cpu, Brain, FlaskConical } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -30,6 +30,11 @@ const features = [
     icon: Brain,
     title: '自进化',
     description: '基于执行经验持续优化工作流',
+  },
+  {
+    icon: FlaskConical,
+    title: 'Runtime 会话循环',
+    description: '组件化运行时，支持优先级调度和感知插件',
   },
 ];
 

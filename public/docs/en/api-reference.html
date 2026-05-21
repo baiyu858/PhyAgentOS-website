@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PhyAgentOS API Reference</title>
+  <title>PhyAgentOS API Usage</title>
   <link rel="stylesheet" href="../docs-common.css" />
 </head>
 <body>
@@ -16,10 +16,16 @@
       <div class="nav-categories">
         <a href="./architecture.html" class="nav-category">Architecture</a>
         <div class="nav-dropdown">
-          <a href="./api-reference.html" class="nav-category active">API Reference</a>
+          <a href="./api-reference.html" class="nav-category active">API Usage</a>
           <div class="nav-dropdown-menu">
-            <a href="./api-usage/plugin-usage/index.html">Plugin Usage</a>
-            <a href="./api-usage/markdown-formats/index.html">Markdown Formats</a>
+            <a href="./api-usage/getting-started/index.html">Getting Started</a>
+            <a href="./api-usage/cli-reference/index.html">CLI Reference</a>
+            <a href="./api-usage/configuration/index.html">Configuration</a>
+            <a href="./api-usage/workspace-protocols/index.html">Workspace & Protocols</a>
+            <a href="./api-usage/plugins-drivers/index.html">Plugins & Drivers</a>
+            <a href="./api-usage/fleet-mode/index.html">Fleet Mode</a>
+            <a href="./api-usage/runtime-session/index.html">Runtime Session</a>
+            <a href="./api-usage/troubleshooting/index.html">Troubleshooting</a>
           </div>
         </div>
         <div class="nav-dropdown">
@@ -40,141 +46,100 @@
 
   <main class="page">
     <header class="hero">
-      <div class="eyebrow">Documentation / API</div>
-      <h1><span class="gradient-text">PhyAgentOS</span> API Reference</h1>
+      <div class="eyebrow">Documentation / API Usage</div>
+      <h1><span class="gradient-text">API Usage</span></h1>
       <p class="subtitle">
-        Want to control a real robot with this system? Start by understanding how plugins are installed and what workspace files look like.
+        How to install, configure, operate, and troubleshoot PhyAgentOS. From zero to running robots — in 8 progressive sections.
       </p>
     </header>
 
     <div class="layout">
       <div class="content">
         <section class="card" id="overview">
-          <h2>Two Pages, Two Use Cases</h2>
+          <h2>Reading Guide</h2>
           <p class="lead">
-            In a hurry to get the system running? Start with the plugin usage guide. Want to know what a specific file field means? Check the Markdown formats page.
+            New user? Start with <strong>Getting Started</strong> (5-minute MVP). Want to dive deeper? Follow the order below — each section builds on the previous one.
           </p>
-          <div class="card-grid-2">
-            <a href="./api-usage/plugin-usage/index.html" class="mini-card card-hover" style="text-decoration:none; display:block;">
-              <div style="font-size:28px; margin-bottom:10px;">⚡</div>
-              <h3 style="margin:0 0 8px; color:var(--ink);">Plugin Usage Guide</h3>
-              <p style="margin:0; color:var(--muted); font-size:14px;">Installation, deployment, invoking via Watchdog or ACTION.md, ReKep usage patterns and debugging entry points</p>
+
+          <div class="card-grid-3">
+            <a href="./api-usage/getting-started/index.html" class="mini-card card-hover" style="text-decoration:none; display:block; border-left:4px solid var(--success);">
+              <div style="font-size:28px; margin-bottom:10px;">🚀</div>
+              <h3 style="margin:0 0 8px; color:var(--ink);">Getting Started</h3>
+              <p style="margin:0; color:var(--muted); font-size:13px; line-height:1.5;">Install, onboard, launch simulation Watchdog + Agent. First closed loop in 5 minutes.</p>
             </a>
-            <a href="./api-usage/markdown-formats/index.html" class="mini-card card-hover" style="text-decoration:none; display:block;">
+            <a href="./api-usage/cli-reference/index.html" class="mini-card card-hover" style="text-decoration:none; display:block; border-left:4px solid var(--info);">
+              <div style="font-size:28px; margin-bottom:10px;">💻</div>
+              <h3 style="margin:0 0 8px; color:var(--ink);">CLI Reference</h3>
+              <p style="margin:0; color:var(--muted); font-size:13px; line-height:1.5;">All <code>paos</code> commands and script entry points with full flags and examples.</p>
+            </a>
+            <a href="./api-usage/configuration/index.html" class="mini-card card-hover" style="text-decoration:none; display:block; border-left:4px solid var(--warning);">
+              <div style="font-size:28px; margin-bottom:10px;">⚙️</div>
+              <h3 style="margin:0 0 8px; color:var(--ink);">Configuration</h3>
+              <p style="margin:0; color:var(--muted); font-size:13px; line-height:1.5;"><code>kilo.json</code> reference: providers, agents, tools, embodiments, channels, gateway.</p>
+            </a>
+            <a href="./api-usage/workspace-protocols/index.html" class="mini-card card-hover" style="text-decoration:none; display:block; border-left:4px solid var(--danger);">
               <div style="font-size:28px; margin-bottom:10px;">📄</div>
-              <h3 style="margin:0 0 8px; color:var(--ink);">Markdown File Formats</h3>
-              <p style="margin:0; color:var(--muted); font-size:14px;">Fields and examples for ENVIRONMENT / EMBODIED / ACTION / TASK / ORCHESTRATOR</p>
+              <h3 style="margin:0 0 8px; color:var(--ink);">Workspace & Protocols</h3>
+              <p style="margin:0; color:var(--muted); font-size:13px; line-height:1.5;">All 11 Markdown protocol files: format, semantics, who reads/writes, lifecycle.</p>
+            </a>
+            <a href="./api-usage/plugins-drivers/index.html" class="mini-card card-hover" style="text-decoration:none; display:block; border-left:4px solid var(--accent);">
+              <div style="font-size:28px; margin-bottom:10px;">🔌</div>
+              <h3 style="margin:0 0 8px; color:var(--ink);">Plugins & Drivers</h3>
+              <p style="margin:0; color:var(--muted); font-size:13px; line-height:1.5;">External plugin installation, built-in driver list, ACTION.md direct debugging.</p>
+            </a>
+            <a href="./api-usage/fleet-mode/index.html" class="mini-card card-hover" style="text-decoration:none; display:block; border-left:4px solid var(--violet);">
+              <div style="font-size:28px; margin-bottom:10px;">🛸</div>
+              <h3 style="margin:0 0 8px; color:var(--ink);">Fleet Mode</h3>
+              <p style="margin:0; color:var(--muted); font-size:13px; line-height:1.5;">Multi-robot coordination: topology, configuration, task distribution, debugging.</p>
+            </a>
+            <a href="./api-usage/runtime-session/index.html" class="mini-card card-hover" style="text-decoration:none; display:block; border-left:4px solid #0ea5e9;">
+              <div style="font-size:28px; margin-bottom:10px;">🧪</div>
+              <h3 style="margin:0 0 8px; color:var(--ink);">Runtime Session</h3>
+              <p style="margin:0; color:var(--muted); font-size:13px; line-height:1.5;">SESSIONS.md → WatchdogSupervisor → SkillRuntime → Target → Artifacts pipeline.</p>
+            </a>
+            <a href="./api-usage/troubleshooting/index.html" class="mini-card card-hover" style="text-decoration:none; display:block; border-left:4px solid #ef4444;">
+              <div style="font-size:28px; margin-bottom:10px;">🔧</div>
+              <h3 style="margin:0 0 8px; color:var(--ink);">Troubleshooting</h3>
+              <p style="margin:0; color:var(--muted); font-size:13px; line-height:1.5;">Common problems by component: install, Watchdog, Agent, Fleet, Runtime. Quick fix tables.</p>
             </a>
           </div>
         </section>
 
-        <section class="card" id="cli-quick">
-          <h2>Three Commands to Get Started</h2>
-          <pre><code># 1. Initialize workspace
-paos onboard
-
-# 2. Start simulator or real robot driver
-python hal/hal_watchdog.py --driver simulation
-
-# 3. Enter interactive Agent
-paos agent</code></pre>
-          <p>For more details and troubleshooting, see the <a href="./api-usage/plugin-usage/index.html" style="color:var(--accent);">Plugin Usage Guide</a>.</p>
-        </section>
-
-        <section class="card" id="scope">
-          <h2>API Documentation Coverage</h2>
-          <div class="grid-3">
-            <div class="mini-card">
-              <h3>System Entry Points</h3>
-              <p>Actual call chains for paos onboard / agent / gateway commands</p>
-            </div>
-            <div class="mini-card">
-              <h3>Runtime Protocol</h3>
-              <p>How workspace Markdown files carry shared state, who writes and who reads</p>
-            </div>
-            <div class="mini-card">
-              <h3>Plugins & Drivers</h3>
-              <p>How external plugins are discovered, registered, and invoked, compared with built-in drivers</p>
-            </div>
-          </div>
-        </section>
-
-        <section class="card" id="sim-runtime">
-          <h2>Simulation Runtime Guide</h2>
-          <p class="lead">
-            This section focuses on how to run the complete demo pipeline in the Isaac Sim simulation environment — ideal if you don't have real hardware or want to verify in simulation first.
-          </p>
-
-          <h3 style="margin-top:24px;">① Install Isaac Sim 5.1</h3>
-          <p>Download and install Isaac Sim 5.1.0 from the NVIDIA official pages:</p>
-          <ul style="margin:8px 0 16px 20px; line-height:2;">
-            <li><a href="https://docs.isaacsim.omniverse.nvidia.com/5.1.0/installation/download.html" target="_blank" style="color:var(--accent);">Download Page (5.1.0)</a></li>
-            <li><a href="https://docs.isaacsim.omniverse.nvidia.com/5.1.0/installation/quick-install.html" target="_blank" style="color:var(--accent);">Quick Install Guide (5.1.0)</a></li>
-          </ul>
-
-          <h3>② Prepare Python Environment</h3>
-          <pre><code>conda activate paos</code></pre>
-
-          <h3 style="margin-top:20px;">③ Install Dependencies</h3>
-          <p>Install PhyAgentOS in editable mode into the <code>paos</code> environment:</p>
-          <pre><code>cd /home/zyserver/work/PhyAgentOS
-pip install -e .</code></pre>
-
-          <h3 style="margin-top:20px;">④ Start HAL Watchdog (GUI Mode)</h3>
-          <pre><code>cd /home/zyserver/work/PhyAgentOS
-conda activate paos
-python hal/hal_watchdog.py --gui --interval 0.05 \
-  --driver pipergo2_manipulation \
-  --driver-config examples/pipergo2_manipulation_driver.json</code></pre>
-          <div class="callout">
-            <code>--gui</code> opens the simulation visualization window; <code>--interval 0.05</code> sets the control loop period to 50ms, which effectively reduces simulation lag.
-          </div>
-
-          <h3 style="margin-top:20px;">⑤ Send Agent Commands</h3>
-          <p>Open <strong>another terminal</strong> and run:</p>
-          <pre><code>cd /home/zyserver/work/PhyAgentOS
-conda activate paos</code></pre>
-          <p>Then execute in order:</p>
-          <pre><code># Launch the simulation scene
-paos agent -m "open simulation"
-
-# Move to target location
-paos agent -m "go to desk"
-
-# Execute grasping task
-paos agent -m "pick up the red cube and move next to the rear pedestal"</code></pre>
-
-          <h3 style="margin-top:20px;">⑥ Notes</h3>
-          <div class="grid-2">
-            <div class="mini-card" style="border-left:4px solid var(--warning);">
-              <h3>Single Process</h3>
-              <p>Keep only one Watchdog process running at a time to avoid port conflicts.</p>
-            </div>
-            <div class="mini-card" style="border-left:4px solid var(--info);">
-              <h3>Restart After Changes</h3>
-              <p>If you modify driver or skill files, restart the Watchdog for changes to take effect.</p>
-            </div>
-            <div class="mini-card" style="border-left:4px solid var(--accent);">
-              <h3>Lag Troubleshooting</h3>
-              <p>If the simulation is laggy, make sure you launched with <code>--interval 0.05</code>.</p>
-            </div>
-          </div>
+        <section class="card" id="quick-nav">
+          <h2>Quick Navigation by Goal</h2>
+          <table>
+            <thead><tr><th>I want to…</th><th>Go to</th></tr></thead>
+            <tbody>
+              <tr><td>Run the system for the first time</td><td><a href="./api-usage/getting-started/index.html" style="color:var(--accent);">Getting Started</a></td></tr>
+              <tr><td>Look up a specific CLI command</td><td><a href="./api-usage/cli-reference/index.html" style="color:var(--accent);">CLI Reference</a></td></tr>
+              <tr><td>Set up my API key or provider</td><td><a href="./api-usage/configuration/index.html" style="color:var(--accent);">Configuration → providers</a></td></tr>
+              <tr><td>Understand what ENVIRONMENT.md contains</td><td><a href="./api-usage/workspace-protocols/index.html#environment-md" style="color:var(--accent);">Workspace & Protocols → ENVIRONMENT.md</a></td></tr>
+              <tr><td>Install the ReKep real-robot plugin</td><td><a href="./api-usage/plugins-drivers/index.html#rekep-install" style="color:var(--accent);">Plugins & Drivers → ReKep</a></td></tr>
+              <tr><td>Set up multi-robot coordination</td><td><a href="./api-usage/fleet-mode/index.html" style="color:var(--accent);">Fleet Mode</a></td></tr>
+              <tr><td>Run a Runtime session smoke test</td><td><a href="./api-usage/runtime-session/index.html" style="color:var(--accent);">Runtime Session</a></td></tr>
+              <tr><td>Fix Watchdog not starting or acting</td><td><a href="./api-usage/troubleshooting/index.html#watchdog" style="color:var(--accent);">Troubleshooting → Watchdog</a></td></tr>
+            </tbody>
+          </table>
         </section>
 
         <div class="footer">
-          Documentation is continuously improving. If you find commands that don't match actual behavior, please open an Issue.
+          This is the API Usage hub. For system architecture, see <a href="./architecture.html" style="color:var(--accent);">Architecture</a>. For plugin development and contribution, see <a href="./developer-guide.html" style="color:var(--accent);">Developer Guide</a>.
         </div>
       </div>
 
       <aside class="toc">
-        <div class="toc-title">On This Page</div>
-        <a href="#overview">Two Pages</a>
-        <a href="#cli-quick">Three Commands</a>
-        <a href="#scope">Coverage</a>
-        <a href="#sim-runtime">Simulation Runtime</a>
-        <div style="margin-top: 24px; margin-bottom: 12px; font-family: 'Space Grotesk', 'Segoe UI', sans-serif; font-size: 15px; color: var(--ink);">Sub-pages</div>
-        <a href="./api-usage/plugin-usage/index.html">Plugin Usage Guide</a>
-        <a href="./api-usage/markdown-formats/index.html">Markdown File Formats</a>
+        <div class="toc-title">API Usage Sections</div>
+        <a href="./api-usage/getting-started/index.html">1. Getting Started</a>
+        <a href="./api-usage/cli-reference/index.html">2. CLI Reference</a>
+        <a href="./api-usage/configuration/index.html">3. Configuration</a>
+        <a href="./api-usage/workspace-protocols/index.html">4. Workspace & Protocols</a>
+        <a href="./api-usage/plugins-drivers/index.html">5. Plugins & Drivers</a>
+        <a href="./api-usage/fleet-mode/index.html">6. Fleet Mode</a>
+        <a href="./api-usage/runtime-session/index.html">7. Runtime Session</a>
+        <a href="./api-usage/troubleshooting/index.html">8. Troubleshooting</a>
+        <div style="margin-top: 24px; margin-bottom: 12px; font-family: 'Space Grotesk', 'Segoe UI', sans-serif; font-size: 15px; color: var(--ink);">Related</div>
+        <a href="./architecture.html">Architecture</a>
+        <a href="./developer-guide.html">Developer Guide</a>
       </aside>
     </div>
   </main>

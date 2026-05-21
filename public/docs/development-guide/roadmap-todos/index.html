@@ -18,8 +18,14 @@
         <div class="nav-dropdown">
           <a href="../../api-reference.html" class="nav-category">API 使用</a>
           <div class="nav-dropdown-menu">
-            <a href="../../api-usage/plugin-usage/index.html">插件使用说明</a>
-            <a href="../../api-usage/markdown-formats/index.html">Markdown 文件格式</a>
+            <a href="../../api-usage/getting-started/index.html">快速开始</a>
+            <a href="../../api-usage/cli-reference/index.html">命令行参考</a>
+            <a href="../../api-usage/configuration/index.html">配置指南</a>
+            <a href="../../api-usage/workspace-protocols/index.html">工作区与协议</a>
+            <a href="../../api-usage/plugins-drivers/index.html">插件与驱动</a>
+            <a href="../../api-usage/fleet-mode/index.html">Fleet 模式</a>
+            <a href="../../api-usage/runtime-session/index.html">Runtime 会话</a>
+            <a href="../../api-usage/troubleshooting/index.html">故障排查</a>
           </div>
         </div>
         <div class="nav-dropdown">
@@ -58,17 +64,17 @@
             <div class="mini-card" style="border-left:4px solid var(--success);">
               <div style="font-size:24px;margin-bottom:8px;">✓</div>
               <h3>已完成</h3>
-              <p>核心框架、仿真器、ReKep/VLN/Franka 等真机链路已验证。这些是稳定的参考基线。</p>
+              <p>核心框架、仿真器、ReKep/VLN/Franka 等真机链路、Runtime 会话循环、感知插件管道已验证。这些是稳定的参考基线。</p>
             </div>
             <div class="mini-card" style="border-left:4px solid var(--warning);">
               <div style="font-size:24px;margin-bottom:8px;">⋯</div>
               <h3>进行中</h3>
-              <p>长程编排、IoT 接入、Fleet 多机协议已有雏形，但还不够稳定，需要更多场景测试。</p>
+              <p>扩展 runtime 注册表至真实 benchmark 和机器人 target。长程编排、IoT 接入、Fleet 多机协议已有雏形，但需要更多场景测试。</p>
             </div>
             <div class="mini-card" style="border-left:4px solid var(--muted);">
               <div style="font-size:24px;margin-bottom:8px;">○</div>
               <h3>待开发</h3>
-              <p>幻尔驱动、ROS2 深度手册、感知部署流水线。切入点明确，阻力最小。</p>
+              <p>并发多 target 调度、资源仲裁、幻尔驱动、ROS2 深度手册。切入点明确，阻力最小。</p>
             </div>
           </div>
         </section>
@@ -215,10 +221,10 @@
             </div>
             <div class="mini-card">
               <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
-                <span style="font-size:20px;">👁</span>
-                <h3 style="margin:0;">感知部署流水线手册</h3>
+                <span style="font-size:20px;">🧪</span>
+                <h3 style="margin:0;">Runtime 注册表扩展</h3>
               </div>
-              <p>相机/LiDAR 接入、分割模型安装、场景图构建——这些散落在代码里，还没形成可执行的部署文档。</p>
+              <p>会话循环和感知管道已在 DummySimTarget 上验证通过。下一步：扩展至真实 benchmark target（LIBERO、RoboCasa）、真机 target，以及并发多 target 调度。</p>
             </div>
             <div class="mini-card">
               <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
@@ -229,10 +235,10 @@
             </div>
             <div class="mini-card">
               <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
-                <span style="font-size:20px;">🌐</span>
-                <h3 style="margin:0;">渠道与服务化部署</h3>
+                <span style="font-size:20px;">👁</span>
+                <h3 style="margin:0;">感知插件扩展</h3>
               </div>
-              <p>paos gateway、bridge、channel 配置——源码都有，缺一份面向运维的部署手册。</p>
+              <p>内置 dummy 插件已可用。下一步：集成 SAM3、YOLO、Open3D、RealSense 作为懒加载插件，并用真实传感器数据验证完整闭环。</p>
             </div>
           </div>
         </section>

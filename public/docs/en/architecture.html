@@ -17,10 +17,16 @@
       <div class="nav-categories">
         <a href="./architecture.html" class="nav-category active">Architecture</a>
         <div class="nav-dropdown">
-          <a href="./api-reference.html" class="nav-category">API Reference</a>
+          <a href="./api-reference.html" class="nav-category">API Usage</a>
           <div class="nav-dropdown-menu">
-            <a href="./api-usage/plugin-usage/index.html">Plugin Usage</a>
-            <a href="./api-usage/markdown-formats/index.html">Markdown Formats</a>
+            <a href="./api-usage/getting-started/index.html">Getting Started</a>
+            <a href="./api-usage/cli-reference/index.html">CLI Reference</a>
+            <a href="./api-usage/configuration/index.html">Configuration</a>
+            <a href="./api-usage/workspace-protocols/index.html">Workspace & Protocols</a>
+            <a href="./api-usage/plugins-drivers/index.html">Plugins & Drivers</a>
+            <a href="./api-usage/fleet-mode/index.html">Fleet Mode</a>
+            <a href="./api-usage/runtime-session/index.html">Runtime Session</a>
+            <a href="./api-usage/troubleshooting/index.html">Troubleshooting</a>
           </div>
         </div>
         <div class="nav-dropdown">
@@ -237,6 +243,57 @@ flowchart TB
           </div>
         </section>
 
+        <section class="card card-hover" id="runtime-session">
+          <h2>Runtime Session Loop</h2>
+          <p class="lead">
+            Beyond the single-action ACTION.md loop, PhyAgentOS now has a session-centered runtime. It reads <code>SESSIONS.md</code>, selects a pending session by priority, runs preflight health checks, executes a skill runtime against a rollout target, and writes results back. The serial <code>WatchdogSupervisor</code> chooses <code>high</code> priority before <code>normal</code> before <code>low</code>.
+          </p>
+          <div class="mermaid arch-diagram">
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#fffaf3', 'primaryTextColor': '#1d2a30', 'primaryBorderColor': '#20323a', 'lineColor': '#66757d', 'secondaryColor': '#f5efe6', 'tertiaryColor': '#ffffff', 'fontFamily': 'Inter, system-ui, sans-serif', 'fontSize': '14px', 'textColor': '#1d2a30', 'nodeBkg': '#fffaf3', 'nodeBorder': '#20323a', 'nodeTextColor': '#1d2a30', 'clusterBkg': '#f5efe6', 'clusterBorder': '#20323a', 'titleColor': '#1d2a30', 'edgeLabelBackground': '#ffffff', 'edgeLabelColor': '#66757d', 'arrowheadColor': '#66757d'}}}%%
+flowchart LR
+    classDef file fill:#f6d0c3,stroke:#ca6a49,stroke-width:2px,color:#7a3a28
+    classDef runtime fill:#ece3f6,stroke:#7f62ac,stroke-width:2px,color:#5a3d7a
+    classDef target fill:#dbe8f7,stroke:#4b7eb4,stroke-width:2px,color:#2a4a6a
+    classDef output fill:#dff0e6,stroke:#5f9e77,stroke-width:2px,color:#2d5a3f
+
+    S([SESSIONS.md]):::file
+    T([TARGETS.md]):::file
+    K([SKILLS.md]):::file
+    SUP[WatchdogSupervisor]:::runtime
+    PF{Preflight}:::runtime
+    SK[SkillRuntime]:::runtime
+    TGT[RolloutTarget]:::target
+    PC[PolicyClient]:::target
+    ART([episode.json]):::output
+    ENV([ENVIRONMENT.md]):::output
+
+    S --> SUP
+    T --> SUP
+    K --> SUP
+    SUP --> PF
+    PF -->|Pass| SK
+    PF -.->|Reject| S
+    SK --> TGT
+    SK --> PC
+    TGT --> ART
+    SK -.->|Perception| ENV
+          </div>
+          <div class="grid-3" style="margin-top:18px;">
+            <div class="mini-card card-hover" style="border-left:4px solid var(--accent);">
+              <h3>SESSIONS.md</h3>
+              <p>Session queue with target/skill routing, priority, timeouts, and retry policy. Replaces ACTION.md for the runtime path.</p>
+            </div>
+            <div class="mini-card card-hover" style="border-left:4px solid var(--info);">
+              <h3>WatchdogSupervisor</h3>
+              <p>Componentized serial supervisor: selects pending sessions, runs preflight, orchestrates skill runtime, writes retry/failure state back.</p>
+            </div>
+            <div class="mini-card card-hover" style="border-left:4px solid var(--success);">
+              <h3>Artifacts</h3>
+              <p>Episode summaries, perception outputs, and environment state are written to <code>artifacts/runtime/</code> and <code>ENVIRONMENT.md</code>.</p>
+            </div>
+          </div>
+        </section>
+
         <section class="card card-hover" id="why-markdown">
           <h2>Why Markdown as Protocol?</h2>
           <p class="lead">
@@ -261,6 +318,7 @@ flowchart TB
         <a href="#workspace">Files as Interface</a>
         <a href="#layers">Three Layers</a>
         <a href="#single-vs-fleet">Single / Fleet</a>
+        <a href="#runtime-session">Runtime Session Loop</a>
         <a href="#why-markdown">Markdown Protocol</a>
       </aside>
     </div>

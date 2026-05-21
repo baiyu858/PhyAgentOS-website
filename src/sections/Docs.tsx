@@ -9,7 +9,7 @@ const docItems = [
   {
     title: 'Architecture',
     subtitle: 'Technical Documentation',
-    description: 'Deep dive into PhyAgentOS system architecture design, including State-as-a-File protocol, dual-track architecture, and component interaction flows.',
+    description: 'Deep dive into PhyAgentOS system architecture design, including State-as-a-File protocol, dual-track architecture, Runtime session loop, and perception plugin pipeline.',
     icon: BookOpen,
     href: `${import.meta.env.BASE_URL}docs/en/architecture.html`,
     color: 'from-emerald-500/20 to-teal-500/20',
@@ -19,7 +19,7 @@ const docItems = [
   {
     title: 'API Reference',
     subtitle: 'API Documentation',
-    description: 'Plugin installation, Watchdog invocation, ACTION.md debugging, and Markdown file format specifications.',
+    description: 'Plugin installation, Watchdog invocation, ACTION.md debugging, Runtime session smoke tests, and Markdown file format specifications.',
     icon: Code,
     href: `${import.meta.env.BASE_URL}docs/en/api-reference.html`,
     color: 'from-blue-500/20 to-indigo-500/20',

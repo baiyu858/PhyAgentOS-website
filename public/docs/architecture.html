@@ -19,8 +19,14 @@
         <div class="nav-dropdown">
           <a href="./api-reference.html" class="nav-category">API 使用</a>
           <div class="nav-dropdown-menu">
-            <a href="./api-usage/plugin-usage/index.html">插件使用说明</a>
-            <a href="./api-usage/markdown-formats/index.html">Markdown 文件格式</a>
+            <a href="./api-usage/getting-started/index.html">快速开始</a>
+            <a href="./api-usage/cli-reference/index.html">命令行参考</a>
+            <a href="./api-usage/configuration/index.html">配置指南</a>
+            <a href="./api-usage/workspace-protocols/index.html">工作区与协议</a>
+            <a href="./api-usage/plugins-drivers/index.html">插件与驱动</a>
+            <a href="./api-usage/fleet-mode/index.html">Fleet 模式</a>
+            <a href="./api-usage/runtime-session/index.html">Runtime 会话</a>
+            <a href="./api-usage/troubleshooting/index.html">故障排查</a>
           </div>
         </div>
         <div class="nav-dropdown">
@@ -303,6 +309,81 @@ flowchart TB
           </div>
         </section>
 
+        <section class="card card-hover" id="runtime-session">
+          <h2>Runtime 会话循环</h2>
+          <p class="lead">
+            除了单动作的 ACTION.md 循环之外，PhyAgentOS 现在拥有了以会话为中心的运行时。它读取 <code>SESSIONS.md</code>，按优先级选择待处理的会话，执行 preflight 健康检查，通过 skill runtime 对 rollout target 执行操作，并写回结果。串行 <code>WatchdogSupervisor</code> 按 <code>high</code> → <code>normal</code> → <code>low</code> 优先级调度。
+          </p>
+          <div class="mermaid arch-diagram">
+%%{init: {
+  'theme': 'base', 
+  'themeVariables': 
+    { 
+      'primaryColor': '#fffaf3', 
+      'primaryTextColor': '#1d2a30', 
+      'primaryBorderColor': '#20323a', 
+      'lineColor': '#66757d', 
+      'secondaryColor': '#f5efe6', 
+      'tertiaryColor': '#ffffff', 
+      'fontFamily': 'Inter, system-ui, sans-serif', 
+      'fontSize': '14px', 
+      'textColor': '#1d2a30', 
+      'nodeBkg': '#fffaf3', 
+      'nodeBorder': '#20323a', 
+      'nodeTextColor': '#1d2a30', 
+      'clusterBkg': '#f5efe6', 
+      'clusterBorder': '#20323a', 
+      'titleColor': '#1d2a30', 
+      'edgeLabelBackground': '#ffffff', 
+      'edgeLabelColor': '#66757d', 
+      'arrowheadColor': '#66757d'
+    }
+  }
+}%%
+flowchart LR
+    classDef file fill:#f6d0c3,stroke:#ca6a49,stroke-width:2px,color:#7a3a28
+    classDef runtime fill:#ece3f6,stroke:#7f62ac,stroke-width:2px,color:#5a3d7a
+    classDef target fill:#dbe8f7,stroke:#4b7eb4,stroke-width:2px,color:#2a4a6a
+    classDef output fill:#dff0e6,stroke:#5f9e77,stroke-width:2px,color:#2d5a3f
+
+    S([SESSIONS.md]):::file
+    T([TARGETS.md]):::file
+    K([SKILLS.md]):::file
+    SUP[WatchdogSupervisor]:::runtime
+    PF{Preflight}:::runtime
+    SK[SkillRuntime]:::runtime
+    TGT[RolloutTarget]:::target
+    PC[PolicyClient]:::target
+    ART([episode.json]):::output
+    ENV([ENVIRONMENT.md]):::output
+
+    S --> SUP
+    T --> SUP
+    K --> SUP
+    SUP --> PF
+    PF -->|通过| SK
+    PF -.->|拒绝| S
+    SK --> TGT
+    SK --> PC
+    TGT --> ART
+    SK -.->|感知| ENV
+          </div>
+          <div class="grid-3" style="margin-top:18px;">
+            <div class="mini-card card-hover" style="border-left:4px solid var(--accent);">
+              <h3>SESSIONS.md</h3>
+              <p>会话队列，包含 target/skill 路由、优先级、超时和重试策略。在 runtime 路径中替代 ACTION.md。</p>
+            </div>
+            <div class="mini-card card-hover" style="border-left:4px solid var(--info);">
+              <h3>WatchdogSupervisor</h3>
+              <p>组件化串行监督器：选择待处理会话，运行 preflight，编排 skill runtime，写回重试/失败状态。</p>
+            </div>
+            <div class="mini-card card-hover" style="border-left:4px solid var(--success);">
+              <h3>Artifacts</h3>
+              <p>Episode 摘要、感知输出和环境状态写入 <code>artifacts/runtime/</code> 和 <code>ENVIRONMENT.md</code>。</p>
+            </div>
+          </div>
+        </section>
+
         <section class="card card-hover" id="why-markdown">
           <h2>为什么要用 Markdown 做协议？</h2>
           <p class="lead">
@@ -327,6 +408,7 @@ flowchart TB
         <a href="#workspace">文件即接口</a>
         <a href="#layers">三层结构</a>
         <a href="#single-vs-fleet">Single / Fleet</a>
+        <a href="#runtime-session">Runtime 会话循环</a>
         <a href="#why-markdown">Markdown 协议</a>
       </aside>
     </div>

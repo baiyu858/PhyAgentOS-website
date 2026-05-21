@@ -16,10 +16,16 @@
       <div class="nav-categories">
         <a href="../../architecture.html" class="nav-category">Architecture</a>
         <div class="nav-dropdown">
-          <a href="../../api-reference.html" class="nav-category">API Reference</a>
+          <a href="../../api-reference.html" class="nav-category">API Usage</a>
           <div class="nav-dropdown-menu">
-            <a href="../../api-usage/plugin-usage/index.html">Plugin Usage</a>
-            <a href="../../api-usage/markdown-formats/index.html">Markdown Formats</a>
+            <a href="../../api-usage/getting-started/index.html">Getting Started</a>
+            <a href="../../api-usage/cli-reference/index.html">CLI Reference</a>
+            <a href="../../api-usage/configuration/index.html">Configuration</a>
+            <a href="../../api-usage/workspace-protocols/index.html">Workspace & Protocols</a>
+            <a href="../../api-usage/plugins-drivers/index.html">Plugins & Drivers</a>
+            <a href="../../api-usage/fleet-mode/index.html">Fleet Mode</a>
+            <a href="../../api-usage/runtime-session/index.html">Runtime Session</a>
+            <a href="../../api-usage/troubleshooting/index.html">Troubleshooting</a>
           </div>
         </div>
         <div class="nav-dropdown">
@@ -58,17 +64,17 @@
             <div class="mini-card" style="border-left:4px solid var(--success);">
               <div style="font-size:24px;margin-bottom:8px;">✓</div>
               <h3>Completed</h3>
-              <p>Core framework, simulator, ReKep/VLN/Franka real-robot pipelines verified. These are stable reference baselines.</p>
+              <p>Core framework, simulator, ReKep/VLN/Franka real-robot pipelines, Runtime Session Loop, Perception Plugin Pipeline verified. These are stable reference baselines.</p>
             </div>
             <div class="mini-card" style="border-left:4px solid var(--warning);">
               <div style="font-size:24px;margin-bottom:8px;">⋯</div>
               <h3>In Progress</h3>
-              <p>Long-horizon orchestration, IoT integration, and Fleet multi-robot protocols have prototypes but aren't stable enough — need more scenario testing.</p>
+              <p>Expanding runtime registries to real benchmark and robot targets. Long-horizon orchestration, IoT integration, and Fleet multi-robot protocols have prototypes but need more scenario testing.</p>
             </div>
             <div class="mini-card" style="border-left:4px solid var(--muted);">
               <div style="font-size:24px;margin-bottom:8px;">○</div>
               <h3>Planned</h3>
-              <p>Hiwonder driver, ROS2 deep guide, perception deployment pipeline. Clear entry points with minimal friction.</p>
+              <p>Concurrent multi-target scheduling, resource arbitration, Hiwonder driver, ROS2 deep guide. Clear entry points with minimal friction.</p>
             </div>
           </div>
         </section>
@@ -215,10 +221,10 @@
             </div>
             <div class="mini-card">
               <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
-                <span style="font-size:20px;">👁</span>
-                <h3 style="margin:0;">Perception Deployment Pipeline Guide</h3>
+                <span style="font-size:20px;">🧪</span>
+                <h3 style="margin:0;">Runtime Registry Expansion</h3>
               </div>
-              <p>Camera/LiDAR integration, segmentation model installation, scene graph construction — scattered across the codebase, not yet organized into actionable deployment docs.</p>
+              <p>Session loop and perception pipeline are verified with DummySimTarget. Next: expand to real benchmark targets (LIBERO, RoboCasa), real robot targets, and concurrent multi-target scheduling.</p>
             </div>
             <div class="mini-card">
               <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
@@ -229,10 +235,10 @@
             </div>
             <div class="mini-card">
               <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
-                <span style="font-size:20px;">🌐</span>
-                <h3 style="margin:0;">Channel & Service Deployment</h3>
+                <span style="font-size:20px;">👁</span>
+                <h3 style="margin:0;">Perception Plugin Expansion</h3>
               </div>
-              <p>paos gateway, bridge, and channel configuration — source code is all there, but missing an ops-oriented deployment manual.</p>
+              <p>Built-in dummy plugins work. Next: integrate SAM3, YOLO, Open3D, RealSense as lazy-loaded plugins and validate the full closed loop with real sensor data.</p>
             </div>
           </div>
         </section>
