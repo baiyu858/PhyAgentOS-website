@@ -1,0 +1,861 @@
+export type Lang = 'en' | 'zh';
+
+export interface TranslationShape {
+  nav: {
+    features: string;
+    architecture: string;
+    scenarios: string;
+    hardware: string;
+    roadmap: string;
+    team: string;
+    themes: string;
+    github: string;
+    getStarted: string;
+  };
+  footer: {
+    tagline: string;
+    physicalAgentOS: string;
+    product: string;
+    resources: string;
+    community: string;
+    documentation: string;
+    apiReference: string;
+    issues: string;
+    contribute: string;
+    starOnGithub: string;
+    contact: string;
+    team: string;
+    hackathon: string;
+    madeWith: string;
+    hcpLab: string;
+    pengchengLab: string;
+    basedOn: string;
+  };
+  hero: {
+    label: string;
+    titleLine1: string;
+    titleLine2: string;
+    subtitle: string;
+    description: string;
+    getStarted: string;
+    watchDemo: string;
+    statTargets: string;
+    statOpenSource: string;
+    statRelease: string;
+    scrollExplore: string;
+  };
+  problemSolution: {
+    label: string;
+    title: string;
+    highlight: string;
+    description: string;
+    items: { pain: string; detail: string; solution: string; solutionDetail: string }[];
+  };
+  coreConcepts: {
+    label: string;
+    title: string;
+    highlight: string;
+    description: string;
+    items: { title: string; subtitle: string; description: string; highlight: string }[];
+  };
+  architecture: {
+    label: string;
+    title: string;
+    highlight: string;
+    description: string;
+    trackA: string;
+    trackASub: string;
+    trackB: string;
+    trackBSub: string;
+    protocol: string;
+    sharedSurface: string;
+    stateIsFile: string;
+    read: string;
+    write: string;
+    nodes: { label: string; sublabel: string; description: string }[];
+  };
+  scenarios: {
+    label: string;
+    title: string;
+    highlight: string;
+    description: string;
+    learnMore: string;
+    items: { title: string; subtitle: string; description: string; features: string[] }[];
+    note: string;
+  };
+  hardware: {
+    label: string;
+    title: string;
+    highlight: string;
+    description: string;
+    devices: string;
+    statusVerified: string;
+    statusInProgress: string;
+    filters: string[];
+    items: { type: string; description: string }[];
+  };
+  benchmark: {
+    label: string;
+    title: string;
+    highlight: string;
+    description: string;
+    stats: { label: string; description: string }[];
+    chart1Title: string;
+    chart1Subtitle: string;
+    chart2Title: string;
+    chart2Subtitle: string;
+    note: string;
+    documentation: string;
+  };
+  roadmap: {
+    label: string;
+    title: string;
+    highlight: string;
+    description: string;
+    phases: { phase: string; title: string; period: string; items: { title: string }[] }[];
+  };
+  liveDemo: {
+    label: string;
+    title: string;
+    highlight: string;
+    description: string;
+    step: string;
+    chapters: { label: string; description: string }[];
+  };
+  stats: {
+    title: string;
+    description: string;
+    githubStars: string;
+    githubStarsDesc: string;
+    targetAdapters: string;
+    targetAdaptersDesc: string;
+    auditable: string;
+    auditableDesc: string;
+    openSource: string;
+    openSourceDesc: string;
+    contributors: string;
+    contributorsDesc: string;
+  };
+  teamPreview: {
+    label: string;
+    title: string;
+    highlight: string;
+    description: string;
+    viewFullTeam: string;
+    institutions: { role: string; description: string }[];
+    highlights: { label: string; value: string }[];
+  };
+  testimonials: {
+    label: string;
+    title: string;
+    highlight: string;
+    description: string;
+    items: { quote: string; author: string; role: string }[];
+  };
+  docsCTA: {
+    label: string;
+    title: string;
+    highlight: string;
+    description: string;
+    viewDocumentation: string;
+    starOnGithub: string;
+    joinDiscussion: string;
+    items: { title: string; subtitle: string; description: string }[];
+  };
+  langToggle: {
+    switchTo: string;
+    en: string;
+    zh: string;
+  };
+}
+
+export const translations: Record<Lang, TranslationShape> = {
+  en: {
+    nav: {
+      features: 'Features',
+      architecture: 'Architecture',
+      scenarios: 'Scenarios',
+      hardware: 'Hardware',
+      roadmap: 'Roadmap',
+      team: 'Team',
+      themes: 'Themes',
+      github: 'GitHub',
+      getStarted: 'Get Started',
+    },
+    footer: {
+      tagline: 'A session-centered runtime for embodied AI, achieving complete decoupling of cognition and physical execution.',
+      physicalAgentOS: 'Physical Agent OS',
+      product: 'Product',
+      resources: 'Resources',
+      community: 'Community',
+      documentation: 'Documentation',
+      apiReference: 'User Manual',
+      issues: 'Issues',
+      contribute: 'Contribute',
+      starOnGithub: 'Star on GitHub',
+      contact: 'Contact',
+      team: 'Team',
+      hackathon: 'Hackathon',
+      madeWith: 'Made with',
+      hcpLab: 'HCP Lab',
+      pengchengLab: 'Peng Cheng Lab',
+      basedOn: 'Based on nanobot framework · Built with React, Three.js & GSAP',
+    },
+    hero: {
+      label: 'Cognitive-Physical Decoupling · Session-Centered Runtime',
+      titleLine1: 'Where Intelligence',
+      titleLine2: 'Meets Physics',
+      subtitle: 'PhyAgentOS — A session-centered runtime for embodied intelligence',
+      description: 'Build, deploy, and orchestrate embodied AI agents through a unified Session protocol that runs identically across debug, simulation, and real-robot targets — with complete auditability via Markdown + YAML file protocols.',
+      getStarted: 'Get Started',
+      watchDemo: 'Watch Demo',
+      statTargets: 'Supported Targets',
+      statOpenSource: 'Open Source',
+      statRelease: 'Latest Release',
+      scrollExplore: 'Scroll to explore',
+    },
+    problemSolution: {
+      label: 'Why PhyAgentOS?',
+      title: 'Solving the hardest problems',
+      highlight: 'in embodied AI',
+      description: 'Four fundamental challenges that have blocked embodied intelligence — and how PhyAgentOS solves each one.',
+      items: [
+        {
+          pain: 'LLM-direct-to-hardware coupling',
+          detail: 'Reasoning and execution are tightly fused — switching robots means rewriting the entire pipeline.',
+          solution: 'Cognitive-Physical Decoupling',
+          solutionDetail: 'A session-centered runtime sits between planner and hardware. Adding a robot means implementing one Target Adapter (~100 lines); zero changes to the scheduling layer.',
+        },
+        {
+          pain: 'Unverified dangerous actions',
+          detail: 'Risky commands execute without validation, endangering hardware and environment.',
+          solution: 'Three-Layer Safety',
+          solutionDetail: 'Critic validation → Strict Preflight contract checks → Target-side SafetyGuard. Real-robot deployment mandates all three layers.',
+        },
+        {
+          pain: 'Opaque internal state',
+          detail: 'Debugging is a black box; understanding failures requires deep code diving.',
+          solution: 'Fully Auditable File Protocols',
+          solutionDetail: 'State, actions, and perception results are written to Markdown + YAML files (TARGETS.md, SESSIONS.md, SKILLRUNTIME.md, LESSONS.md). Every step is traceable and reproducible.',
+        },
+        {
+          pain: 'Sim-to-real migration friction',
+          detail: 'The same task behaves differently across simulation and real hardware.',
+          solution: 'Zero-Friction Migration',
+          solutionDetail: 'One Session protocol runs identically across debug, simulation (LIBERO, RoboCasa), and real_robot targets — declared via target_adapter:// URI.',
+        },
+      ],    },
+    coreConcepts: {
+      label: 'Core Concepts',
+      title: 'Six principles that make',
+      highlight: 'PhyAgentOS unique',
+      description: 'Not just features — fundamental design decisions behind the session-centered runtime, including the 3-tier hierarchical memory and 9-step reflection loop from the Game Agent branch.',
+      items: [
+        {
+          title: 'Session-Centered Runtime',
+          subtitle: 'One protocol, any target',
+          description: 'A unified pipeline — WatchdogSupervisor → SessionRunner → SkillRuntime → TargetSessionHandle — replaces the legacy driver-centric model. The same Session protocol runs identically across debug, simulation, and real-robot targets.',
+          highlight: 'Replaces the legacy Driver-Center architecture',
+        },
+        {
+          title: 'Adapter + Bridge',
+          subtitle: 'Three-way decoupling',
+          description: 'TargetAdapter + PolicyAdapter + ActionBridge give explicit observation/action contracts. AdapterPlan is auto-composed, eliminating the target×skill combinatorial explosion of bespoke integrations.',
+          highlight: 'No more target×skill combinatorial explosion',
+        },
+        {
+          title: 'Dual Skill Runtimes',
+          subtitle: 'Policy loop × Agent loop',
+          description: 'PolicySkillRuntime maintains a closed-loop policy controller, while BuiltinSkillRuntime manages the agent interactive loop — each with explicit execution contracts registered in SKILLRUNTIME.md.',
+          highlight: 'Two runtimes, one contract surface',
+        },
+        {
+          title: 'Multi-Layer Safety',
+          subtitle: 'Verify before execute',
+          description: 'Critic validation → Strict Preflight contract checks → Target-side SafetyGuard → Operator Override. High-risk actions must validate against EMBODIED.md before a session ever starts.',
+          highlight: 'Real-robot deployment mandates all layers',
+        },
+        {
+          title: 'Fully Auditable',
+          subtitle: 'State is Markdown + YAML',
+          description: 'TARGETS.md · SKILLRUNTIME.md · SESSIONS.md · ENVIRONMENT.md · LESSONS.md plus YAML sensor/perception/contract configs. Every state, action, and perception result is traceable and reproducible.',
+          highlight: 'Every step is traceable and reproducible',
+        },
+        {
+          title: 'Hierarchical Memory & Reflection',
+          subtitle: 'Learn from experience autonomously',
+          description: 'Three-tier memory (Episodic LESSONS.md → Semantic MEMORY.md → Methodological skills/) plus a 9-step reflection loop (Plan→Reflect→Abstract→Skill). The Agent autonomously compacts, deduplicates lessons, and auto-creates reusable skills after ≥2 verifications.',
+          highlight: 'Experience auto-converts to reusable skills',
+        },
+      ],
+    },
+    architecture: {
+      label: 'Architecture',
+      title: 'A session-centered',
+      highlight: 'runtime',
+      description: 'Cognition and execution decoupled through a shared file-protocol surface. Click any component to explore.',
+      trackA: 'Track A',
+      trackASub: 'Agent Plane',
+      trackB: 'Track B',
+      trackBSub: 'Execution Plane',
+      protocol: 'Protocol',
+      sharedSurface: 'Shared Surface',
+      stateIsFile: 'State is File',
+      read: 'Read',
+      write: 'Write',
+      nodes: [
+        { label: 'Planner', sublabel: 'Reasoning', description: 'The cognitive planner decomposes tasks into executable sessions, reading AGENTS.md/SOUL.md/USER.md context and appending sessions to SESSIONS.md.' },
+        { label: 'ContextBuilder', sublabel: 'Context Loading', description: 'Aggregates state from the Markdown protocol matrix — ENVIRONMENT.md, EMBODIED.md, LESSONS.md, TASK.md — into the agent context window.' },
+        { label: 'Multi-Agent Critic', sublabel: 'Validation', description: 'Validates planned actions against EMBODIED.md constraints before execution. Intercepts dangerous operations with detailed reasoning.' },
+        { label: 'Memory', sublabel: 'Lessons', description: 'Captures execution experience into LESSONS.md — both successes for reuse and failures analyzed to prevent recurrence.' },
+        { label: 'WatchdogSupervisor', sublabel: 'Supervisor', description: 'The execution-plane supervisor that watches the session queue, launches SessionRunners, and enforces lifecycle (pending→running→succeeded/failed).' },
+        { label: 'SessionRunner', sublabel: 'Sessions', description: 'Runs one session end-to-end: acquires a TargetSessionHandle, drives the SkillRuntime, and records results + artifacts.' },
+        { label: 'SkillRuntime', sublabel: 'Skills', description: 'PolicySkillRuntime (closed-loop policy) and BuiltinSkillRuntime (agent interactive loop) execute skills against their declared contracts in SKILLRUNTIME.md.' },
+        { label: 'Adapters & Bridge', sublabel: 'Targets', description: 'TargetAdapter + PolicyAdapter + ActionBridge decouple contracts. Targets register in TARGETS.md via target_adapter:// URI — debug, simulation, real_robot.' },
+      ],
+    },
+    scenarios: {
+      label: 'Scenarios',
+      title: 'One runtime,',
+      highlight: 'four target kinds',
+      description: 'Each target kind validates a different layer of the embodied stack. The same Session protocol spans all four — from Minecraft games to real robots.',
+      learnMore: 'Learn more',
+      items: [
+        {
+          title: 'Debug',
+          subtitle: 'Local · zero-hardware',
+          description: 'echo / mock / dry-run targets validate the full protocol pipeline with zero hardware. Perfect for contract testing and rapid iteration before touching sim or real robots.',
+          features: ['Echo & mock targets', 'Dry-run contract validation', 'Zero-hardware iteration', 'Fast feedback loop'],
+        },
+        {
+          title: 'Game',
+          subtitle: 'Local · Minecraft',
+          description: 'Minecraft as an embodied intelligence testbed: complex interactions, long-term memory, and open-world exploration. Validate Agent behavior at zero hardware cost, then transfer to real robots.',
+          features: ['Minecraft bot control', '16 action types', 'paos minecraft CLI', '3-tier memory validation'],
+        },
+        {
+          title: 'Simulation',
+          subtitle: 'Remote · benchmark',
+          description: 'Physics-accurate simulation at scale with LIBERO and RoboCasa. Batch-mine execution experience and benchmark policies with reproducible target sessions.',
+          features: ['LIBERO benchmark suite', 'RoboCasa scenes', 'Batch experience mining', 'Reproducible evaluation'],
+        },
+        {
+          title: 'Real Robot',
+          subtitle: 'Remote · deployment',
+          description: 'Full deployment on physical hardware via Target Adapters. Real-world perception, manipulation, and fleet coordination — all through the same Session protocol.',
+          features: ['Franka, Go2, XLeRobot, PIPER', 'ReKep / SAM3 grasping', 'Fleet multi-robot coordination', 'Semantic verification'],
+        },
+      ],
+      note: 'Debug validates contracts with zero hardware. Game explores Agent behavior in open worlds at minimal cost. Simulation benchmarks policies at scale. Real Robot closes the loop with physical data. Each new target = register one target_adapter:// entry in TARGETS.md.',
+    },
+    hardware: {
+      label: 'Hardware',
+      title: 'Supported',
+      highlight: 'Devices',
+      description: 'Through Target Adapters, PhyAgentOS spans game, debug, simulation, and real-robot targets — from Minecraft to desktop arms to quadrupeds to dual-arm systems.',
+      devices: 'Devices',
+      statusVerified: 'Verified',
+      statusInProgress: 'In Progress',
+      filters: ['All', 'Arm', 'Quadruped', 'Simulation'],
+      items: [
+        { type: 'Desktop Arm', description: 'Real-robot target with ReKep & SAM3 grasping pipeline. One-click deployment via Target Adapter.' },
+        { type: 'Desktop Arm', description: 'Collaborative arm target. ReKep deployment verified with precision control.' },
+        { type: 'Quadruped', description: 'Legged robot target. Mobile manipulation and semantic navigation supported.' },
+        { type: 'Industrial Arm', description: 'Industrial-grade precision arm target. Full protocol integration via Target Adapter.' },
+        { type: 'Dual Arm', description: 'Bimanual dual-arm target. Dual-arm manipulation through a single Session protocol.' },
+        { type: 'Simulation', description: 'Physics-accurate simulation benchmark targets. Batch evaluation and experience mining at scale.' },
+      ],
+    },
+    benchmark: {
+      label: 'Benchmark',
+      title: 'Performance',
+      highlight: "that's auditable",
+      description: 'Target-session results on the LIBERO benchmark, with every run traceable through SESSIONS.md and LESSONS.md.',
+      stats: [
+        { label: 'LIBERO Success', description: 'Policy skill benchmark' },
+        { label: 'Target Adapters', description: 'debug · sim · real' },
+        { label: 'Reproducible', description: 'File-protocol auditable' },
+        { label: 'Open Source', description: 'MIT Licensed' },
+      ],
+      chart1Title: 'Task Success Rate',
+      chart1Subtitle: 'Real-target session completion on LIBERO benchmark suite',
+      chart2Title: 'Integration Effort',
+      chart2Subtitle: 'Lines to add a new robot target (relative scale, one Target Adapter)',
+      note: '* Benchmarks evaluated on the LIBERO target suite. Full methodology and SESSIONS.md traces are available in our',
+      documentation: 'documentation',
+    },
+    roadmap: {
+      label: 'Roadmap',
+      title: 'Shipping the future',
+      highlight: 'session by session',
+      description: 'From the session-runtime MVP to semantic verification and fleet coordination — a clear, versioned trajectory.',
+      phases: [
+        {
+          phase: 'Game Track',
+          title: 'PhyAgentOS-G',
+          period: '2026',
+          items: [
+            { title: 'Minecraft pipeline: cloud Agent connects to local game' },
+            { title: 'Agent Loop integration: complex task completion in-game' },
+            { title: 'Self-evolution with reflection: summarize experience from novel scenes' },
+            { title: 'Hermes memory: 3-tier hierarchical + 9-step Reflection loop' },
+          ],
+        },
+        {
+          phase: 'Phase 1',
+          title: 'Session-Centered Runtime',
+          period: '2025 - 2026',
+          items: [
+            { title: 'Hackathon baseline: plugin HAL, ReKep/SAM3 grasping & VLN' },
+            { title: 'Session-Centered Runtime MVP: DummyTarget pipeline' },
+            { title: 'Perception plugin system: Sensor/Perception YAML' },
+            { title: 'Strict Policy/Builtin SkillRuntime separation' },
+            { title: 'Onboarding & communication protocol spec' },
+            { title: 'Cleaned protocols; main branch sim & real focus' },
+            { title: 'Behavior 1K support; SessionVerifier' },
+          ],
+        },
+        {
+          phase: 'Phase 2',
+          title: 'Verification & Fleet',
+          period: '2026',
+          items: [
+            { title: 'SessionVerifier: RGB-based semantic verification' },
+            { title: 'Fleet multi-robot priority scheduling' },
+            { title: 'Cross-robot skill migration' },
+          ],
+        },
+        {
+          phase: 'Phase 3',
+          title: 'Autonomy & Coordination',
+          period: '2026+',
+          items: [
+            { title: 'Autonomous task planning at scale' },
+            { title: 'Advanced heterogeneous coordination' },
+            { title: 'Closed-loop self-evolution engine' },
+          ],
+        },
+      ],
+    },
+    liveDemo: {
+      label: 'Live Demo',
+      title: 'See it',
+      highlight: 'in action',
+      description: 'Watch PhyAgentOS run a full session lifecycle — from instruction to verified physical execution.',
+      step: 'Step',
+      chapters: [
+        { label: 'Task Initiation', description: 'Natural-language instruction received by the Agent' },
+        { label: 'Planning & Critic', description: 'Planner decomposes; Critic validates vs EMBODIED.md' },
+        { label: 'Preflight', description: 'Strict contract checks before session starts' },
+        { label: 'Session Execution', description: 'SessionRunner drives SkillRuntime + Target handle' },
+        { label: 'Verify & Record', description: 'SessionVerifier checks RGB; results to LESSONS.md' },
+      ],
+    },
+    stats: {
+      title: 'Impact Metrics',
+      description: 'PhyAgentOS accelerates embodied AI by unifying cognition and execution behind one session-centered runtime. Live metrics from our open-source community.',
+      githubStars: 'GitHub Stars',
+      githubStarsDesc: 'Community support',
+      targetAdapters: 'Target Adapters',
+      targetAdaptersDesc: 'debug · sim · real_robot',
+      auditable: 'Auditable',
+      auditableDesc: 'Markdown + YAML protocols',
+      openSource: 'Open Source',
+      openSourceDesc: 'MIT Licensed, always free',
+      contributors: 'Contributors',
+      contributorsDesc: 'Open source community',
+    },
+    teamPreview: {
+      label: 'Team',
+      title: 'Built by',
+      highlight: 'researchers',
+      description: 'PhyAgentOS is jointly developed by the HCP Laboratory at Sun Yat-sen University and Peng Cheng Laboratory, built on the nanobot framework.',
+      viewFullTeam: 'View full team',
+      institutions: [
+        { role: 'HCP Lab', description: 'Human-Computer Perception Laboratory' },
+        { role: 'Research Partner', description: 'National laboratory for AI research' },
+      ],
+      highlights: [
+        { label: 'Research Lab', value: 'HCP @ SYSU' },
+        { label: 'Partner', value: 'Peng Cheng Lab' },
+        { label: 'License', value: 'MIT Open Source' },
+        { label: 'Based on', value: 'nanobot' },
+      ],
+    },
+    testimonials: {
+      label: 'Testimonials',
+      title: 'What the community',
+      highlight: 'is saying',
+      description: 'Feedback from researchers, developers, and the open-source community building on PhyAgentOS.',
+      items: [
+        { quote: "The session-centered runtime makes sim-to-real migration effortless — one Session protocol, identical behavior across LIBERO and our Franka arm.", author: 'Research Team', role: 'HCP Lab, Sun Yat-sen University' },
+        { quote: "Target Adapters collapsed our integration cost from thousands of lines to a single ~100-line file. The AdapterPlan auto-composition is genuinely elegant.", author: 'Contributors', role: 'Open Source Community' },
+        { quote: "Three-layer safety — Critic, Preflight, SafetyGuard — finally gives us the confidence to deploy learned policies on real hardware.", author: 'Developers', role: 'Robotics Engineers' },
+      ],
+    },
+    docsCTA: {
+      label: 'Documentation',
+      title: 'Everything you need',
+      highlight: 'to get started',
+      description: 'Comprehensive documentation covering the runtime architecture, user operation, and hardware integration.',
+      viewDocumentation: 'View Documentation',
+      starOnGithub: 'Star on GitHub',
+      joinDiscussion: 'Join Discussion',
+      items: [
+        { title: 'Architecture', subtitle: 'Technical Documentation', description: 'Deep dive into the session-centered runtime: WatchdogSupervisor, SessionRunner, dual SkillRuntimes, Target Adapters & Bridges, and the Markdown + YAML file-protocol matrix.' },
+        { title: 'User Manual', subtitle: 'Installation & Operation', description: 'Install with `paos`, onboard a workspace, run `paos agent`, connect runtime services, and configure semantic verification for real-robot deployment.' },
+        { title: 'Developer Guide', subtitle: 'Secondary Development', description: 'Author a Target Adapter, register skill runtimes in SKILLRUNTIME.md, integrate new policies via OpenPI, and follow the contribution workflow.' },
+      ],
+    },
+    langToggle: {
+      switchTo: '切换语言',
+      en: 'EN',
+      zh: '中',
+    },
+  },
+
+  zh: {
+    nav: {
+      features: '核心特性',
+      architecture: '系统架构',
+      scenarios: '应用场景',
+      hardware: '硬件设备',
+      roadmap: '路线图',
+      team: '团队',
+      themes: '主题',
+      github: 'GitHub',
+      getStarted: '快速开始',
+    },
+    footer: {
+      tagline: '面向具身智能的会话中心化运行时，实现认知与物理执行的完全解耦。',
+      physicalAgentOS: '物理智能体操作系统',
+      product: '产品',
+      resources: '资源',
+      community: '社区',
+      documentation: '技术文档',
+      apiReference: '用户手册',
+      issues: '议题',
+      contribute: '参与贡献',
+      starOnGithub: '在 GitHub 上 Star',
+      contact: '联系我们',
+      team: '团队',
+      hackathon: '黑客松',
+      madeWith: '由',
+      hcpLab: 'HCP 实验室',
+      pengchengLab: '鹏城实验室',
+      basedOn: '基于 nanobot 框架 · 使用 React、Three.js 与 GSAP 构建',
+    },
+    hero: {
+      label: '认知-物理解耦 · 会话中心化运行时',
+      titleLine1: '智能',
+      titleLine2: '遇见物理',
+      subtitle: 'PhyAgentOS — 面向具身智能的会话中心化运行时',
+      description: '通过统一的 Session 协议构建、部署并编排具身智能体，在调试、仿真与真机目标上行为完全一致 —— 借助 Markdown + YAML 文件协议实现全链路可审计。',
+      getStarted: '快速开始',
+      watchDemo: '观看演示',
+      statTargets: '支持的目标',
+      statOpenSource: '开源协议',
+      statRelease: '最新版本',
+      scrollExplore: '向下滚动探索',
+    },
+    problemSolution: {
+      label: '为何选择 PhyAgentOS？',
+      title: '解决具身智能领域',
+      highlight: '最棘手的难题',
+      description: '具身智能被四大根本性难题长期困扰 —— 而 PhyAgentOS 逐一破解。',
+      items: [
+        {
+          pain: '大模型直连硬件的紧耦合',
+          detail: '推理与执行紧密绑定 —— 切换机器人意味着重写整个流水线。',
+          solution: '认知-物理解耦',
+          solutionDetail: '会话中心化运行时位于规划器与硬件之间。新增机器人只需实现一个 Target Adapter（约 100 行）；调度层零改动。',
+        },
+        {
+          pain: '危险动作缺乏验证',
+          detail: '高风险指令未经校验即执行，危及硬件与环境安全。',
+          solution: '三层安全机制',
+          solutionDetail: 'Critic 校验 → 严格 Preflight 契约检查 → 目标侧 SafetyGuard。真机部署强制要求三层全部启用。',
+        },
+        {
+          pain: '内部状态不透明',
+          detail: '调试如同黑盒；理解失败原因需要深入代码挖掘。',
+          solution: '全可审计文件协议',
+          solutionDetail: '状态、动作与感知结果均写入 Markdown + YAML 文件（TARGETS.md、SESSIONS.md、SKILLRUNTIME.md、LESSONS.md）。每一步可追溯、可复现。',
+        },
+        {
+          pain: '仿真到真机的迁移摩擦',
+          detail: '同一任务在仿真与真实硬件上行为不一致。',
+          solution: '零摩擦迁移',
+          solutionDetail: '同一 Session 协议在 debug、simulation（LIBERO、RoboCasa）与 real_robot 目标上行为完全一致 —— 通过 target_adapter:// URI 声明。',
+        },
+      ],
+    },
+    coreConcepts: {
+      label: '核心理念',
+      title: '六大原则让',
+      highlight: 'PhyAgentOS 与众不同',
+      description: '不仅仅是功能 —— 而是会话中心化运行时背后的根本性设计决策，包括来自游戏智能体分支的三层分层记忆与 9 步反思闭环。',
+      items: [
+        {
+          title: '会话中心化运行时',
+          subtitle: '一个协议，任意目标',
+          description: '统一流水线 —— WatchdogSupervisor → SessionRunner → SkillRuntime → TargetSessionHandle —— 替代了传统的驱动中心化模型。同一 Session 协议在调试、仿真与真机目标上行为完全一致。',
+          highlight: '替代传统的驱动中心化架构',
+        },
+        {
+          title: '适配器与桥接',
+          subtitle: '三方解耦',
+          description: 'TargetAdapter + PolicyAdapter + ActionBridge 提供明确的观测/动作契约。AdapterPlan 自动组合，消除了定制化集成的目标×技能组合爆炸问题。',
+          highlight: '告别目标×技能的组合爆炸',
+        },
+        {
+          title: '双重技能运行时',
+          subtitle: '策略闭环 × 智能体闭环',
+          description: 'PolicySkillRuntime 维护闭环策略控制器，BuiltinSkillRuntime 管理智能体交互闭环 —— 各自在 SKILLRUNTIME.md 中注册明确的执行契约。',
+          highlight: '两个运行时，一个契约面',
+        },
+        {
+          title: '多层安全',
+          subtitle: '执行前先验证',
+          description: 'Critic 校验 → 严格 Preflight 契约检查 → 目标侧 SafetyGuard → 操作员覆盖。高风险动作在会话启动前必须通过 EMBODIED.md 约束校验。',
+          highlight: '真机部署强制要求全部安全层',
+        },
+        {
+          title: '全可审计',
+          subtitle: '状态即 Markdown + YAML',
+          description: 'TARGETS.md · SKILLRUNTIME.md · SESSIONS.md · ENVIRONMENT.md · LESSONS.md 加上 YAML 传感器/感知/契约配置。每个状态、动作与感知结果都可追溯、可复现。',
+          highlight: '每一步都可追溯、可复现',
+        },
+        {
+          title: '分层记忆与反思',
+          subtitle: '自主学习，沉淀经验',
+          description: '三层记忆架构（战术层 LESSONS.md → 战略层 MEMORY.md → 方法论层 skills/）加 9 步反思闭环（Plan→Reflect→Abstract→Skill）。Agent 自主压缩、去重经验教训，≥2 次验证后自动调用 skill-creator 创建可复用技能。',
+          highlight: '经验自动转化为可复用技能',
+        },
+      ],
+    },
+    architecture: {
+      label: '系统架构',
+      title: '会话中心化',
+      highlight: '运行时',
+      description: '认知与执行通过共享的文件协议面解耦。点击任意组件探索详情。',
+      trackA: '轨道 A',
+      trackASub: '智能体面',
+      trackB: '轨道 B',
+      trackBSub: '执行面',
+      protocol: '协议',
+      sharedSurface: '共享面',
+      stateIsFile: '状态即文件',
+      read: '读',
+      write: '写',
+      nodes: [
+        { label: 'Planner', sublabel: '推理', description: '认知规划器将任务分解为可执行会话，读取 AGENTS.md/SOUL.md/USER.md 上下文，并向 SESSIONS.md 追加会话。' },
+        { label: 'ContextBuilder', sublabel: '上下文加载', description: '聚合 Markdown 协议矩阵的状态 —— ENVIRONMENT.md、EMBODIED.md、LESSONS.md、TASK.md —— 注入智能体上下文窗口。' },
+        { label: 'Multi-Agent Critic', sublabel: '校验', description: '在执行前依据 EMBODIED.md 约束校验规划动作。以详尽推理拦截危险操作。' },
+        { label: 'Memory', sublabel: '经验', description: '将执行经验捕获至 LESSONS.md —— 既保存成功以复用，也分析失败以避免重蹈覆辙。' },
+        { label: 'WatchdogSupervisor', sublabel: '监督者', description: '执行面监督者，监视会话队列、启动 SessionRunner 并强制执行生命周期（pending→running→succeeded/failed）。' },
+        { label: 'SessionRunner', sublabel: '会话', description: '端到端运行单个会话：获取 TargetSessionHandle、驱动 SkillRuntime 并记录结果与产物。' },
+        { label: 'SkillRuntime', sublabel: '技能', description: 'PolicySkillRuntime（闭环策略）与 BuiltinSkillRuntime（智能体交互闭环）依据 SKILLRUNTIME.md 中声明的契约执行技能。' },
+        { label: 'Adapters & Bridge', sublabel: '目标', description: 'TargetAdapter + PolicyAdapter + ActionBridge 解耦契约。目标通过 target_adapter:// URI 注册于 TARGETS.md —— debug、simulation、real_robot。' },
+      ],
+    },
+    scenarios: {
+      label: '应用场景',
+      title: '一个运行时，',
+      highlight: '四类目标',
+      description: '每类目标验证具身栈的不同层面。同一 Session 协议贯穿四者 —— 从 Minecraft 游戏到真实机器人。',
+      learnMore: '了解更多',
+      items: [
+        {
+          title: '调试',
+          subtitle: '本地 · 零硬件',
+          description: 'echo / mock / dry-run 目标以零硬件验证完整协议流水线。在接触仿真或真机前进行契约测试与快速迭代的理想之选。',
+          features: ['echo 与 mock 目标', 'dry-run 契约验证', '零硬件迭代', '快速反馈循环'],
+        },
+        {
+          title: '游戏',
+          subtitle: '本地 · Minecraft',
+          description: '以 Minecraft 为具身智能试验场：复杂交互、长期记忆与开放世界探索。零硬件成本验证 Agent 行为，再迁移至真机。',
+          features: ['Minecraft bot 控制', '16 种动作类型', 'paos minecraft CLI', '三层记忆验证'],
+        },
+        {
+          title: '仿真',
+          subtitle: '远程 · 基准评测',
+          description: '基于 LIBERO 与 RoboCasa 的大规模物理精确仿真。批量挖掘执行经验，通过可复现的目标会话对策略进行基准评测。',
+          features: ['LIBERO 基准套件', 'RoboCasa 场景', '批量经验挖掘', '可复现评估'],
+        },
+        {
+          title: '真机',
+          subtitle: '远程 · 部署',
+          description: '通过 Target Adapter 在物理硬件上完整部署。真实世界感知、操作与编队协同 —— 全部通过同一 Session 协议。',
+          features: ['Franka、Go2、XLeRobot、PIPER', 'ReKep / SAM3 抓取', '编队多机协同', '语义验证'],
+        },
+      ],
+      note: '调试以零硬件验证契约；仿真大规模评测策略；真机以物理数据闭环。每个新目标 = 在 TARGETS.md 中注册一个 target_adapter:// 条目。',
+    },
+    hardware: {
+      label: '硬件设备',
+      title: '支持的',
+      highlight: '设备',
+      description: '通过 Target Adapter，PhyAgentOS 覆盖游戏、调试、仿真与真机目标 —— 从 Minecraft 到桌面机械臂再到四足机器人与双臂系统。',
+      devices: '个设备',
+      statusVerified: '已验证',
+      statusInProgress: '开发中',
+      filters: ['全部', '机械臂', '四足', '仿真'],
+      items: [
+        { type: '桌面机械臂', description: '支持 ReKep 与 SAM3 抓取流水线的真机目标。通过 Target Adapter 一键部署。' },
+        { type: '桌面机械臂', description: '协作机械臂目标。ReKep 部署已验证，具备精密控制能力。' },
+        { type: '四足机器人', description: '足式机器人目标。支持移动操作与语义导航。' },
+        { type: '工业机械臂', description: '工业级精密机械臂目标。通过 Target Adapter 实现完整协议集成。' },
+        { type: '双臂', description: '双臂操作目标。通过单一 Session 协议实现双臂协同操作。' },
+        { type: '仿真', description: '物理精确的仿真基准目标。支持规模化批量评测与经验挖掘。' },
+      ],
+    },
+    benchmark: {
+      label: '性能基准',
+      title: '可审计的',
+      highlight: '性能表现',
+      description: 'LIBERO 基准上的目标会话结果，每一次运行都可通过 SESSIONS.md 与 LESSONS.md 追溯。',
+      stats: [
+        { label: 'LIBERO 成功率', description: '策略技能基准' },
+        { label: '目标适配器', description: 'debug · sim · real' },
+        { label: '可复现', description: '文件协议可审计' },
+        { label: '完全开源', description: 'MIT 许可证' },
+      ],
+      chart1Title: '任务成功率',
+      chart1Subtitle: 'LIBERO 基准套件上的真机目标会话完成情况',
+      chart2Title: '集成成本',
+      chart2Subtitle: '新增一个机器人目标所需代码行数（相对量级，单个 Target Adapter）',
+      note: '* 基准在 LIBERO 目标套件上评测。完整方法论与 SESSIONS.md 追踪记录见我们的',
+      documentation: '文档',
+    },
+    roadmap: {
+      label: '路线图',
+      title: '逐会话',
+      highlight: '交付未来',
+      description: '从会话运行时 MVP 到语义验证与编队协同 —— 一条清晰、版本化的演进轨迹。',
+      phases: [
+        {
+          phase: '游戏轨道',
+          title: 'PhyAgentOS-G',
+          period: '2026',
+          items: [
+            { title: 'Minecraft 全链路：云端 Agent 连接本地游戏服务器' },
+            { title: 'Agent Loop 整合：游戏内完成复杂任务' },
+            { title: '反思自进化：在全新场景中总结经验' },
+            { title: 'Hermes 记忆：三层分层 + 9 步反思闭环' },
+          ],
+        },
+        {
+          phase: '第一阶段',
+          title: '会话中心化运行时',
+          period: '2025 - 2026',
+          items: [
+            { title: '黑客松基线：插件 HAL、ReKep/SAM3 抓取与 VLN' },
+            { title: '会话中心化运行时 MVP：DummyTarget 流水线' },
+            { title: '感知插件系统：Sensor/Perception YAML' },
+            { title: '严格的 Policy/Builtin SkillRuntime 分离' },
+            { title: '入门流程与通信协议规范' },
+            { title: '协议清理；主分支聚焦仿真与真机' },
+            { title: 'Behavior 1K 支持；SessionVerifier' },
+          ],
+        },
+        {
+          phase: '第二阶段',
+          title: '验证与编队',
+          period: '2026',
+          items: [
+            { title: 'SessionVerifier：基于 RGB 的语义验证' },
+            { title: '编队多机优先级调度' },
+            { title: '跨机器人技能迁移' },
+          ],
+        },
+        {
+          phase: '第三阶段',
+          title: '自主与协同',
+          period: '2026+',
+          items: [
+            { title: '规模化自主任务规划' },
+            { title: '高级异构协同' },
+            { title: '闭环自进化引擎' },
+          ],
+        },
+      ],
+    },
+    liveDemo: {
+      label: '实时演示',
+      title: '一睹',
+      highlight: '实际运行',
+      description: '观看 PhyAgentOS 运行完整的会话生命周期 —— 从指令到经过验证的物理执行。',
+      step: '步骤',
+      chapters: [
+        { label: '任务发起', description: 'Agent 接收自然语言指令' },
+        { label: '规划与校验', description: 'Planner 分解任务；Critic 依据 EMBODIED.md 校验' },
+        { label: '预检', description: '会话启动前的严格契约检查' },
+        { label: '会话执行', description: 'SessionRunner 驱动 SkillRuntime 与 Target 句柄' },
+        { label: '验证与记录', description: 'SessionVerifier 检查 RGB；结果写入 LESSONS.md' },
+      ],
+    },
+    stats: {
+      title: '影响力指标',
+      description: 'PhyAgentOS 通过统一的会话中心化运行时融合认知与执行，加速具身智能开发。以下为开源社区的实时指标。',
+      githubStars: 'GitHub Stars',
+      githubStarsDesc: '社区支持',
+      targetAdapters: '目标适配器',
+      targetAdaptersDesc: 'debug · sim · real_robot',
+      auditable: '可审计',
+      auditableDesc: 'Markdown + YAML 协议',
+      openSource: '完全开源',
+      openSourceDesc: 'MIT 许可，永久免费',
+      contributors: '贡献者',
+      contributorsDesc: '开源社区',
+    },
+    teamPreview: {
+      label: '团队',
+      title: '由',
+      highlight: '研究者打造',
+      description: 'PhyAgentOS 由中山大学 HCP 实验室与鹏城实验室联合开发，基于 nanobot 框架构建。',
+      viewFullTeam: '查看完整团队',
+      institutions: [
+        { role: 'HCP 实验室', description: '人机感知实验室' },
+        { role: '研究合作伙伴', description: '国家级人工智能研究实验室' },
+      ],
+      highlights: [
+        { label: '研究实验室', value: 'HCP @ 中山大学' },
+        { label: '合作伙伴', value: '鹏城实验室' },
+        { label: '开源协议', value: 'MIT 开源' },
+        { label: '基于', value: 'nanobot' },
+      ],
+    },
+    testimonials: {
+      label: '用户评价',
+      title: '社区的',
+      highlight: '真实声音',
+      description: '来自研究者、开发者与开源社区在使用 PhyAgentOS 过程中的反馈。',
+      items: [
+        { quote: '会话中心化运行时让 sim-to-real 迁移毫不费力 —— 同一 Session 协议在 LIBERO 与我们的 Franka 机械臂上行为完全一致。', author: '研究团队', role: '中山大学 HCP 实验室' },
+        { quote: 'Target Adapter 将我们的集成成本从数千行代码压缩到单个约 100 行的文件。AdapterPlan 自动组合的设计确实优雅。', author: '贡献者', role: '开源社区' },
+        { quote: '三层安全 —— Critic、Preflight、SafetyGuard —— 终于让我们有信心在真实硬件上部署学习到的策略。', author: '开发者', role: '机器人工程师' },
+      ],
+    },
+    docsCTA: {
+      label: '文档',
+      title: '入门所需的',
+      highlight: '一切资料',
+      description: '涵盖运行时架构、用户操作与硬件集成的全面文档。',
+      viewDocumentation: '查看文档',
+      starOnGithub: '在 GitHub 上 Star',
+      joinDiscussion: '参与讨论',
+      items: [
+        { title: '系统架构', subtitle: '技术文档', description: '深入了解会话中心化运行时：WatchdogSupervisor、SessionRunner、双重 SkillRuntime、Target Adapter 与 Bridge，以及 Markdown + YAML 文件协议矩阵。' },
+        { title: '用户手册', subtitle: '安装与操作', description: '使用 `paos` 安装、初始化工作区、运行 `paos agent`、连接运行时服务，并为真机部署配置语义验证。' },
+        { title: '开发者指南', subtitle: '二次开发', description: '编写 Target Adapter、在 SKILLRUNTIME.md 中注册技能运行时、通过 OpenPI 集成新策略，并遵循贡献工作流。' },
+      ],
+    },
+    langToggle: {
+      switchTo: 'Switch Language',
+      en: 'EN',
+      zh: '中',
+    },
+  },
+};

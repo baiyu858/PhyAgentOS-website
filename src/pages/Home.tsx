@@ -2,17 +2,19 @@ import { useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import Hero from '../sections/Hero';
-import HackathonBanner from '../sections/HackathonBanner';
-import Demo from '../sections/Demo';
-import Features from '../sections/Features';
-import Architecture from '../sections/Architecture';
-import VideoDemo from '../sections/VideoDemo';
-import Stats from '../sections/Stats';
-import Devices from '../sections/Devices';
-import Testimonials from '../sections/Testimonials';
-import Docs from '../sections/Docs';
-import CTA from '../sections/CTA';
+import Hero from '../sections/home/Hero';
+import ProblemSolution from '../sections/home/ProblemSolution';
+import CoreConcepts from '../sections/home/CoreConcepts';
+import Architecture from '../sections/home/Architecture';
+import Scenarios from '../sections/home/Scenarios';
+import LiveDemo from '../sections/home/LiveDemo';
+import Hardware from '../sections/home/Hardware';
+import Benchmark from '../sections/home/Benchmark';
+import Roadmap from '../sections/home/Roadmap';
+import TeamPreview from '../sections/home/TeamPreview';
+import Stats from '../sections/home/Stats';
+import Testimonials from '../sections/home/Testimonials';
+import DocsCTA from '../sections/home/DocsCTA';
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
@@ -34,23 +36,37 @@ export default function Home() {
     }
 
     return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
 
   return (
     <div>
       <Hero />
-      <HackathonBanner />
-      <Demo />
-      <Features />
+      <div className="section-divider" />
+      <ProblemSolution />
+      <div className="section-divider" />
+      <CoreConcepts />
+      <div className="section-divider" />
       <Architecture />
-      <VideoDemo />
+      <div className="section-divider" />
+      <Scenarios />
+      <div className="section-divider" />
+      <LiveDemo />
+      <div className="section-divider" />
+      <Hardware />
+      <div className="section-divider" />
+      <Benchmark />
+      <div className="section-divider" />
+      <Roadmap />
+      <div className="section-divider" />
+      <TeamPreview />
+      <div className="section-divider" />
       <Stats />
-      <Devices />
+      <div className="section-divider" />
       <Testimonials />
-      <Docs />
-      <CTA />
+      <div className="section-divider" />
+      <DocsCTA />
     </div>
   );
 }

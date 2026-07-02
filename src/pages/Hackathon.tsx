@@ -1,4 +1,4 @@
-import { useEffect, useRef, useCallback } from 'react';
+import { useEffect, useRef, useCallback, useMemo } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
@@ -179,8 +179,18 @@ export default function Hackathon() {
     return () => ctx.revert();
   }, []);
 
+  const particles = useMemo(() => {
+    return Array.from({ length: 20 }).map((_, i) => ({
+      id: i,
+      left: `${(i * 37) % 100}%`,
+      top: `${(i * 53) % 100}%`,
+      delay: `${(i * 0.4) % 3}s`,
+      duration: `${2 + ((i * 0.7) % 3)}s`,
+    }));
+  }, []);
+
   return (
-    <div className="min-h-screen bg-brand-bg text-white">
+    <div className="min-h-screen bg-brand-bg text-brand-text">
       {/* ───────── Hero ───────── */}
       <section
         ref={heroRef}
@@ -193,15 +203,15 @@ export default function Hackathon() {
 
         {/* Floating particles */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {Array.from({ length: 20 }).map((_, i) => (
+          {particles.map((p) => (
             <div
-              key={i}
+              key={p.id}
               className="absolute w-1 h-1 bg-brand-accent/40 rounded-full animate-pulse"
               style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 3}s`,
-                animationDuration: `${2 + Math.random() * 3}s`,
+                left: p.left,
+                top: p.top,
+                animationDelay: p.delay,
+                animationDuration: p.duration,
               }}
             />
           ))}
@@ -221,16 +231,16 @@ export default function Hackathon() {
           <h1 className="hero-animate text-5xl sm:text-6xl lg:text-8xl font-display font-bold tracking-tight mb-6">
             <span className="text-gradient">2026 BETA</span>
             <br />
-            <span className="text-white">Hackathon</span>
+            <span className="text-brand-text">Hackathon</span>
           </h1>
 
           {/* Subtitle */}
-          <p className="hero-animate text-xl sm:text-2xl text-white/70 max-w-3xl mx-auto mb-4 leading-relaxed">
+          <p className="hero-animate text-xl sm:text-2xl text-brand-text max-w-3xl mx-auto mb-4 leading-relaxed">
             Where Intelligence Meets Physics
           </p>
-          <p className="hero-animate text-base sm:text-lg text-white/50 max-w-2xl mx-auto mb-10 leading-relaxed">
+          <p className="hero-animate text-base sm:text-lg text-brand-text-secondary max-w-2xl mx-auto mb-10 leading-relaxed">
             You focus on the creativity, we handle making the agent
-            <span className="text-white/80"> "rememberable, correctable, and comprehensible"</span>.
+            <span className="text-brand-text"> "rememberable, correctable, and comprehensible"</span>.
           </p>
 
           {/* CTA Buttons */}
@@ -239,7 +249,7 @@ export default function Hackathon() {
               href="https://www.notion.so/2026-BETA-Hackathon-34b41d54c5b8806ca0a8c05a812e49db"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-4 bg-brand-accent hover:bg-brand-accent-light text-white font-semibold rounded-xl transition-all duration-300 flex items-center gap-2 group shadow-glow hover:shadow-glow-lg"
+              className="px-8 py-4 bg-brand-accent hover:bg-brand-accent-light text-brand-text-on-accent font-semibold rounded-2xl transition-all duration-300 flex items-center gap-2 group shadow-glow-soft hover:shadow-glow"
             >
               Register Now
               <ExternalLink className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
@@ -248,7 +258,7 @@ export default function Hackathon() {
               href="https://github.com/PhyAgentOS/PhyAgentOS"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-4 bg-white/5 hover:bg-white/10 backdrop-blur-sm text-white font-semibold rounded-xl border border-white/15 transition-all duration-300 flex items-center gap-2"
+              className="px-8 py-4 bg-brand-bg-secondary hover:bg-brand-bg-tertiary text-brand-text font-semibold rounded-2xl border border-brand-border hover:border-brand-accent/30 transition-all duration-300 flex items-center gap-2 shadow-soft hover:shadow-card"
             >
               <Github className="w-4 h-4" />
               View on GitHub
@@ -260,7 +270,7 @@ export default function Hackathon() {
             <button
               type="button"
               onClick={() => document.getElementById('why')?.scrollIntoView({ behavior: 'smooth' })}
-              className="text-white/30 hover:text-white/60 transition-colors"
+              className="text-brand-text-tertiary hover:text-brand-text-secondary transition-colors"
             >
               <ChevronDown className="w-6 h-6 animate-bounce" />
             </button>
@@ -275,14 +285,14 @@ export default function Hackathon() {
           <div className="px-6 sm:px-8 lg:px-16 xl:px-24 relative z-10">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-16 gsap-item">
-                <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/5 rounded-full text-xs text-white/50 mb-4">
+                <div className="inline-flex items-center gap-2 px-3 py-1 bg-brand-text/[0.03] rounded-full text-xs text-brand-text-secondary mb-4">
                   <BrainCircuit className="w-3.5 h-3.5" />
                   Why PhyAgentOS?
                 </div>
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-white mb-4">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-brand-text mb-4">
                   Pain Points & Solutions
                 </h2>
-                <p className="text-white/50 max-w-2xl mx-auto">
+                <p className="text-brand-text-secondary max-w-2xl mx-auto">
                   See how PhyAgentOS fundamentally solves the hardest problems in embodied AI.
                 </p>
               </div>
@@ -291,19 +301,19 @@ export default function Hackathon() {
                 {painPoints.map((item, idx) => (
                   <div
                     key={idx}
-                    className="gsap-item group relative p-6 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-300 hover:border-brand-accent/30"
+                    className="gsap-item group relative p-6 rounded-2xl border border-brand-border bg-brand-text/[0.03] hover:bg-brand-text/[0.04] transition-all duration-300 hover:border-brand-accent/30"
                   >
                     <div className="flex items-start gap-4">
                       <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center">
                         <span className="text-red-400 text-lg font-bold">×</span>
                       </div>
                       <div className="flex-1">
-                        <p className="text-white/60 text-sm mb-3 line-through decoration-red-500/50">
+                        <p className="text-brand-text-secondary text-sm mb-3 line-through decoration-red-500/50">
                           {item.pain}
                         </p>
                         <div className="flex items-start gap-3">
-                          <CheckCircle2 className="w-5 h-5 text-brand-accent flex-shrink-0 mt-0.5" />
-                          <p className="text-white/90 text-sm leading-relaxed">
+                          <CheckCircle2 className="w-5 h-5 text-brand-accent-dark flex-shrink-0 mt-0.5" />
+                          <p className="text-brand-text text-sm leading-relaxed">
                             {item.solution}
                           </p>
                         </div>
@@ -321,14 +331,14 @@ export default function Hackathon() {
           <div className="px-6 sm:px-8 lg:px-16 xl:px-24">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-16 gsap-item">
-                <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/5 rounded-full text-xs text-white/50 mb-4">
+                <div className="inline-flex items-center gap-2 px-3 py-1 bg-brand-text/[0.03] rounded-full text-xs text-brand-text-secondary mb-4">
                   <Sparkles className="w-3.5 h-3.5" />
                   Recommended Directions
                 </div>
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-white mb-4">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-brand-text mb-4">
                   Single Embodiment Tracks
                 </h2>
-                <p className="text-white/50 max-w-2xl mx-auto">
+                <p className="text-brand-text-secondary max-w-2xl mx-auto">
                   Choose a direction that excites you. Each track pushes the boundary of what embodied AI can achieve.
                 </p>
               </div>
@@ -341,13 +351,13 @@ export default function Hackathon() {
                       key={idx}
                       className={`gsap-item group relative p-6 rounded-2xl border ${dir.border} bg-gradient-to-br ${dir.color} backdrop-blur-sm hover:scale-[1.02] transition-all duration-300`}
                     >
-                      <div className={`w-12 h-12 rounded-xl bg-black/30 flex items-center justify-center mb-4 ${dir.iconColor}`}>
+                      <div className={`w-12 h-12 rounded-xl bg-brand-text/[0.04] flex items-center justify-center mb-4 ${dir.iconColor}`}>
                         <Icon className="w-6 h-6" />
                       </div>
-                      <h3 className="text-lg font-semibold text-white mb-2">
+                      <h3 className="text-lg font-semibold text-brand-text mb-2">
                         {dir.title}
                       </h3>
-                      <p className="text-sm text-white/60 leading-relaxed">
+                      <p className="text-sm text-brand-text-secondary leading-relaxed">
                         {dir.desc}
                       </p>
                     </div>
@@ -355,19 +365,19 @@ export default function Hackathon() {
                 })}
 
                 {/* CTA Card */}
-                <div className="gsap-item relative p-6 rounded-2xl border border-dashed border-white/20 flex flex-col items-center justify-center text-center hover:border-brand-accent/40 transition-colors">
-                  <div className="w-12 h-12 rounded-xl bg-brand-accent/10 flex items-center justify-center text-brand-accent mb-4">
+                <div className="gsap-item relative p-6 rounded-2xl border border-dashed border-brand-accent/25 flex flex-col items-center justify-center text-center hover:border-brand-accent/40 transition-colors">
+                  <div className="w-12 h-12 rounded-xl bg-brand-accent/10 flex items-center justify-center text-brand-accent-dark mb-4">
                     <Zap className="w-6 h-6" />
                   </div>
-                  <h3 className="text-lg font-semibold text-white mb-2">Your Idea</h3>
-                  <p className="text-sm text-white/50 mb-4">
+                  <h3 className="text-lg font-semibold text-brand-text mb-2">Your Idea</h3>
+                  <p className="text-sm text-brand-text-secondary mb-4">
                     Have something else in mind? We welcome all creative directions!
                   </p>
                   <a
                     href="https://www.notion.so/2026-BETA-Hackathon-34b41d54c5b8806ca0a8c05a812e49db"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm text-brand-accent hover:text-brand-accent-light flex items-center gap-1 transition-colors"
+                    className="text-sm text-brand-accent-dark hover:text-brand-accent-light flex items-center gap-1 transition-colors"
                   >
                     Submit your proposal
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -379,15 +389,15 @@ export default function Hackathon() {
         </section>
 
         {/* ───────── Technical Requirements ───────── */}
-        <section className="gsap-section py-24 lg:py-32 bg-gradient-to-b from-transparent via-white/[0.01] to-transparent">
+        <section className="gsap-section py-24 lg:py-32 bg-gradient-to-b from-transparent via-brand-text/[0.01] to-transparent">
           <div className="px-6 sm:px-8 lg:px-16 xl:px-24">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-16 gsap-item">
-                <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/5 rounded-full text-xs text-white/50 mb-4">
+                <div className="inline-flex items-center gap-2 px-3 py-1 bg-brand-text/[0.03] rounded-full text-xs text-brand-text-secondary mb-4">
                   <GitBranch className="w-3.5 h-3.5" />
                   Technical Requirements
                 </div>
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-white mb-4">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-brand-text mb-4">
                   Build on Solid Foundations
                 </h2>
               </div>
@@ -397,43 +407,43 @@ export default function Hackathon() {
                   {techReqs.map((req, idx) => (
                     <div
                       key={idx}
-                      className="gsap-item flex items-start gap-4 p-5 rounded-xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] transition-colors"
+                      className="gsap-item flex items-start gap-4 p-5 rounded-xl border border-brand-border bg-brand-text/[0.03] hover:bg-brand-text/[0.04] transition-colors"
                     >
                       <span
                         className={`flex-shrink-0 px-2.5 py-0.5 rounded text-[11px] font-semibold uppercase tracking-wider ${
                           req.required
-                            ? 'bg-brand-accent/15 text-brand-accent border border-brand-accent/20'
-                            : 'bg-white/5 text-white/50 border border-white/10'
+                            ? 'bg-brand-accent/15 text-brand-accent-dark border border-brand-accent/20'
+                            : 'bg-brand-text/[0.03] text-brand-text-secondary border border-brand-border'
                         }`}
                       >
                         {req.label}
                       </span>
-                      <p className="text-sm text-white/70 leading-relaxed">{req.text}</p>
+                      <p className="text-sm text-brand-text leading-relaxed">{req.text}</p>
                     </div>
                   ))}
                 </div>
 
-                <div className="lg:col-span-2 gsap-item p-6 rounded-2xl border border-white/10 bg-white/[0.02]">
+                <div className="lg:col-span-2 gsap-item p-6 rounded-2xl border border-brand-border bg-brand-text/[0.03]">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-10 h-10 rounded-xl bg-brand-accent/10 flex items-center justify-center">
-                      <Puzzle className="w-5 h-5 text-brand-accent" />
+                      <Puzzle className="w-5 h-5 text-brand-accent-dark" />
                     </div>
-                    <h3 className="text-lg font-semibold text-white">Architecture Overview</h3>
+                    <h3 className="text-lg font-semibold text-brand-text">Architecture Overview</h3>
                   </div>
-                  <p className="text-sm text-white/50 leading-relaxed mb-4">
+                  <p className="text-sm text-brand-text-secondary leading-relaxed mb-4">
                     PhyAgentOS uses a dual-track architecture where cognitive planning and physical execution are fully decoupled.
                   </p>
                   <div className="space-y-2 text-sm">
-                    <div className="flex items-center gap-2 text-white/60">
+                    <div className="flex items-center gap-2 text-brand-text-secondary">
                       <div className="w-2 h-2 rounded-full bg-cyan-400" />
                       Track A: Cognitive Planning + Critic Verification
                     </div>
-                    <div className="flex items-center gap-2 text-white/60">
+                    <div className="flex items-center gap-2 text-brand-text-secondary">
                       <div className="w-2 h-2 rounded-full bg-brand-accent" />
                       Track B: HAL Watchdog + Physical Execution
                     </div>
-                    <div className="flex items-center gap-2 text-white/60">
-                      <div className="w-2 h-2 rounded-full bg-white/30" />
+                    <div className="flex items-center gap-2 text-brand-text-secondary">
+                      <div className="w-2 h-2 rounded-full bg-brand-text/40" />
                       Protocol: Markdown Files (ACTION.md / ENVIRONMENT.md)
                     </div>
                   </div>
@@ -448,11 +458,11 @@ export default function Hackathon() {
           <div className="px-6 sm:px-8 lg:px-16 xl:px-24">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-16 gsap-item">
-                <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/5 rounded-full text-xs text-white/50 mb-4">
+                <div className="inline-flex items-center gap-2 px-3 py-1 bg-brand-text/[0.03] rounded-full text-xs text-brand-text-secondary mb-4">
                   <Trophy className="w-3.5 h-3.5" />
                   Evaluation Criteria
                 </div>
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-white mb-4">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-brand-text mb-4">
                   How We Judge
                 </h2>
               </div>
@@ -461,15 +471,15 @@ export default function Hackathon() {
                 {evalCriteria.map((item, idx) => (
                   <div
                     key={idx}
-                    className="gsap-item relative p-8 rounded-2xl border border-white/10 bg-white/[0.02] text-center group hover:border-brand-accent/30 transition-all duration-300"
+                    className="gsap-item relative p-8 rounded-2xl border border-brand-border bg-brand-text/[0.03] text-center group hover:border-brand-accent/30 transition-all duration-300"
                   >
                     <div className="text-5xl font-display font-bold text-gradient mb-4">
                       {item.weight}
                     </div>
-                    <h3 className="text-xl font-semibold text-white mb-3">
+                    <h3 className="text-xl font-semibold text-brand-text mb-3">
                       {item.dim}
                     </h3>
-                    <p className="text-sm text-white/50 leading-relaxed">
+                    <p className="text-sm text-brand-text-secondary leading-relaxed">
                       {item.desc}
                     </p>
                   </div>
@@ -480,15 +490,15 @@ export default function Hackathon() {
         </section>
 
         {/* ───────── Participant Support ───────── */}
-        <section className="gsap-section py-24 lg:py-32 bg-gradient-to-b from-transparent via-white/[0.01] to-transparent">
+        <section className="gsap-section py-24 lg:py-32 bg-gradient-to-b from-transparent via-brand-text/[0.01] to-transparent">
           <div className="px-6 sm:px-8 lg:px-16 xl:px-24">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-16 gsap-item">
-                <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/5 rounded-full text-xs text-white/50 mb-4">
+                <div className="inline-flex items-center gap-2 px-3 py-1 bg-brand-text/[0.03] rounded-full text-xs text-brand-text-secondary mb-4">
                   <Zap className="w-3.5 h-3.5" />
                   Participant Support
                 </div>
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-white mb-4">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-brand-text mb-4">
                   We Got Your Back
                 </h2>
               </div>
@@ -499,15 +509,15 @@ export default function Hackathon() {
                   return (
                     <div
                       key={idx}
-                      className="gsap-item p-6 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/20 transition-all duration-300"
+                      className="gsap-item p-6 rounded-2xl border border-brand-border bg-brand-text/[0.03] hover:bg-brand-text/[0.04] hover:border-brand-accent/30 transition-all duration-300"
                     >
-                      <div className="w-12 h-12 rounded-xl bg-brand-accent/10 flex items-center justify-center text-brand-accent mb-4">
+                      <div className="w-12 h-12 rounded-xl bg-brand-accent/10 flex items-center justify-center text-brand-accent-dark mb-4">
                         <Icon className="w-6 h-6" />
                       </div>
-                      <h3 className="text-base font-semibold text-white mb-2">
+                      <h3 className="text-base font-semibold text-brand-text mb-2">
                         {item.title}
                       </h3>
-                      <p className="text-sm text-white/50 leading-relaxed">
+                      <p className="text-sm text-brand-text-secondary leading-relaxed">
                         {item.desc}
                       </p>
                     </div>
@@ -523,11 +533,11 @@ export default function Hackathon() {
           <div className="px-6 sm:px-8 lg:px-16 xl:px-24">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-16 gsap-item">
-                <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/5 rounded-full text-xs text-white/50 mb-4">
+                <div className="inline-flex items-center gap-2 px-3 py-1 bg-brand-text/[0.03] rounded-full text-xs text-brand-text-secondary mb-4">
                   <FileText className="w-3.5 h-3.5" />
                   Submission Requirements
                 </div>
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-white mb-4">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-brand-text mb-4">
                   What to Submit
                 </h2>
               </div>
@@ -536,19 +546,19 @@ export default function Hackathon() {
                 {submissions.map((sub, idx) => (
                   <div
                     key={idx}
-                    className="gsap-item relative p-6 rounded-2xl border border-white/10 bg-white/[0.02] group hover:border-brand-accent/30 transition-all duration-300"
+                    className="gsap-item relative p-6 rounded-2xl border border-brand-border bg-brand-text/[0.03] group hover:border-brand-accent/30 transition-all duration-300"
                   >
-                    <div className="text-4xl font-display font-bold text-white/10 group-hover:text-brand-accent/20 transition-colors mb-4">
+                    <div className="text-4xl font-display font-bold text-brand-text/10 group-hover:text-brand-accent/20 transition-colors mb-4">
                       {sub.num}
                     </div>
                     <div className="flex items-center gap-2 mb-3">
-                      {sub.title === 'Code' && <Github className="w-4 h-4 text-brand-accent" />}
-                      {sub.title === 'Demo Video' && <Video className="w-4 h-4 text-brand-accent" />}
-                      {sub.title === 'Protocol Files' && <FileText className="w-4 h-4 text-brand-accent" />}
-                      {sub.title === 'Presentation' && <MessageSquare className="w-4 h-4 text-brand-accent" />}
-                      <h3 className="text-base font-semibold text-white">{sub.title}</h3>
+                      {sub.title === 'Code' && <Github className="w-4 h-4 text-brand-accent-dark" />}
+                      {sub.title === 'Demo Video' && <Video className="w-4 h-4 text-brand-accent-dark" />}
+                      {sub.title === 'Protocol Files' && <FileText className="w-4 h-4 text-brand-accent-dark" />}
+                      {sub.title === 'Presentation' && <MessageSquare className="w-4 h-4 text-brand-accent-dark" />}
+                      <h3 className="text-base font-semibold text-brand-text">{sub.title}</h3>
                     </div>
-                    <p className="text-sm text-white/50 leading-relaxed">
+                    <p className="text-sm text-brand-text-secondary leading-relaxed">
                       {sub.desc}
                     </p>
                   </div>
@@ -568,10 +578,10 @@ export default function Hackathon() {
                         <ExternalLink className="w-3.5 h-3.5" />
                         Ready to Submit?
                       </div>
-                      <h3 className="text-2xl sm:text-3xl font-display font-bold text-white mb-3">
+                      <h3 className="text-2xl sm:text-3xl font-display font-bold text-brand-text mb-3">
                         Upload Your Submission
                       </h3>
-                      <p className="text-white/50 text-sm sm:text-base leading-relaxed max-w-lg">
+                      <p className="text-brand-text-secondary text-sm sm:text-base leading-relaxed max-w-lg">
                         Package your code, demo video, protocol files, and presentation into a single ZIP file and upload it to our Google Drive folder. Make sure your filename includes your team name.
                       </p>
                     </div>
@@ -579,31 +589,31 @@ export default function Hackathon() {
                     {/* Right: Drop zone */}
                     <div className="w-full max-w-md flex-shrink-0">
                       {/* Form preview card */}
-                      <div className="relative p-6 rounded-xl border border-white/10 bg-white/[0.02]">
+                      <div className="relative p-6 rounded-xl border border-brand-border bg-brand-text/[0.03]">
                         <div className="text-center mb-5">
                           <div className="w-14 h-14 rounded-2xl bg-brand-accent/10 flex items-center justify-center mx-auto mb-4">
-                            <FileText className="w-7 h-7 text-brand-accent" />
+                            <FileText className="w-7 h-7 text-brand-accent-dark" />
                           </div>
-                          <p className="text-white font-medium mb-1">
+                          <p className="text-brand-text font-medium mb-1">
                             Submit via Google Form
                           </p>
-                          <p className="text-white/40 text-sm">
+                          <p className="text-brand-text-tertiary text-sm">
                             Fill in team info and upload your ZIP
                           </p>
                         </div>
 
                         <div className="space-y-3 mb-5">
-                          <div className="flex items-center gap-3 p-3 rounded-lg bg-black/20 border border-white/5">
-                            <div className="w-6 h-6 rounded-full bg-brand-accent/20 flex items-center justify-center text-xs text-brand-accent font-bold">1</div>
-                            <span className="text-sm text-white/60">Team name & contact</span>
+                          <div className="flex items-center gap-3 p-3 rounded-lg bg-brand-text/[0.04] border border-brand-border">
+                            <div className="w-6 h-6 rounded-full bg-brand-accent/20 flex items-center justify-center text-xs text-brand-accent-dark font-bold">1</div>
+                            <span className="text-sm text-brand-text-secondary">Team name & contact</span>
                           </div>
-                          <div className="flex items-center gap-3 p-3 rounded-lg bg-black/20 border border-white/5">
-                            <div className="w-6 h-6 rounded-full bg-brand-accent/20 flex items-center justify-center text-xs text-brand-accent font-bold">2</div>
-                            <span className="text-sm text-white/60">Project description</span>
+                          <div className="flex items-center gap-3 p-3 rounded-lg bg-brand-text/[0.04] border border-brand-border">
+                            <div className="w-6 h-6 rounded-full bg-brand-accent/20 flex items-center justify-center text-xs text-brand-accent-dark font-bold">2</div>
+                            <span className="text-sm text-brand-text-secondary">Project description</span>
                           </div>
-                          <div className="flex items-center gap-3 p-3 rounded-lg bg-black/20 border border-white/5">
-                            <div className="w-6 h-6 rounded-full bg-brand-accent/20 flex items-center justify-center text-xs text-brand-accent font-bold">3</div>
-                            <span className="text-sm text-white/60">Upload ZIP submission</span>
+                          <div className="flex items-center gap-3 p-3 rounded-lg bg-brand-text/[0.04] border border-brand-border">
+                            <div className="w-6 h-6 rounded-full bg-brand-accent/20 flex items-center justify-center text-xs text-brand-accent-dark font-bold">3</div>
+                            <span className="text-sm text-brand-text-secondary">Upload ZIP submission</span>
                           </div>
                         </div>
 
@@ -611,14 +621,14 @@ export default function Hackathon() {
                         <button
                           type="button"
                           onClick={handleUpload}
-                          className="w-full px-6 py-3.5 bg-brand-accent hover:bg-brand-accent-light text-white font-semibold rounded-xl transition-all duration-300 flex items-center justify-center gap-2 group shadow-glow hover:shadow-glow-lg"
+                          className="w-full px-6 py-3.5 bg-brand-accent hover:bg-brand-accent-light text-brand-text-on-accent font-semibold rounded-xl transition-all duration-300 flex items-center justify-center gap-2 group shadow-glow hover:shadow-glow-lg"
                         >
                           <ExternalLink className="w-5 h-5" />
                           Open Submission Form
                           <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                         </button>
 
-                        <p className="text-center text-xs text-white/30 mt-3">
+                        <p className="text-center text-xs text-brand-text-tertiary mt-3">
                           You'll be redirected to Google Forms to complete your submission.
                         </p>
                       </div>
@@ -638,12 +648,12 @@ export default function Hackathon() {
           <div className="px-6 sm:px-8 lg:px-16 xl:px-24 relative z-10">
             <div className="max-w-4xl mx-auto text-center">
               <div className="gsap-item">
-                <h2 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-white mb-6">
+                <h2 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-brand-text mb-6">
                   Ready to Hack the
                   <br />
                   <span className="text-gradient">Physical World?</span>
                 </h2>
-                <p className="text-lg text-white/50 mb-10 max-w-2xl mx-auto">
+                <p className="text-lg text-brand-text-secondary mb-10 max-w-2xl mx-auto">
                   Join the 2026 BETA Hackathon and build the future of embodied AI with PhyAgentOS. Looking forward to seeing the sparks fly when your embodiment meets PhyAgentOS! ⭐
                 </p>
                 <div className="flex flex-wrap justify-center gap-4">
@@ -651,7 +661,7 @@ export default function Hackathon() {
                     href="https://www.notion.so/2026-BETA-Hackathon-34b41d54c5b8806ca0a8c05a812e49db"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-10 py-4 bg-brand-accent hover:bg-brand-accent-light text-white font-semibold rounded-xl transition-all duration-300 flex items-center gap-2 group shadow-glow hover:shadow-glow-lg"
+                    className="px-10 py-4 bg-brand-accent hover:bg-brand-accent-light text-brand-text-on-accent font-semibold rounded-xl transition-all duration-300 flex items-center gap-2 group shadow-glow hover:shadow-glow-lg"
                   >
                     Join Hackathon
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -660,7 +670,7 @@ export default function Hackathon() {
                     href="https://github.com/PhyAgentOS/PhyAgentOS"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-10 py-4 bg-white/5 hover:bg-white/10 backdrop-blur-sm text-white font-semibold rounded-xl border border-white/15 transition-all duration-300 flex items-center gap-2"
+                    className="px-10 py-4 bg-brand-text/[0.03] hover:bg-brand-text/[0.05] backdrop-blur-sm text-brand-text font-semibold rounded-xl border border-brand-border-hover transition-all duration-300 flex items-center gap-2"
                   >
                     <Github className="w-5 h-5" />
                     Explore Repo
