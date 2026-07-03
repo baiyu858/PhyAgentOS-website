@@ -34,13 +34,12 @@ function MiniHero({ theme }: { theme: typeof themes[0] }) {
           className="text-2xl font-display font-bold mb-2"
           style={{ color: theme.colors.text }}
         >
-          Where Intelligence{' '}
-          <span style={{ color: theme.colors.accent }}>Meets Physics</span>
+          Physical Agent Operating System
         </h3>
           <p className="text-sm mb-4 max-w-md"
           style={{ color: theme.colors.textSecondary }}
         >
-          PhyAgentOS — A session-centered runtime for embodied intelligence
+          PhyAgentOS: A session-centered runtime for embodied intelligence
         </p>
         <div className="flex gap-2">
           <button

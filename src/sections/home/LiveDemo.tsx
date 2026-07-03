@@ -79,7 +79,7 @@ const demoChapters = t.liveDemo.chapters.map((ch, i) => ({
               label={t.liveDemo.label}
               title={t.liveDemo.title}
               highlight={t.liveDemo.highlight}
-              description="Watch PhyAgentOS run a full session lifecycle — from instruction to verified physical execution."
+              description="Watch PhyAgentOS run a full session lifecycle, from instruction to verified physical execution."
             />
           </ScrollReveal>
 

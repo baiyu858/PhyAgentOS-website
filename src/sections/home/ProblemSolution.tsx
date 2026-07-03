@@ -57,7 +57,7 @@ const problems = [
             label={t.problemSolution.label}
             title={t.problemSolution.title}
             highlight={t.problemSolution.highlight}
-            description="Four fundamental challenges that have blocked embodied intelligence — and how PhyAgentOS solves each one."
+            description="Four fundamental challenges that have blocked embodied intelligence, and how PhyAgentOS solves each one."
           />
 
           <div className="mt-20 grid grid-cols-1 lg:grid-cols-2 gap-6">

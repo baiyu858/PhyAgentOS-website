@@ -30,7 +30,7 @@ gsap.registerPlugin(ScrollTrigger);
 const painPoints = [
   {
     pain: 'LLM directly controls hardware, errors hard to trace',
-    solution: 'Cognitive-Physical Decoupling — Planner and HAL run independently, communicating transparently via ACTION.md',
+    solution: 'Cognitive-Physical Decoupling: Planner and HAL run independently, communicating transparently via ACTION.md',
   },
   {
     pain: 'Action failures cannot be learned from',
@@ -38,11 +38,11 @@ const painPoints = [
   },
   {
     pain: 'Debugging like a black box',
-    solution: 'Markdown Protocol Matrix — all states readable and writable, extreme transparency',
+    solution: 'Markdown Protocol Matrix: all states readable and writable, extreme transparency',
   },
   {
     pain: 'No safety guarantees',
-    solution: 'Critic Multi-Agent Verification — high-risk actions must validate against EMBODIED.md before execution',
+    solution: 'Critic Multi-Agent Verification: high-risk actions must validate against EMBODIED.md before execution',
   },
 ];
 
@@ -109,7 +109,7 @@ const evalCriteria = [
 /* ───────── Support ───────── */
 const supports = [
   { icon: FileText, title: 'Integration Guide', desc: 'Official HAL driver templates + plugin development docs for quick hardware integration' },
-  { icon: Cpu, title: 'Simulation Support', desc: 'Built-in lightweight simulation—validate logic without hardware' },
+  { icon: Cpu, title: 'Simulation Support', desc: 'Built-in lightweight simulation; validate logic without hardware' },
   { icon: MessageSquare, title: 'Q&A Channel', desc: 'GitHub Issues with dedicated tags, core maintainers responding online' },
   { icon: Plug, title: 'Hardware Reference', desc: 'Verified robot parameter references (PIPER / Nova 2 / Go2, etc.)' },
 ];
@@ -236,7 +236,7 @@ export default function Hackathon() {
 
           {/* Subtitle */}
           <p className="hero-animate text-xl sm:text-2xl text-brand-text max-w-3xl mx-auto mb-4 leading-relaxed">
-            Where Intelligence Meets Physics
+            Physical Agent Operating System
           </p>
           <p className="hero-animate text-base sm:text-lg text-brand-text-secondary max-w-2xl mx-auto mb-10 leading-relaxed">
             You focus on the creativity, we handle making the agent

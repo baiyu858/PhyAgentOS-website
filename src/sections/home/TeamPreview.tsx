@@ -9,6 +9,7 @@ export default function TeamPreview() {
 const institutions = [
   { name: 'Sun Yat-sen University', shortName: 'SYSU', role: t.teamPreview.institutions[0].role, description: t.teamPreview.institutions[0].description },
   { name: 'Peng Cheng Laboratory', shortName: 'PCL', role: t.teamPreview.institutions[1].role, description: t.teamPreview.institutions[1].description },
+  { name: 'X-Era Lab', shortName: 'X-Era', role: t.teamPreview.institutions[2].role, description: t.teamPreview.institutions[2].description },
 ];
 const teamHighlights = [
   { label: t.teamPreview.highlights[0].label, value: t.teamPreview.highlights[0].value },
@@ -28,11 +29,11 @@ const teamHighlights = [
               label={t.teamPreview.label}
               title={t.teamPreview.title}
               highlight={t.teamPreview.highlight}
-              description="PhyAgentOS is jointly developed by the HCP Laboratory at Sun Yat-sen University and Peng Cheng Laboratory, built on the nanobot framework."
+              description="PhyAgentOS is jointly developed by the HCP Laboratory at Sun Yat-sen University, Peng Cheng Laboratory, and X-Era Lab."
             />
           </ScrollReveal>
 
-          <div className="mt-16 grid md:grid-cols-2 gap-6 lg:gap-8">
+          <div className="mt-16 grid md:grid-cols-3 gap-6 lg:gap-8">
             {institutions.map((inst, index) => (
               <ScrollReveal key={index} delay={index * 0.15}>
                 <div className="group relative p-8 rounded-3xl bg-brand-bg-secondary border border-brand-border hover:border-brand-accent/30 transition-all duration-500 shadow-card hover:shadow-card-hover overflow-hidden">

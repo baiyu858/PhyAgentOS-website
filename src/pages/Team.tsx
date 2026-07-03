@@ -25,6 +25,17 @@ const coreTeam = [
       website: 'https://www.pcl.ac.cn/',
     },
   },
+  {
+    name: 'X-Era Lab',
+    role: 'Research Collaborator',
+    institution: 'X-Era Lab',
+    description: 'Cross-era embodied intelligence research lab. Contributing to long-horizon reasoning, self-evolution, and real-world deployment.',
+    avatar: 'X-Era',
+    links: {
+      github: 'https://github.com/PhyAgentOS/PhyAgentOS',
+      website: 'https://phyagentos.org/',
+    },
+  },
 ];
 
 export default function Team() {
@@ -37,7 +48,7 @@ export default function Team() {
               label="Team"
               title="The people behind"
               highlight="PhyAgentOS"
-              description="A collaboration between Sun Yat-sen University and Peng Cheng Laboratory, built with the open-source community."
+              description="A collaboration between Sun Yat-sen University, Peng Cheng Laboratory, and X-Era Lab, built with the open-source community."
               align="left"
             />
           </ScrollReveal>
@@ -45,7 +56,7 @@ export default function Team() {
           {/* Core Team */}
           <div className="mt-20">
             <h2 className="text-2xl font-display font-bold text-brand-text mb-8">Core Team</h2>
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-3 gap-6">
               {coreTeam.map((member, index) => (
                 <ScrollReveal key={index} delay={index * 0.15}>
                   <div className="group relative p-8 rounded-3xl bg-brand-bg-secondary border border-brand-border hover:border-brand-accent/20 transition-all duration-500 shadow-card hover:shadow-card-hover overflow-hidden">
@@ -122,7 +133,7 @@ export default function Team() {
                 <p className="text-sm text-brand-text-secondary leading-relaxed mb-6">
                   PhyAgentOS is an open-source project that welcomes contributions from the community.
                   Whether you are fixing bugs, adding new features, improving documentation, or sharing
-                  your use cases — every contribution matters.
+                  your use cases, every contribution matters.
                 </p>
 
                 <div className="flex flex-wrap gap-3">

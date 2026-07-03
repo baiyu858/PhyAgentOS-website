@@ -64,7 +64,7 @@ const devicesWithType = devices.map((d, idx) => ({
               label={t.hardware.label}
               title={t.hardware.title}
               highlight={t.hardware.highlight}
-              description="Through Target Adapters, PhyAgentOS spans debug, simulation, and real-robot targets — from desktop arms to quadrupeds to dual-arm systems."
+              description="Through Target Adapters, PhyAgentOS spans debug, simulation, and real-robot targets, from desktop arms to quadrupeds to dual-arm systems."
             />
           </ScrollReveal>
 
@@ -175,6 +175,46 @@ const devicesWithType = devices.map((d, idx) => ({
                     ))}
                   </div>
                 </div>
+              </div>
+            </div>
+          </ScrollReveal>
+
+          {/* Device Support Matrix */}
+          <ScrollReveal delay={0.3}>
+            <div className="mt-24">
+              <div className="text-center mb-10">
+                <h3 className="text-2xl font-display font-bold text-brand-text mb-3">
+                  {t.hardware.deviceTable.title}
+                </h3>
+                <p className="text-brand-text-secondary max-w-2xl mx-auto">
+                  {t.hardware.deviceTable.description}
+                </p>
+              </div>
+              <div className="overflow-x-auto rounded-3xl border border-brand-border bg-brand-bg-secondary shadow-card">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="border-b border-brand-border bg-brand-text/[0.03]">
+                      <th className="px-4 py-3 text-left font-semibold text-brand-text">{t.hardware.deviceTable.columns.vendor}</th>
+                      <th className="px-4 py-3 text-left font-semibold text-brand-text">{t.hardware.deviceTable.columns.model}</th>
+                      <th className="px-4 py-3 text-left font-semibold text-brand-text">{t.hardware.deviceTable.columns.type}</th>
+                      <th className="px-4 py-3 text-center font-semibold text-brand-text">{t.hardware.deviceTable.columns.real}</th>
+                      <th className="px-4 py-3 text-center font-semibold text-brand-text">{t.hardware.deviceTable.columns.sim}</th>
+                      <th className="px-4 py-3 text-center font-semibold text-brand-text">{t.hardware.deviceTable.columns.tested}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {t.hardware.deviceTable.rows.map((row, index) => (
+                      <tr key={index} className="border-b border-brand-border last:border-b-0 hover:bg-brand-text/[0.02]">
+                        <td className="px-4 py-3 text-brand-text-secondary whitespace-nowrap">{row.vendor || '-'}</td>
+                        <td className="px-4 py-3 text-brand-text font-medium whitespace-nowrap">{row.model}</td>
+                        <td className="px-4 py-3 text-brand-text-secondary whitespace-nowrap">{row.type}</td>
+                        <td className="px-4 py-3 text-center">{row.real ? '✅' : '❌'}</td>
+                        <td className="px-4 py-3 text-center">{row.sim ? '✅' : '❌'}</td>
+                        <td className="px-4 py-3 text-center">{row.tested ? '✅' : '❌'}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
               </div>
             </div>
           </ScrollReveal>

@@ -172,6 +172,15 @@ const footerLinks = {
                   >
                     Peng Cheng Lab
                   </a>
+                  {' & '}
+                  <a
+                    href="https://phyagentos.org/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-brand-text-secondary hover:text-brand-accent transition-colors"
+                  >
+                    {t.footer.xeraLab}
+                  </a>
                 </span>
               </div>
 
@@ -197,16 +206,7 @@ const footerLinks = {
 
             {/* Credits */}
             <div className="mt-6 text-center text-[11px] text-brand-text-tertiary/60">
-              {t.footer.basedOn.split(' · ')[0]}{' '}
-              <a
-                href="https://github.com/HKUDS/nanobot"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-brand-accent transition-colors"
-              >
-                nanobot
-              </a>{' '}
-              framework · Built with React, Three.js & GSAP
+              Built with React, Three.js & GSAP
             </div>
           </div>
         </div>
