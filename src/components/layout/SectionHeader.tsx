@@ -25,7 +25,7 @@ export default function SectionHeader({
   return (
     <div className={`${alignClass} ${maxWidthClass} ${className}`}>
       {label && (
-        <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-accent/10 border border-brand-accent/20 text-xs font-mono uppercase tracking-wider text-brand-accent-dark mb-6 shadow-glow-soft`}>
+        <div className={`inline-flex items-center gap-2 rounded-full border border-brand-accent/25 bg-brand-accent/10 px-4 py-2 text-xs font-mono uppercase tracking-[0.22em] text-brand-accent-light shadow-glow-soft mb-6`}>
           {labelIcon || <Sparkles className="w-3.5 h-3.5" />}
           {label}
         </div>
@@ -42,7 +42,7 @@ export default function SectionHeader({
       </h2>
 
       {description && (
-        <p className="mt-6 text-base sm:text-lg text-brand-text-secondary leading-relaxed max-w-2xl mx-auto">
+        <p className="mt-6 text-base sm:text-lg text-brand-text-secondary leading-relaxed max-w-3xl mx-auto">
           {description}
         </p>
       )}

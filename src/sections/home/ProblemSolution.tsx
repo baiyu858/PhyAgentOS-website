@@ -48,8 +48,8 @@ const problems = [
       id="problems"
       className="relative py-24 lg:py-32 overflow-hidden"
     >
-      <div className="absolute inset-0 bg-grid opacity-[0.02]" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-brand-accent/[0.02] rounded-full blur-[150px]" />
+      <div className="absolute inset-0 bg-grid opacity-[0.05]" />
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-border to-transparent" />
 
       <div className="relative z-10 px-6 sm:px-8 lg:px-16 xl:px-24">
         <div className="max-w-7xl mx-auto">
@@ -68,16 +68,16 @@ const problems = [
                   key={index}
                   className="problem-card group relative"
                 >
-                  <div className="relative p-6 sm:p-8 rounded-3xl bg-brand-bg-secondary border border-brand-border hover:border-brand-accent/30 transition-all duration-500 overflow-hidden shadow-card hover:shadow-card-hover">
+                  <div className="relative overflow-hidden rounded-lg border border-brand-border bg-brand-bg-secondary/80 p-6 shadow-card transition-all duration-500 hover:border-brand-accent/30 hover:shadow-card-hover sm:p-8">
                     {/* Hover glow */}
                     <div className="absolute inset-0 bg-gradient-to-br from-brand-accent/[0.04] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    <div className="absolute -right-20 -top-20 w-64 h-64 bg-brand-accent/[0.03] rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-accent/40 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
                     <div className="relative z-10">
                       {/* Header */}
                       <div className="flex items-start gap-4 mb-6">
-                        <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-rose-500/10 border border-rose-500/20 flex items-center justify-center">
-                          <Icon className="w-6 h-6 text-rose-600" />
+                        <div className="flex-shrink-0 w-14 h-14 rounded-lg bg-rose-400/10 border border-rose-400/20 flex items-center justify-center">
+                          <Icon className="w-6 h-6 text-rose-200" />
                         </div>
                         <div>
                           <h3 className="text-lg font-semibold text-brand-text mb-1">
@@ -100,8 +100,8 @@ const problems = [
 
                       {/* Solution */}
                       <div className="flex items-start gap-4">
-                        <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center">
-                          <Check className="w-6 h-6 text-brand-accent-dark" />
+                        <div className="flex-shrink-0 w-14 h-14 rounded-lg bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center">
+                          <Check className="w-6 h-6 text-brand-accent-light" />
                         </div>
                         <div>
                           <h3 className="text-lg font-semibold text-brand-text mb-1">

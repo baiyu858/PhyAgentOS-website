@@ -44,15 +44,15 @@ export default function Home() {
     <div>
       <Hero />
       <div className="section-divider" />
-      <ProblemSolution />
+      <LiveDemo />
       <div className="section-divider" />
       <CoreConcepts />
+      <div className="section-divider" />
+      <ProblemSolution />
       <div className="section-divider" />
       <Architecture />
       <div className="section-divider" />
       <Scenarios />
-      <div className="section-divider" />
-      <LiveDemo />
       <div className="section-divider" />
       <Hardware />
       <div className="section-divider" />

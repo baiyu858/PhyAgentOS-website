@@ -85,8 +85,8 @@ const staticStats: StatItem[] = [
   return (
     <section className="relative py-24 lg:py-32 overflow-hidden">
       <div className="absolute inset-0 bg-brand-bg-secondary/40" />
-      <div className="absolute inset-0 bg-grid opacity-[0.02]" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-brand-accent/[0.03] rounded-full blur-[150px]" />
+      <div className="absolute inset-0 bg-grid opacity-[0.05]" />
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-border to-transparent" />
 
       <div className="relative z-10 px-6 sm:px-8 lg:px-16 xl:px-24">
         <div className="max-w-7xl mx-auto">
@@ -110,9 +110,9 @@ const staticStats: StatItem[] = [
               {stats.map((stat, index) => (
                 <div
                   key={index}
-                  className="relative p-8 rounded-3xl bg-brand-bg border border-brand-border group hover:border-brand-accent/30 transition-all duration-500 shadow-card hover:shadow-card-hover overflow-hidden"
+                  className="relative p-8 rounded-lg bg-brand-bg border border-brand-border group hover:border-brand-accent/30 transition-all duration-500 shadow-card hover:shadow-card-hover overflow-hidden"
                 >
-                  <div className="absolute inset-0 bg-brand-accent/[0.03] opacity-0 group-hover:opacity-100 rounded-3xl transition-opacity duration-500" />
+                  <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-accent/45 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                   {/* Corner brackets */}
                   <div className="absolute top-5 left-5 w-5 h-5 border-t-2 border-l-2 border-brand-border group-hover:border-brand-accent/30 transition-colors" />

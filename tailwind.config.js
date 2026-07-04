@@ -78,15 +78,15 @@ module.exports = {
       },
       boxShadow: {
         xs: "0 1px 2px 0 rgb(0 0 0 / 0.05)",
-        'soft': '0 4px 20px rgba(45, 58, 69, 0.08)',
-        'medium': '0 8px 30px rgba(45, 58, 69, 0.1)',
-        'large': '0 20px 50px rgba(45, 58, 69, 0.12)',
-        'xl': '0 24px 60px rgba(45, 58, 69, 0.14)',
-        'glow': '0 0 30px rgba(92, 115, 133, 0.25)',
-        'glow-lg': '0 0 60px rgba(92, 115, 133, 0.32)',
-        'glow-soft': '0 8px 32px rgba(92, 115, 133, 0.12)',
-        'card': '0 2px 8px rgba(45, 58, 69, 0.06), 0 8px 24px rgba(45, 58, 69, 0.08)',
-        'card-hover': '0 8px 24px rgba(45, 58, 69, 0.12), 0 20px 48px rgba(45, 58, 69, 0.14)',
+        'soft': '0 10px 30px rgba(0, 0, 0, 0.28)',
+        'medium': '0 18px 44px rgba(0, 0, 0, 0.34)',
+        'large': '0 28px 70px rgba(0, 0, 0, 0.42)',
+        'xl': '0 34px 90px rgba(0, 0, 0, 0.5)',
+        'glow': '0 0 30px rgba(139, 216, 199, 0.24)',
+        'glow-lg': '0 0 60px rgba(139, 216, 199, 0.3)',
+        'glow-soft': '0 10px 34px rgba(139, 216, 199, 0.14)',
+        'card': '0 16px 44px rgba(0, 0, 0, 0.24)',
+        'card-hover': '0 24px 70px rgba(0, 0, 0, 0.36)',
       },
       keyframes: {
         "accordion-down": {
@@ -118,8 +118,8 @@ module.exports = {
           "50%": { transform: "translateY(-10px)" },
         },
         "pulse-glow": {
-          "0%, 100%": { boxShadow: "0 0 20px rgba(92, 115, 133, 0.2)" },
-          "50%": { boxShadow: "0 0 40px rgba(92, 115, 133, 0.38)" },
+          "0%, 100%": { boxShadow: "0 0 20px rgba(139, 216, 199, 0.2)" },
+          "50%": { boxShadow: "0 0 40px rgba(139, 216, 199, 0.38)" },
         },
         "text-shimmer": {
           "0%": { backgroundPosition: "0% center" },

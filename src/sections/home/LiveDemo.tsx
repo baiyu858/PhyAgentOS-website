@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Play, Pause, Volume2, VolumeX } from 'lucide-react';
 import SectionHeader from '../../components/layout/SectionHeader';
 import ScrollReveal from '../../components/animations/ScrollReveal';
@@ -6,11 +6,16 @@ import { useT } from '../../i18n/LanguageContext';
 
 export default function LiveDemo() {
   const t = useT();
-const demoChapters = t.liveDemo.chapters.map((ch, i) => ({
-  time: [0, 15, 30, 45, 60][i],
-  label: ch.label,
-  description: ch.description,
-}));
+  const base = import.meta.env.BASE_URL;
+  const demoChapters = useMemo(
+    () =>
+      t.liveDemo.chapters.map((ch, i) => ({
+        time: [0, 15, 30, 45, 60][i],
+        label: ch.label,
+        description: ch.description,
+      })),
+    [t.liveDemo.chapters]
+  );
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
@@ -38,7 +43,26 @@ const demoChapters = t.liveDemo.chapters.map((ch, i) => ({
 
     video.addEventListener('timeupdate', handleTimeUpdate);
     return () => video.removeEventListener('timeupdate', handleTimeUpdate);
-  }, []);
+  }, [demoChapters]);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || !('IntersectionObserver' in window)) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && isPlaying) {
+          video.play().catch(() => {});
+        } else if (!entry.isIntersecting) {
+          video.pause();
+        }
+      },
+      { threshold: 0.25 }
+    );
+
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, [isPlaying]);
 
   const togglePlay = () => {
     if (videoRef.current) {
@@ -68,9 +92,9 @@ const demoChapters = t.liveDemo.chapters.map((ch, i) => ({
 
   return (
     <section id="demo" className="relative py-24 lg:py-32 overflow-hidden">
-      <div className="absolute inset-0 bg-brand-bg-secondary/40" />
-      <div className="absolute inset-0 bg-grid opacity-[0.02]" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-brand-accent/[0.03] rounded-full blur-[150px]" />
+      <div className="absolute inset-0 bg-brand-bg" />
+      <div className="absolute inset-0 bg-grid opacity-[0.06]" />
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-accent/40 to-transparent" />
 
       <div className="relative z-10 px-6 sm:px-8 lg:px-16 xl:px-24">
         <div className="max-w-7xl mx-auto">
@@ -79,24 +103,26 @@ const demoChapters = t.liveDemo.chapters.map((ch, i) => ({
               label={t.liveDemo.label}
               title={t.liveDemo.title}
               highlight={t.liveDemo.highlight}
-              description="Watch PhyAgentOS run a full session lifecycle, from instruction to verified physical execution."
+              description="A full runtime session, shown as evidence: instruction, planning, protocol state, execution, and verified physical outcome."
             />
           </ScrollReveal>
 
           <ScrollReveal delay={0.2}>
             <div className="mt-16">
-              <div className="relative rounded-3xl overflow-hidden border border-brand-border bg-black shadow-2xl group">
+              <div className="relative overflow-hidden rounded-lg border border-brand-border bg-black shadow-2xl group">
                 <video
                   ref={videoRef}
-                  src="/demo.mp4"
-                  className="w-full aspect-video"
+                  src={`${base}demo.mp4`}
+                  className="w-full aspect-video object-cover"
+                  poster={`${base}hero-robot.jpg`}
                   autoPlay
                   loop
-                  muted
+                  muted={isMuted}
                   playsInline
+                  preload="metadata"
                 />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-black/10 pointer-events-none" />
 
                 {/* Corner accents */}
                 <div className="absolute top-5 left-5 w-16 h-16 border-t-2 border-l-2 border-brand-accent/30 rounded-tl-2xl" />
@@ -134,15 +160,15 @@ const demoChapters = t.liveDemo.chapters.map((ch, i) => ({
                 </div>
               </div>
 
-              <div className="mt-8 grid grid-cols-2 sm:grid-cols-5 gap-3">
+              <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-5">
                 {demoChapters.map((chapter, idx) => (
                   <button
                     key={idx}
                     onClick={() => seekTo(chapter.time)}
-                    className={`relative p-4 rounded-2xl border text-left transition-all duration-300 ${
+                    className={`relative p-4 rounded-lg border text-left transition-all duration-300 ${
                       idx === activeChapter
-                        ? 'bg-brand-accent/10 border-brand-accent/30 shadow-glow-soft'
-                        : 'bg-brand-bg-secondary border-brand-border hover:border-brand-accent/30 hover:shadow-soft'
+                        ? 'bg-brand-accent/10 border-brand-accent/35 shadow-glow-soft'
+                        : 'bg-brand-bg-secondary/75 border-brand-border hover:border-brand-accent/30 hover:shadow-soft'
                     }`}
                   >
                     <div className="text-xs font-mono text-brand-text-tertiary mb-1">

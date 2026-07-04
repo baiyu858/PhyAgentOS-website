@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useCallback, type ReactNode } from 'react';
+import { createContext, useContext, useState, useCallback, useEffect, type ReactNode } from 'react';
 import { themes, defaultTheme, type ThemeConfig } from './theme-config';
 
 interface ThemeContextType {
@@ -15,6 +15,10 @@ const ThemeContext = createContext<ThemeContextType>({
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [currentTheme, setCurrentTheme] = useState<ThemeConfig>(defaultTheme);
+
+  useEffect(() => {
+    applyThemeToDOM(currentTheme);
+  }, []);
 
   const setTheme = useCallback((themeId: string) => {
     const theme = themes.find((t) => t.id === themeId);

@@ -20,11 +20,10 @@ function App() {
             className="relative min-h-screen flex flex-col transition-colors duration-500"
             style={{ backgroundColor: 'var(--color-bg)' }}
           >
-            {/* Global ambient background */}
+            {/* Global launch-page background */}
             <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-              <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] rounded-full bg-brand-accent/[0.04] blur-[120px]" />
-              <div className="absolute bottom-[-20%] right-[-10%] w-[60%] h-[60%] rounded-full bg-brand-accent/[0.03] blur-[120px]" />
-              <div className="absolute inset-0 bg-grid opacity-[0.02]" />
+              <div className="absolute inset-0 bg-grid opacity-[0.035]" />
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.42)_72%,rgba(0,0,0,0.78)_100%)]" />
             </div>
 
             <Navigation />

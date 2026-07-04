@@ -5,10 +5,10 @@ import CountUp from '../../components/animations/CountUp';
 import { useT } from '../../i18n/LanguageContext';
 
 const benchmarkData = [
-  { name: 'PhyAgentOS', successRate: 92, codeLines: 15, robots: 6, fill: '#5c7385' },
-  { name: 'Baseline-1', successRate: 78, codeLines: 45, robots: 3, fill: '#a4adb6' },
-  { name: 'Baseline-2', successRate: 85, codeLines: 80, robots: 2, fill: '#a4adb6' },
-  { name: 'Baseline-3', successRate: 73, codeLines: 35, robots: 2, fill: '#a4adb6' },
+  { name: 'PhyAgentOS', successRate: 92, codeLines: 15, robots: 6, fill: '#8bd8c7' },
+  { name: 'Baseline-1', successRate: 78, codeLines: 45, robots: 3, fill: '#3a4a54' },
+  { name: 'Baseline-2', successRate: 85, codeLines: 80, robots: 2, fill: '#3a4a54' },
+  { name: 'Baseline-3', successRate: 73, codeLines: 35, robots: 2, fill: '#3a4a54' },
 ];
 
 export default function Benchmark() {
@@ -22,8 +22,8 @@ const stats = [
   return (
     <section id="benchmark" className="relative py-24 lg:py-32 overflow-hidden">
       <div className="absolute inset-0 bg-brand-bg-secondary/40" />
-      <div className="absolute inset-0 bg-grid opacity-[0.02]" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-brand-accent/[0.03] rounded-full blur-[150px]" />
+      <div className="absolute inset-0 bg-grid opacity-[0.05]" />
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-border to-transparent" />
 
       <div className="relative z-10 px-6 sm:px-8 lg:px-16 xl:px-24">
         <div className="max-w-7xl mx-auto">
@@ -42,9 +42,9 @@ const stats = [
               {stats.map((stat, index) => (
                 <div
                   key={index}
-                  className="relative p-6 rounded-3xl bg-brand-bg-secondary border border-brand-border group hover:border-brand-accent/30 transition-all duration-500 shadow-card hover:shadow-card-hover"
+                  className="relative p-6 rounded-lg bg-brand-bg-secondary/82 border border-brand-border group hover:border-brand-accent/30 transition-all duration-500 shadow-card hover:shadow-card-hover"
                 >
-                  <div className="absolute inset-0 bg-brand-accent/[0.03] opacity-0 group-hover:opacity-100 rounded-3xl transition-opacity duration-500" />
+                  <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-accent/45 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <div className="relative z-10">
                     <div className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-brand-text mb-3">
                       <CountUp end={stat.value} suffix={stat.suffix} />
@@ -61,25 +61,25 @@ const stats = [
           <ScrollReveal delay={0.2}>
             <div className="mt-16 grid lg:grid-cols-2 gap-8">
               {/* Success Rate Chart */}
-              <div className="p-6 sm:p-8 rounded-3xl bg-brand-bg-secondary border border-brand-border shadow-card hover:shadow-card-hover transition-shadow duration-500">
+              <div className="p-6 sm:p-8 rounded-lg bg-brand-bg-secondary/82 border border-brand-border shadow-card hover:shadow-card-hover transition-shadow duration-500">
                 <h3 className="text-lg font-semibold text-brand-text mb-2">{t.benchmark.chart1Title}</h3>
                 <p className="text-sm text-brand-text-tertiary mb-8">Real-target session completion on LIBERO benchmark suite</p>
                 <div className="h-64">
                   <ResponsiveContainer width="100%" height="100%">
                     <BarChart data={benchmarkData} layout="vertical" margin={{ left: 0, right: 20 }}>
-                      <CartesianGrid strokeDasharray="3 3" stroke="rgba(45,58,69,0.06)" horizontal={false} />
-                      <XAxis type="number" domain={[0, 100]} tick={{ fill: '#8d97a3', fontSize: 12 }} axisLine={false} tickLine={false} />
-                      <YAxis dataKey="name" type="category" tick={{ fill: '#5d6b78', fontSize: 12 }} axisLine={false} tickLine={false} width={90} />
+                      <CartesianGrid strokeDasharray="3 3" stroke="rgba(139,216,199,0.08)" horizontal={false} />
+                      <XAxis type="number" domain={[0, 100]} tick={{ fill: '#74817e', fontSize: 12 }} axisLine={false} tickLine={false} />
+                      <YAxis dataKey="name" type="category" tick={{ fill: '#b6c0bd', fontSize: 12 }} axisLine={false} tickLine={false} width={90} />
                       <Tooltip
                         contentStyle={{
-                          background: '#fcfaf5',
-                          border: '1px solid rgba(45,58,69,0.1)',
-                          borderRadius: '16px',
-                          color: '#2d3a45',
+                          background: '#0f1317',
+                          border: '1px solid #253039',
+                          borderRadius: '8px',
+                          color: '#f4f7f6',
                         }}
-                        cursor={{ fill: 'rgba(45,58,69,0.03)' }}
+                        cursor={{ fill: 'rgba(139,216,199,0.06)' }}
                       />
-                      <Bar dataKey="successRate" radius={[0, 12, 12, 0]} barSize={28}>
+                      <Bar dataKey="successRate" radius={[0, 6, 6, 0]} barSize={28}>
                         {benchmarkData.map((entry, index) => (
                           <Cell key={index} fill={entry.fill} />
                         ))}
@@ -90,25 +90,25 @@ const stats = [
               </div>
 
               {/* Code Lines Chart */}
-              <div className="p-6 sm:p-8 rounded-3xl bg-brand-bg-secondary border border-brand-border shadow-card hover:shadow-card-hover transition-shadow duration-500">
+              <div className="p-6 sm:p-8 rounded-lg bg-brand-bg-secondary/82 border border-brand-border shadow-card hover:shadow-card-hover transition-shadow duration-500">
                 <h3 className="text-lg font-semibold text-brand-text mb-2">{t.benchmark.chart2Title}</h3>
                 <p className="text-sm text-brand-text-tertiary mb-8">Lines to add a new robot target (relative scale, one Target Adapter)</p>
                 <div className="h-64">
                   <ResponsiveContainer width="100%" height="100%">
                     <BarChart data={benchmarkData} layout="vertical" margin={{ left: 0, right: 20 }}>
-                      <CartesianGrid strokeDasharray="3 3" stroke="rgba(45,58,69,0.06)" horizontal={false} />
-                      <XAxis type="number" tick={{ fill: '#8d97a3', fontSize: 12 }} axisLine={false} tickLine={false} />
-                      <YAxis dataKey="name" type="category" tick={{ fill: '#5d6b78', fontSize: 12 }} axisLine={false} tickLine={false} width={90} />
+                      <CartesianGrid strokeDasharray="3 3" stroke="rgba(139,216,199,0.08)" horizontal={false} />
+                      <XAxis type="number" tick={{ fill: '#74817e', fontSize: 12 }} axisLine={false} tickLine={false} />
+                      <YAxis dataKey="name" type="category" tick={{ fill: '#b6c0bd', fontSize: 12 }} axisLine={false} tickLine={false} width={90} />
                       <Tooltip
                         contentStyle={{
-                          background: '#fcfaf5',
-                          border: '1px solid rgba(45,58,69,0.1)',
-                          borderRadius: '16px',
-                          color: '#2d3a45',
+                          background: '#0f1317',
+                          border: '1px solid #253039',
+                          borderRadius: '8px',
+                          color: '#f4f7f6',
                         }}
-                        cursor={{ fill: 'rgba(45,58,69,0.03)' }}
+                        cursor={{ fill: 'rgba(139,216,199,0.06)' }}
                       />
-                      <Bar dataKey="codeLines" radius={[0, 12, 12, 0]} barSize={28}>
+                      <Bar dataKey="codeLines" radius={[0, 6, 6, 0]} barSize={28}>
                         {benchmarkData.map((entry, index) => (
                           <Cell key={index} fill={entry.fill} />
                         ))}

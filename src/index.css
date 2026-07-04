@@ -6,49 +6,48 @@
 
 @layer base {
   :root {
-    /* Light Morandi palette — cream + slate (derived from LOGO.png) */
-    --background: 40 27% 95%;
-    --foreground: 205 22% 22%;
-    --card: 40 30% 99%;
-    --card-foreground: 205 22% 22%;
-    --popover: 40 30% 99%;
-    --popover-foreground: 205 22% 22%;
-    --primary: 204 20% 44%;
-    --primary-foreground: 40 30% 99%;
-    --secondary: 40 20% 92%;
-    --secondary-foreground: 205 22% 22%;
-    --muted: 40 18% 90%;
-    --muted-foreground: 205 10% 48%;
-    --accent: 204 20% 44%;
-    --accent-foreground: 40 30% 99%;
+    --background: 210 22% 4%;
+    --foreground: 160 18% 96%;
+    --card: 205 20% 8%;
+    --card-foreground: 160 18% 96%;
+    --popover: 205 20% 8%;
+    --popover-foreground: 160 18% 96%;
+    --primary: 166 45% 70%;
+    --primary-foreground: 162 45% 4%;
+    --secondary: 205 18% 11%;
+    --secondary-foreground: 160 18% 96%;
+    --muted: 205 16% 13%;
+    --muted-foreground: 160 8% 62%;
+    --accent: 166 45% 70%;
+    --accent-foreground: 162 45% 4%;
     --destructive: 8 55% 55%;
-    --destructive-foreground: 40 30% 99%;
-    --border: 38 22% 84%;
-    --input: 38 22% 86%;
-    --ring: 204 20% 44%;
-    --radius: 0.875rem;
+    --destructive-foreground: 160 18% 96%;
+    --border: 204 20% 18%;
+    --input: 204 20% 18%;
+    --ring: 166 45% 70%;
+    --radius: 0.5rem;
 
-    --color-bg: #f6f4ef;
-    --color-bg-secondary: #fcfaf5;
-    --color-bg-tertiary: #efebe2;
-    --color-bg-elevated: #e6e1d6;
-    --color-bg-light: #f6f4ef;
-    --color-accent: #5c7385;
-    --color-accent-light: #6f879a;
-    --color-accent-dark: #3f5666;
-    --color-accent-glow: rgba(92, 115, 133, 0.16);
-    --color-text: #2d3a45;
-    --color-text-secondary: #5d6b78;
-    --color-text-tertiary: #8d97a3;
-    --color-text-dark: #1f2a33;
-    --color-text-muted: #a4adb6;
-    --color-text-on-accent: #f6f4ef;
-    --color-border: #ddd7ca;
-    --color-border-hover: #c8c0b0;
-    --color-border-light: #e6e1d6;
-    --color-success: #7ba88a;
-    --color-warning: #c9a96a;
-    --color-info: #6b8ca8;
+    --color-bg: #07090b;
+    --color-bg-secondary: #0f1317;
+    --color-bg-tertiary: #151b20;
+    --color-bg-elevated: #1b2329;
+    --color-bg-light: #0f1317;
+    --color-accent: #8bd8c7;
+    --color-accent-light: #b8f1e5;
+    --color-accent-dark: #4da995;
+    --color-accent-glow: rgba(139, 216, 199, 0.22);
+    --color-text: #f4f7f6;
+    --color-text-secondary: #b6c0bd;
+    --color-text-tertiary: #74817e;
+    --color-text-dark: #ffffff;
+    --color-text-muted: #5e6a67;
+    --color-text-on-accent: #06100d;
+    --color-border: #253039;
+    --color-border-hover: #3a4a54;
+    --color-border-light: #1b2329;
+    --color-success: #8bd8a7;
+    --color-warning: #d9bd73;
+    --color-info: #8eb7d8;
   }
 }
 
@@ -105,46 +104,46 @@
     animation: text-shimmer 4s ease-in-out infinite;
   }
 
-  /* Background grids (ink lines on light bg) */
+  /* Background grids */
   .bg-grid {
     background-image:
-      linear-gradient(to right, rgba(45, 58, 69, 0.05) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(45, 58, 69, 0.05) 1px, transparent 1px);
+      linear-gradient(to right, rgba(139, 216, 199, 0.075) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(139, 216, 199, 0.075) 1px, transparent 1px);
     background-size: 48px 48px;
   }
 
   .bg-grid-dense {
     background-image:
-      linear-gradient(to right, rgba(45, 58, 69, 0.04) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(45, 58, 69, 0.04) 1px, transparent 1px);
+      linear-gradient(to right, rgba(139, 216, 199, 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(139, 216, 199, 0.06) 1px, transparent 1px);
     background-size: 24px 24px;
   }
 
   .bg-grid-light {
     background-image:
-      linear-gradient(to right, rgba(45, 58, 69, 0.03) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(45, 58, 69, 0.03) 1px, transparent 1px);
+      linear-gradient(to right, rgba(244, 247, 246, 0.045) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(244, 247, 246, 0.045) 1px, transparent 1px);
     background-size: 48px 48px;
   }
 
   .bg-grid-dot {
-    background-image: radial-gradient(rgba(45, 58, 69, 0.08) 1px, transparent 1px);
+    background-image: radial-gradient(rgba(139, 216, 199, 0.13) 1px, transparent 1px);
     background-size: 32px 32px;
   }
 
-  /* Glass morphism (light, frosted) */
+  /* Glass morphism */
   .glass {
-    background: rgba(252, 250, 245, 0.72);
+    background: rgba(15, 19, 23, 0.72);
     backdrop-filter: blur(24px) saturate(1.15);
     -webkit-backdrop-filter: blur(24px) saturate(1.15);
-    border: 1px solid rgba(45, 58, 69, 0.08);
+    border: 1px solid rgba(139, 216, 199, 0.16);
   }
 
   .glass-strong {
-    background: rgba(252, 250, 245, 0.88);
+    background: rgba(7, 9, 11, 0.78);
     backdrop-filter: blur(40px) saturate(1.2);
     -webkit-backdrop-filter: blur(40px) saturate(1.2);
-    border: 1px solid rgba(45, 58, 69, 0.1);
+    border: 1px solid rgba(139, 216, 199, 0.22);
   }
 
   /* Glow effects */
@@ -166,8 +165,8 @@
 
   /* Border glow */
   .border-glow {
-    border-color: rgba(92, 115, 133, 0.35);
-    box-shadow: 0 0 20px rgba(92, 115, 133, 0.12), inset 0 0 20px rgba(92, 115, 133, 0.06);
+    border-color: rgba(139, 216, 199, 0.35);
+    box-shadow: 0 0 20px rgba(139, 216, 199, 0.12), inset 0 0 20px rgba(139, 216, 199, 0.06);
   }
 
   /* Radial glow background */

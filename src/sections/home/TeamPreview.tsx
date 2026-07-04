@@ -19,8 +19,8 @@ const teamHighlights = [
 ];
   return (
     <section id="team" className="relative py-24 lg:py-32 overflow-hidden">
-      <div className="absolute inset-0 bg-grid opacity-[0.02]" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-accent/[0.02] rounded-full blur-[200px]" />
+      <div className="absolute inset-0 bg-grid opacity-[0.05]" />
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-border to-transparent" />
 
       <div className="relative z-10 px-6 sm:px-8 lg:px-16 xl:px-24">
         <div className="max-w-7xl mx-auto">
@@ -36,14 +36,14 @@ const teamHighlights = [
           <div className="mt-16 grid md:grid-cols-3 gap-6 lg:gap-8">
             {institutions.map((inst, index) => (
               <ScrollReveal key={index} delay={index * 0.15}>
-                <div className="group relative p-8 rounded-3xl bg-brand-bg-secondary border border-brand-border hover:border-brand-accent/30 transition-all duration-500 shadow-card hover:shadow-card-hover overflow-hidden">
+                <div className="group relative p-8 rounded-lg bg-brand-bg-secondary/82 border border-brand-border hover:border-brand-accent/30 transition-all duration-500 shadow-card hover:shadow-card-hover overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-br from-brand-accent/[0.04] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <div className="absolute -right-20 -top-20 w-64 h-64 bg-brand-accent/[0.03] rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                   <div className="relative z-10">
                     <div className="flex items-center gap-4 mb-6">
-                      <div className="w-16 h-16 rounded-2xl bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center shadow-glow-soft">
-                        <span className="text-xl font-display font-bold text-brand-accent-dark">
+                      <div className="w-16 h-16 rounded-lg bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center shadow-glow-soft">
+                        <span className="text-xl font-display font-bold text-brand-accent-light">
                           {inst.shortName}
                         </span>
                       </div>
@@ -72,7 +72,7 @@ const teamHighlights = [
               {teamHighlights.map((item, index) => (
                 <div
                   key={index}
-                  className="text-center p-5 rounded-2xl bg-brand-bg-secondary border border-brand-border shadow-soft hover:shadow-card transition-shadow duration-300"
+                  className="text-center p-5 rounded-lg bg-brand-bg-secondary/82 border border-brand-border shadow-soft hover:shadow-card transition-shadow duration-300"
                 >
                   <div className="text-sm font-bold text-brand-text mb-2">{item.value}</div>
                   <div className="text-xs text-brand-text-tertiary font-mono uppercase tracking-wider">{item.label}</div>
@@ -86,7 +86,7 @@ const teamHighlights = [
             <div className="mt-12 text-center">
               <Link
                 to="/team"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-brand-bg-secondary border border-brand-border text-brand-text hover:border-brand-accent/30 hover:text-brand-accent hover:shadow-soft transition-all duration-300"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-brand-bg-secondary border border-brand-border text-brand-text hover:border-brand-accent/30 hover:text-brand-accent hover:shadow-soft transition-all duration-300"
               >
                 <span>{t.teamPreview.viewFullTeam}</span>
                 <ExternalLink className="w-4 h-4" />

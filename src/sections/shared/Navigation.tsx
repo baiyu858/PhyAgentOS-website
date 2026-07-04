@@ -78,15 +78,15 @@ export default function Navigation() {
 
   return (
     <>
-      <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled
-            ? 'bg-brand-bg/85 backdrop-blur-2xl border-b border-brand-border shadow-soft'
-            : 'bg-transparent'
-        }`}
-      >
+      <nav className="fixed left-0 right-0 top-0 z-50 px-3 pt-3 transition-all duration-500 sm:px-5">
         <div className="px-6 sm:px-8 lg:px-16 xl:px-24">
-          <div className="max-w-7xl mx-auto flex items-center justify-between h-16 lg:h-20">
+          <div
+            className={`mx-auto flex h-16 max-w-7xl items-center justify-between border px-4 transition-all duration-500 lg:h-20 lg:px-6 ${
+              isScrolled
+                ? 'rounded-lg border-brand-border bg-brand-bg/82 shadow-large backdrop-blur-2xl'
+                : 'rounded-none border-transparent bg-transparent'
+            }`}
+          >
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3 group" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
               <div className="relative">
@@ -97,19 +97,19 @@ export default function Navigation() {
                 />
                 <div className="absolute inset-0 rounded-xl bg-brand-accent/20 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
-              <span className="font-display font-semibold text-brand-text text-lg hidden sm:block">
+              <span className="hidden font-display text-lg font-semibold tracking-tight text-brand-text sm:block">
                 PhyAgentOS
               </span>
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-1 bg-brand-bg-secondary/40 backdrop-blur-xl rounded-2xl p-1 border border-brand-border/50">
+            <div className="hidden items-center gap-1 rounded-full border border-brand-border/60 bg-brand-bg-secondary/45 p-1 backdrop-blur-xl lg:flex">
               {navItems.map((item) => (
                 <Link
                   key={item.href}
                   to={item.href}
                   onClick={(e) => handleNavClick(e, item.href)}
-                  className="px-4 py-2 rounded-xl text-sm text-brand-text-secondary hover:text-brand-text hover:bg-brand-text/[0.04] transition-all duration-200"
+                  className="rounded-full px-4 py-2 text-sm text-brand-text-secondary transition-all duration-200 hover:bg-brand-text/[0.06] hover:text-brand-text"
                 >
                   {item.label}
                 </Link>
@@ -121,7 +121,7 @@ export default function Navigation() {
               {/* Theme Toggle */}
               <button
                 onClick={toggleTheme}
-                className="p-2.5 rounded-xl text-brand-text-secondary hover:text-brand-text hover:bg-brand-text/[0.04] transition-all duration-200"
+                className="rounded-full p-2.5 text-brand-text-secondary transition-all duration-200 hover:bg-brand-text/[0.06] hover:text-brand-text"
                 aria-label="Toggle theme"
                 title={isLight ? 'Switch to dark' : 'Switch to light'}
               >
@@ -131,7 +131,7 @@ export default function Navigation() {
                 href="https://github.com/PhyAgentOS/PhyAgentOS"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm text-brand-text-secondary hover:text-brand-text hover:bg-brand-text/[0.04] transition-all duration-200"
+                className="flex items-center gap-2 rounded-full px-4 py-2.5 text-sm text-brand-text-secondary transition-all duration-200 hover:bg-brand-text/[0.06] hover:text-brand-text"
               >
                 <Github className="w-4 h-4" />
                 <span>{t.nav.github}</span>
@@ -146,7 +146,7 @@ export default function Navigation() {
                 href="https://phy-agent-os.net/docs/en/api-reference.html"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-5 py-2.5 bg-brand-accent hover:bg-brand-accent-light text-brand-text-on-accent text-sm font-medium rounded-xl transition-all duration-300 shadow-glow-soft hover:shadow-glow"
+                className="rounded-full bg-brand-accent px-5 py-2.5 text-sm font-semibold text-brand-text-on-accent shadow-glow-soft transition-all duration-300 hover:bg-brand-accent-light hover:shadow-glow"
               >
                 {t.nav.getStarted}
               </a>
@@ -177,7 +177,7 @@ export default function Navigation() {
         />
 
         <div
-          className={`absolute top-20 left-4 right-4 bg-brand-bg-secondary/95 backdrop-blur-2xl border border-brand-border rounded-3xl p-6 shadow-large transition-all duration-500 ${
+          className={`absolute top-20 left-4 right-4 bg-brand-bg-secondary/95 backdrop-blur-2xl border border-brand-border rounded-lg p-6 shadow-large transition-all duration-500 ${
             isMobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-8 opacity-0'
           }`}
         >

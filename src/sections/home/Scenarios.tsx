@@ -7,15 +7,15 @@ import { useT } from '../../i18n/LanguageContext';
 export default function Scenarios() {
   const t = useT();
 const scenarios = [
-  { icon: Bug, title: t.scenarios.items[0].title, subtitle: t.scenarios.items[0].subtitle, description: t.scenarios.items[0].description, features: t.scenarios.items[0].features, color: 'from-emerald-400/12 to-teal-400/12', borderColor: 'border-emerald-500/20', iconColor: 'text-emerald-700', accentColor: 'bg-emerald-500' },
-  { icon: Gamepad2, title: t.scenarios.items[1].title, subtitle: t.scenarios.items[1].subtitle, description: t.scenarios.items[1].description, features: t.scenarios.items[1].features, color: 'from-purple-400/12 to-fuchsia-400/12', borderColor: 'border-purple-500/20', iconColor: 'text-purple-700', accentColor: 'bg-purple-500' },
-  { icon: Box, title: t.scenarios.items[2].title, subtitle: t.scenarios.items[2].subtitle, description: t.scenarios.items[2].description, features: t.scenarios.items[2].features, color: 'from-sky-400/12 to-indigo-400/12', borderColor: 'border-sky-500/20', iconColor: 'text-sky-700', accentColor: 'bg-sky-500' },
-  { icon: Bot, title: t.scenarios.items[3].title, subtitle: t.scenarios.items[3].subtitle, description: t.scenarios.items[3].description, features: t.scenarios.items[3].features, color: 'from-amber-400/12 to-orange-400/12', borderColor: 'border-amber-500/20', iconColor: 'text-amber-700', accentColor: 'bg-amber-500' },
+  { icon: Bug, title: t.scenarios.items[0].title, subtitle: t.scenarios.items[0].subtitle, description: t.scenarios.items[0].description, features: t.scenarios.items[0].features, color: 'from-emerald-300/12 to-brand-bg-tertiary', borderColor: 'border-emerald-300/20', iconColor: 'text-emerald-200', accentColor: 'bg-emerald-300' },
+  { icon: Gamepad2, title: t.scenarios.items[1].title, subtitle: t.scenarios.items[1].subtitle, description: t.scenarios.items[1].description, features: t.scenarios.items[1].features, color: 'from-amber-300/12 to-brand-bg-tertiary', borderColor: 'border-amber-300/20', iconColor: 'text-amber-200', accentColor: 'bg-amber-300' },
+  { icon: Box, title: t.scenarios.items[2].title, subtitle: t.scenarios.items[2].subtitle, description: t.scenarios.items[2].description, features: t.scenarios.items[2].features, color: 'from-sky-300/12 to-brand-bg-tertiary', borderColor: 'border-sky-300/20', iconColor: 'text-sky-200', accentColor: 'bg-sky-300' },
+  { icon: Bot, title: t.scenarios.items[3].title, subtitle: t.scenarios.items[3].subtitle, description: t.scenarios.items[3].description, features: t.scenarios.items[3].features, color: 'from-brand-accent/14 to-brand-bg-tertiary', borderColor: 'border-brand-accent/24', iconColor: 'text-brand-accent-light', accentColor: 'bg-brand-accent' },
 ];
   return (
-    <section id="scenarios" className="relative py-24 lg:py-32 overflow-hidden">
-      <div className="absolute inset-0 bg-grid opacity-[0.02]" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-brand-accent/[0.02] rounded-full blur-[200px]" />
+    <section id="scenarios" className="relative overflow-hidden py-24 lg:py-32">
+      <div className="absolute inset-0 bg-brand-bg-secondary/35" />
+      <div className="absolute inset-0 bg-grid opacity-[0.05]" />
 
       <div className="relative z-10 px-6 sm:px-8 lg:px-16 xl:px-24">
         <div className="max-w-7xl mx-auto">
@@ -25,7 +25,7 @@ const scenarios = [
               labelIcon={<Sparkles className="w-3.5 h-3.5" />}
               title={t.scenarios.title}
               highlight={t.scenarios.highlight}
-              description="Each target kind validates a different layer of the embodied stack. The same Session protocol spans all three."
+              description="Each target kind validates a different layer of the embodied stack. The same Session protocol spans every target."
             />
           </ScrollReveal>
 
@@ -35,13 +35,13 @@ const scenarios = [
               return (
                 <ScrollReveal key={index} delay={index * 0.15}>
                   <TiltCard
-                    className={`h-full rounded-3xl border ${scenario.borderColor} bg-gradient-to-b ${scenario.color} p-6 sm:p-8 group cursor-default shadow-card hover:shadow-card-hover transition-shadow duration-500`}
+                    className={`group h-full cursor-default rounded-lg border ${scenario.borderColor} bg-gradient-to-b ${scenario.color} p-6 shadow-card transition-shadow duration-500 hover:shadow-card-hover sm:p-8`}
                     tiltAmount={5}
                     scale={1.01}
                   >
                     <div className="relative z-10 h-full flex flex-col">
                       {/* Icon */}
-                      <div className={`w-14 h-14 rounded-2xl bg-brand-bg-secondary/80 border border-brand-border flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500 shadow-soft`}>
+                      <div className={`w-14 h-14 rounded-lg bg-brand-bg-secondary/80 border border-brand-border flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500 shadow-soft`}>
                         <Icon className={`w-7 h-7 ${scenario.iconColor}`} />
                       </div>
 

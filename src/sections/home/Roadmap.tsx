@@ -6,10 +6,10 @@ import { useT } from '../../i18n/LanguageContext';
 const statusConfig = {
   completed: {
     icon: Check,
-    color: 'text-emerald-600',
-    bgColor: 'bg-emerald-500/10',
-    borderColor: 'border-emerald-500/25',
-    dotColor: 'bg-emerald-600',
+    color: 'text-emerald-200',
+    bgColor: 'bg-emerald-300/10',
+    borderColor: 'border-emerald-300/25',
+    dotColor: 'bg-emerald-300',
   },
   'in-progress': {
     icon: Clock,
@@ -58,8 +58,8 @@ const phases = [
 ];
   return (
     <section id="roadmap" className="relative py-24 lg:py-32 overflow-hidden">
-      <div className="absolute inset-0 bg-grid opacity-[0.02]" />
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-brand-accent/[0.02] rounded-full blur-[200px]" />
+      <div className="absolute inset-0 bg-grid opacity-[0.05]" />
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-border to-transparent" />
 
       <div className="relative z-10 px-6 sm:px-8 lg:px-16 xl:px-24">
         <div className="max-w-7xl mx-auto">
@@ -75,11 +75,11 @@ const phases = [
           <div className="mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {phases.map((phase, phaseIndex) => (
               <ScrollReveal key={phaseIndex} delay={phaseIndex * 0.15}>
-                <div className="h-full rounded-3xl bg-brand-bg-secondary border border-brand-border p-6 sm:p-8 shadow-card hover:shadow-card-hover transition-shadow duration-500">
+                <div className="h-full rounded-lg bg-brand-bg-secondary/82 border border-brand-border p-6 sm:p-8 shadow-card hover:shadow-card-hover transition-shadow duration-500">
                   {/* Phase header */}
                   <div className="mb-8 pb-6 border-b border-brand-border">
                     <div className="flex items-center justify-between mb-3">
-                      <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-accent/10 border border-brand-accent/20 text-brand-accent-dark text-xs font-mono font-semibold shadow-glow-soft">
+                      <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-accent/10 border border-brand-accent/20 text-brand-accent-light text-xs font-mono font-semibold shadow-glow-soft">
                         {phase.phase}
                       </span>
                       <span className="text-xs text-brand-text-tertiary font-mono">
@@ -99,7 +99,7 @@ const phases = [
                       return (
                         <div
                           key={itemIndex}
-                          className={`flex items-center gap-3 p-3.5 rounded-2xl border transition-all duration-300 ${status.borderColor} ${status.bgColor}`}
+                          className={`flex items-center gap-3 p-3.5 rounded-md border transition-all duration-300 ${status.borderColor} ${status.bgColor}`}
                         >
                           <StatusIcon className={`w-4 h-4 flex-shrink-0 ${status.color}`} />
                           <span className="text-xs font-mono text-brand-text-tertiary w-12 flex-shrink-0">
