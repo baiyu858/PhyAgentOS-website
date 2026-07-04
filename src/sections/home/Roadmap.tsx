@@ -57,9 +57,8 @@ const phases = [
   ]},
 ];
   return (
-    <section id="roadmap" className="relative py-24 lg:py-32 overflow-hidden">
+    <section id="roadmap" className="relative py-12 lg:py-16 overflow-hidden">
       <div className="absolute inset-0 bg-grid opacity-[0.05]" />
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-border to-transparent" />
 
       <div className="relative z-10 px-6 sm:px-8 lg:px-16 xl:px-24">
         <div className="max-w-7xl mx-auto">
@@ -68,11 +67,11 @@ const phases = [
               label={t.roadmap.label}
               title={t.roadmap.title}
               highlight={t.roadmap.highlight}
-              description="From the session-runtime MVP to semantic verification and fleet coordination: a clear, versioned trajectory."
+              description={t.roadmap.description}
             />
           </ScrollReveal>
 
-          <div className="mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {phases.map((phase, phaseIndex) => (
               <ScrollReveal key={phaseIndex} delay={phaseIndex * 0.15}>
                 <div className="h-full rounded-lg bg-brand-bg-secondary/82 border border-brand-border p-6 sm:p-8 shadow-card hover:shadow-card-hover transition-shadow duration-500">

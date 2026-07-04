@@ -48,7 +48,7 @@ const nodes: ArchNode[] = [
   const trackBNodes = nodes.filter((n) => n.track === 'B');
 
   return (
-    <section id="architecture" className="relative overflow-hidden py-24 lg:py-32">
+    <section id="architecture" className="relative overflow-hidden py-12 lg:py-16">
       <div className="absolute inset-0 bg-brand-bg" />
       <div className="absolute inset-0 bg-grid-dense opacity-[0.06]" />
 
@@ -59,13 +59,13 @@ const nodes: ArchNode[] = [
               label={t.architecture.label}
               title={t.architecture.title}
               highlight={t.architecture.highlight}
-              description="Cognition and execution decoupled through a shared file-protocol layer. Click any component to explore."
+              description={t.architecture.description}
             />
           </ScrollReveal>
 
           {/* Architecture Diagram */}
           <ScrollReveal delay={0.2}>
-            <div className="mt-20 relative">
+            <div className="mt-12 relative">
               <div className="flex flex-col lg:flex-row items-stretch justify-center gap-6 lg:gap-8">
                 {/* Track A: Agent Layer */}
                 <div className="flex-1 max-w-sm">
@@ -75,8 +75,8 @@ const nodes: ArchNode[] = [
                         <Brain className="w-5 h-5 text-emerald-300" />
                       </div>
                       <div>
-                        <h3 className="font-display font-bold text-brand-text text-lg">{t.architecture.trackA}</h3>
-                        <p className="text-xs font-mono text-emerald-300">{t.architecture.trackASub}</p>
+                        <h3 className="font-display font-bold text-brand-text text-xl">{t.architecture.trackA}</h3>
+                        <p className="text-sm font-mono text-emerald-300">{t.architecture.trackASub}</p>
                       </div>
                     </div>
 
@@ -95,8 +95,8 @@ const nodes: ArchNode[] = [
                           >
                             <NodeIcon className={`w-4 h-4 flex-shrink-0 ${selectedNode?.id === node.id ? 'text-emerald-300' : 'text-emerald-300/60'}`} />
                             <div className="flex-1 min-w-0">
-                              <p className="text-sm font-semibold text-brand-text truncate">{node.label}</p>
-                              <p className="text-xs text-brand-text-tertiary">{node.sublabel}</p>
+                              <p className="text-base font-semibold text-brand-text truncate">{node.label}</p>
+                              <p className="text-sm text-brand-text-tertiary">{node.sublabel}</p>
                             </div>
                             <ArrowRight className={`w-3.5 h-3.5 transition-all duration-300 ${selectedNode?.id === node.id ? 'text-emerald-300 translate-x-0 opacity-100' : 'text-brand-text-tertiary -translate-x-1 opacity-0 group-hover:opacity-100 group-hover:translate-x-0'}`} />
                           </button>
@@ -111,7 +111,7 @@ const nodes: ArchNode[] = [
                   {/* Read arrow */}
                   <div className="hidden lg:flex items-center gap-2">
                     <ArrowRight className="w-5 h-5 text-brand-accent" />
-                    <span className="text-sm lg:text-base font-mono font-semibold tracking-wide text-brand-text-secondary">{t.architecture.read}</span>
+                    <span className="text-base lg:text-lg font-mono font-semibold tracking-wide text-brand-text-secondary">{t.architecture.read}</span>
                   </div>
 
                   {/* Protocol hub */}
@@ -120,15 +120,15 @@ const nodes: ArchNode[] = [
                       <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-md border border-brand-accent/20 bg-brand-accent/10 shadow-glow-soft">
                         <FileText className="w-8 h-8 text-brand-accent" />
                       </div>
-                      <p className="text-xl font-display font-bold text-brand-text text-center">{t.architecture.protocol}</p>
-                      <p className="text-xs text-brand-text-tertiary text-center mt-2">{t.architecture.sharedSurface}</p>
-                      <p className="mt-3 rounded-full border border-brand-accent/20 bg-brand-accent/10 px-3 py-1 text-xs font-mono text-brand-accent">{t.architecture.stateIsFile}</p>
+                      <p className="text-2xl font-display font-bold text-brand-text text-center">{t.architecture.protocol}</p>
+                      <p className="text-sm text-brand-text-tertiary text-center mt-2">{t.architecture.sharedSurface}</p>
+                      <p className="mt-3 rounded-full border border-brand-accent/20 bg-brand-accent/10 px-3 py-1 text-sm font-mono text-brand-accent">{t.architecture.stateIsFile}</p>
                     </div>
                   </div>
 
                   {/* Write arrow */}
                   <div className="hidden lg:flex items-center gap-2">
-                    <span className="text-sm lg:text-base font-mono font-semibold tracking-wide text-brand-text-secondary">{t.architecture.write}</span>
+                    <span className="text-base lg:text-lg font-mono font-semibold tracking-wide text-brand-text-secondary">{t.architecture.write}</span>
                     <ArrowRight className="w-5 h-5 text-brand-accent rotate-180" />
                   </div>
                 </div>
@@ -141,8 +141,8 @@ const nodes: ArchNode[] = [
                         <Cpu className="w-5 h-5 text-sky-300" />
                       </div>
                       <div>
-                        <h3 className="font-display font-bold text-brand-text text-lg">{t.architecture.trackB}</h3>
-                        <p className="text-xs font-mono text-sky-300">{t.architecture.trackBSub}</p>
+                        <h3 className="font-display font-bold text-brand-text text-xl">{t.architecture.trackB}</h3>
+                        <p className="text-sm font-mono text-sky-300">{t.architecture.trackBSub}</p>
                       </div>
                     </div>
 
@@ -161,8 +161,8 @@ const nodes: ArchNode[] = [
                           >
                             <NodeIcon className={`w-4 h-4 flex-shrink-0 ${selectedNode?.id === node.id ? 'text-sky-300' : 'text-sky-300/60'}`} />
                             <div className="flex-1 min-w-0">
-                              <p className="text-sm font-semibold text-brand-text truncate">{node.label}</p>
-                              <p className="text-xs text-brand-text-tertiary">{node.sublabel}</p>
+                              <p className="text-base font-semibold text-brand-text truncate">{node.label}</p>
+                              <p className="text-sm text-brand-text-tertiary">{node.sublabel}</p>
                             </div>
                             <ArrowRight className={`w-3.5 h-3.5 transition-all duration-300 ${selectedNode?.id === node.id ? 'text-sky-300 translate-x-0 opacity-100' : 'text-brand-text-tertiary -translate-x-1 opacity-0 group-hover:opacity-100 group-hover:translate-x-0'}`} />
                           </button>
@@ -178,7 +178,7 @@ const nodes: ArchNode[] = [
                 {protocolFiles.map((file) => (
                   <span
                     key={file}
-                    className="cursor-default rounded-full border border-brand-border bg-brand-bg-secondary/80 px-3.5 py-2 font-mono text-xs text-brand-text-tertiary transition-all duration-300 hover:border-brand-accent/30 hover:text-brand-accent hover:shadow-soft"
+                    className="cursor-default rounded-full border border-brand-border bg-brand-bg-secondary/80 px-3.5 py-2 font-mono text-sm text-brand-text-tertiary transition-all duration-300 hover:border-brand-accent/30 hover:text-brand-accent hover:shadow-soft"
                   >
                     {file}
                   </span>
@@ -202,12 +202,12 @@ const nodes: ArchNode[] = [
                     const SelectedIcon = selectedNode.icon;
                     return <SelectedIcon className={`w-5 h-5 ${selectedNode.track === 'A' ? 'text-emerald-300' : 'text-sky-300'}`} />;
                   })()}
-                  <h4 className="text-lg font-semibold text-brand-text">{selectedNode.label}</h4>
-                  <span className={`text-xs font-mono px-2.5 py-1 rounded-lg ${selectedNode.track === 'A' ? 'bg-emerald-400/10 text-emerald-300 border border-emerald-400/20' : 'bg-sky-400/10 text-sky-300 border border-sky-400/20'}`}>
+                  <h4 className="text-xl font-semibold text-brand-text">{selectedNode.label}</h4>
+                  <span className={`text-sm font-mono px-2.5 py-1 rounded-lg ${selectedNode.track === 'A' ? 'bg-emerald-400/10 text-emerald-300 border border-emerald-400/20' : 'bg-sky-400/10 text-sky-300 border border-sky-400/20'}`}>
                     {lang === 'zh' ? `层 ${selectedNode.track}` : `Layer ${selectedNode.track}`}
                   </span>
                 </div>
-                <p className="text-sm text-brand-text-secondary leading-relaxed">
+                <p className="text-base text-brand-text-secondary leading-8">
                   {selectedNode.description}
                 </p>
               </div>

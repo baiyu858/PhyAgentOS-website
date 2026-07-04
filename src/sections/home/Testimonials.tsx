@@ -11,9 +11,8 @@ const testimonials = [
   { quote: t.testimonials.items[2].quote, author: t.testimonials.items[2].author, role: t.testimonials.items[2].role, avatar: 'D' },
 ];
   return (
-    <section className="relative py-24 lg:py-32 overflow-hidden">
+    <section className="relative py-12 lg:py-16 overflow-hidden">
       <div className="absolute inset-0 bg-grid opacity-[0.05]" />
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-border to-transparent" />
 
       <div className="relative z-10 px-6 sm:px-8 lg:px-16 xl:px-24">
         <div className="max-w-7xl mx-auto">
@@ -22,11 +21,11 @@ const testimonials = [
               label={t.testimonials.label}
               title={t.testimonials.title}
               highlight={t.testimonials.highlight}
-              description="Feedback from researchers, developers, and the open-source community building on PhyAgentOS."
+              description={t.testimonials.description}
             />
           </ScrollReveal>
 
-          <div className="mt-16 grid md:grid-cols-3 gap-6">
+          <div className="mt-10 grid md:grid-cols-3 gap-6">
             {testimonials.map((testimonial, index) => (
               <ScrollReveal key={index} delay={index * 0.15}>
                 <div className="group relative h-full p-6 sm:p-8 rounded-lg bg-brand-bg-secondary/82 border border-brand-border hover:border-brand-accent/30 transition-all duration-500 shadow-card hover:shadow-card-hover overflow-hidden">

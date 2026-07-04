@@ -83,10 +83,9 @@ const staticStats: StatItem[] = [
   }, []);
 
   return (
-    <section className="relative py-24 lg:py-32 overflow-hidden">
+    <section className="relative py-12 lg:py-16 overflow-hidden">
       <div className="absolute inset-0 bg-brand-bg-secondary/40" />
       <div className="absolute inset-0 bg-grid opacity-[0.05]" />
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-border to-transparent" />
 
       <div className="relative z-10 px-6 sm:px-8 lg:px-16 xl:px-24">
         <div className="max-w-7xl mx-auto">

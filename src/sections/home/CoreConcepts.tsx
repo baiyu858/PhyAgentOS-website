@@ -21,7 +21,7 @@ const concepts = [
   const ActiveIcon = activeConcept.icon;
 
   return (
-    <section id="features" className="relative overflow-hidden py-24 lg:py-32">
+    <section id="features" className="relative overflow-hidden py-12 lg:py-16">
       <div className="absolute inset-0 bg-brand-bg-secondary/35" />
       <div className="absolute inset-0 bg-grid opacity-[0.05]" />
 
@@ -32,13 +32,13 @@ const concepts = [
               label={t.coreConcepts.label}
               title={t.coreConcepts.title}
               highlight={t.coreConcepts.highlight}
-              description="Not just features; fundamental design decisions behind a session-centered embodied AI runtime."
+              description={t.coreConcepts.description}
             />
           </ScrollReveal>
 
           {/* Tabs */}
           <ScrollReveal delay={0.2}>
-            <div className="mt-16 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-6">
+            <div className="mt-10 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-6">
               {concepts.map((concept) => {
                 const Icon = concept.icon;
                 const isActive = concept.id === activeId;

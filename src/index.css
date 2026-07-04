@@ -202,13 +202,6 @@
     z-index: 1;
   }
 
-  /* Section divider */
-  .section-divider {
-    height: 1px;
-    background: linear-gradient(90deg, transparent 0%, var(--color-border) 30%, var(--color-border-hover) 50%, var(--color-border) 70%, transparent 100%);
-    opacity: 0.6;
-  }
-
   /* Line clamp utilities */
   .line-clamp-2 {
     display: -webkit-box;
@@ -287,6 +280,21 @@
   background: #5c7385;
 }
 
+/* Light home surfaces use one continuous page color. */
+.theme-light .home-page > section {
+  background-color: var(--color-bg) !important;
+}
+
+.theme-light .home-page > section > .absolute.inset-0 {
+  background: var(--color-bg) !important;
+  background-image: none !important;
+  opacity: 1 !important;
+}
+
+.theme-light .home-page > section > video {
+  opacity: 0 !important;
+}
+
 /* === Dark Theme Overrides === */
 .theme-dark ::-webkit-scrollbar-track {
   background: var(--color-bg-tertiary, #161616);
@@ -336,11 +344,6 @@
 
 .theme-dark .glow-accent-soft {
   box-shadow: 0 8px 32px -8px var(--color-accent-glow);
-}
-
-.theme-dark .section-divider {
-  background: linear-gradient(90deg, transparent 0%, var(--color-border) 30%, var(--color-border-hover) 50%, var(--color-border) 70%, transparent 100%);
-  opacity: 0.4;
 }
 
 .theme-dark .text-gradient {

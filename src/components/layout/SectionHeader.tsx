@@ -1,5 +1,3 @@
-import { Sparkles } from 'lucide-react';
-
 interface SectionHeaderProps {
   label?: string;
   labelIcon?: React.ReactNode;
@@ -11,8 +9,6 @@ interface SectionHeaderProps {
 }
 
 export default function SectionHeader({
-  label,
-  labelIcon,
   title,
   highlight,
   description,
@@ -24,13 +20,6 @@ export default function SectionHeader({
 
   return (
     <div className={`${alignClass} ${maxWidthClass} ${className}`}>
-      {label && (
-        <div className={`inline-flex items-center gap-2 rounded-full border border-brand-accent/25 bg-brand-accent/10 px-4 py-2 text-xs font-mono uppercase tracking-[0.22em] text-brand-accent-light shadow-glow-soft mb-6`}>
-          {labelIcon || <Sparkles className="w-3.5 h-3.5" />}
-          {label}
-        </div>
-      )}
-
       <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-display font-bold tracking-tight leading-[1.22] text-brand-text">
         {title}
         {highlight && (

@@ -41,31 +41,19 @@ export default function Home() {
   }, []);
 
   return (
-    <div>
+    <div className="home-page">
       <Hero />
-      <div className="section-divider" />
       <LiveDemo />
-      <div className="section-divider" />
       <CoreConcepts />
-      <div className="section-divider" />
       <ProblemSolution />
-      <div className="section-divider" />
       <Architecture />
-      <div className="section-divider" />
       <Scenarios />
-      <div className="section-divider" />
       <Hardware />
-      <div className="section-divider" />
       <Benchmark />
-      <div className="section-divider" />
       <Roadmap />
-      <div className="section-divider" />
       <TeamPreview />
-      <div className="section-divider" />
       <Stats />
-      <div className="section-divider" />
       <Testimonials />
-      <div className="section-divider" />
       <DocsCTA />
     </div>
   );

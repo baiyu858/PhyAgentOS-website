@@ -11,10 +11,9 @@ const docItems = [
   { title: t.docsCTA.items[2].title, subtitle: t.docsCTA.items[2].subtitle, description: t.docsCTA.items[2].description, icon: FileCode, href: 'https://phy-agent-os.net/docs/en/developer-guide.html', color: 'from-amber-300/12 to-brand-bg-tertiary', iconColor: 'text-amber-200', borderColor: 'border-amber-300/25' },
 ];
   return (
-    <section id="docs" className="relative py-24 lg:py-32 overflow-hidden">
+    <section id="docs" className="relative py-12 lg:py-16 overflow-hidden">
       <div className="absolute inset-0 bg-brand-bg-secondary/35" />
       <div className="absolute inset-0 bg-grid opacity-[0.05]" />
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-border to-transparent" />
 
       <div className="relative z-10 px-6 sm:px-8 lg:px-16 xl:px-24">
         <div className="max-w-7xl mx-auto">
@@ -23,11 +22,11 @@ const docItems = [
               label={t.docsCTA.label}
               title={t.docsCTA.title}
               highlight={t.docsCTA.highlight}
-              description="Comprehensive documentation covering the runtime architecture, user operation, and hardware integration."
+              description={t.docsCTA.description}
             />
           </ScrollReveal>
 
-          <div className="mt-16 grid md:grid-cols-3 gap-6">
+          <div className="mt-10 grid md:grid-cols-3 gap-6">
             {docItems.map((item, index) => {
               const Icon = item.icon;
               return (
@@ -59,7 +58,7 @@ const docItems = [
 
                       <div className="flex items-center justify-between mt-8 pt-6 border-t border-brand-border/60">
                         <span className={`text-sm font-semibold ${item.iconColor} flex items-center gap-1`}>
-                          View Documentation
+                          {t.docsCTA.viewDocumentation}
                         </span>
                         <div className={`w-9 h-9 rounded-lg bg-brand-bg-secondary/80 border border-brand-border flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-[-2px] shadow-soft`}>
                           <ExternalLink className={`w-4 h-4 ${item.iconColor}`} />
@@ -73,7 +72,7 @@ const docItems = [
           </div>
 
           <ScrollReveal delay={0.3}>
-            <div className="mt-16 text-center">
+            <div className="mt-10 text-center">
               <div className="inline-flex flex-col sm:flex-row items-center gap-4">
                 <a
                   href="https://github.com/PhyAgentOS/PhyAgentOS"

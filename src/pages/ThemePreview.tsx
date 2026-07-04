@@ -39,7 +39,7 @@ function MiniHero({ theme }: { theme: typeof themes[0] }) {
           <p className="text-sm mb-4 max-w-md"
           style={{ color: theme.colors.textSecondary }}
         >
-          PhyAgentOS - A unified, transparent, and auditable runtime foundation for physical agents
+          A unified, transparent, and auditable runtime foundation for physical agents
         </p>
         <div className="flex gap-2">
           <button

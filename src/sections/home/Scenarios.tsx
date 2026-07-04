@@ -13,7 +13,7 @@ const scenarios = [
   { icon: Bot, title: t.scenarios.items[3].title, subtitle: t.scenarios.items[3].subtitle, description: t.scenarios.items[3].description, features: t.scenarios.items[3].features, color: 'from-brand-accent/14 to-brand-bg-tertiary', borderColor: 'border-brand-accent/24', iconColor: 'text-brand-accent-light', accentColor: 'bg-brand-accent' },
 ];
   return (
-    <section id="scenarios" className="relative overflow-hidden py-24 lg:py-32">
+    <section id="scenarios" className="relative overflow-hidden py-12 lg:py-16">
       <div className="absolute inset-0 bg-brand-bg-secondary/35" />
       <div className="absolute inset-0 bg-grid opacity-[0.05]" />
 
@@ -25,11 +25,11 @@ const scenarios = [
               labelIcon={<Sparkles className="w-3.5 h-3.5" />}
               title={t.scenarios.title}
               highlight={t.scenarios.highlight}
-              description="Each target kind validates a different layer of the embodied stack. The same Session protocol spans every target."
+              description={t.scenarios.description}
             />
           </ScrollReveal>
 
-          <div className="mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {scenarios.map((scenario, index) => {
               const Icon = scenario.icon;
               return (
@@ -47,16 +47,16 @@ const scenarios = [
 
                       {/* Title */}
                       <div className="mb-4">
-                        <p className={`text-xs font-mono uppercase tracking-wider ${scenario.iconColor} mb-2`}>
+                        <p className={`text-sm font-mono uppercase tracking-wider ${scenario.iconColor} mb-2`}>
                           {scenario.subtitle}
                         </p>
-                        <h3 className="text-2xl font-display font-bold text-brand-text">
+                        <h3 className="text-3xl font-display font-bold text-brand-text">
                           {scenario.title}
                         </h3>
                       </div>
 
                       {/* Description */}
-                      <p className="text-sm text-brand-text-secondary leading-relaxed mb-6 flex-grow">
+                      <p className="text-base text-brand-text-secondary leading-8 mb-6 flex-grow">
                         {scenario.description}
                       </p>
 
@@ -65,13 +65,13 @@ const scenarios = [
                         {scenario.features.map((feature, fidx) => (
                           <div key={fidx} className="flex items-center gap-2.5">
                             <div className={`w-1.5 h-1.5 rounded-full ${scenario.accentColor}`} />
-                            <span className="text-xs text-brand-text-tertiary">{feature}</span>
+                            <span className="text-sm text-brand-text-tertiary">{feature}</span>
                           </div>
                         ))}
                       </div>
 
                       {/* Link */}
-                      <div className="flex items-center gap-2 text-sm font-semibold text-brand-text-secondary group-hover:text-brand-text transition-colors">
+                      <div className="flex items-center gap-2 text-base font-semibold text-brand-text-secondary group-hover:text-brand-text transition-colors">
                         <span>{t.scenarios.learnMore}</span>
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                       </div>
@@ -84,8 +84,8 @@ const scenarios = [
 
           {/* Complementary note */}
           <ScrollReveal delay={0.3}>
-            <div className="mt-16 text-center">
-                            <p className="text-sm text-brand-text-tertiary max-w-2xl mx-auto">
+            <div className="mt-10 text-center">
+                            <p className="text-base leading-8 text-brand-text-tertiary max-w-3xl mx-auto">
                 {t.scenarios.note}
               </p>
             </div>

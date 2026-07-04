@@ -91,10 +91,9 @@ export default function LiveDemo() {
   };
 
   return (
-    <section id="demo" className="relative py-24 lg:py-32 overflow-hidden">
+    <section id="demo" className="relative py-12 lg:py-16 overflow-hidden">
       <div className="absolute inset-0 bg-brand-bg" />
       <div className="absolute inset-0 bg-grid opacity-[0.06]" />
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-accent/40 to-transparent" />
 
       <div className="relative z-10 px-6 sm:px-8 lg:px-16 xl:px-24">
         <div className="max-w-7xl mx-auto">
@@ -103,12 +102,12 @@ export default function LiveDemo() {
               label={t.liveDemo.label}
               title={t.liveDemo.title}
               highlight={t.liveDemo.highlight}
-              description="A full runtime session, shown as evidence: instruction, planning, protocol state, execution, and verified physical outcome."
+              description={t.liveDemo.description}
             />
           </ScrollReveal>
 
           <ScrollReveal delay={0.2}>
-            <div className="mt-16">
+            <div className="mt-10">
               <div className="relative overflow-hidden rounded-lg border border-brand-border bg-black shadow-2xl group">
                 <video
                   ref={videoRef}
@@ -172,7 +171,7 @@ export default function LiveDemo() {
                     }`}
                   >
                     <div className="text-xs font-mono text-brand-text-tertiary mb-1">
-                      Step {idx + 1}
+                      {t.liveDemo.step} {idx + 1}
                     </div>
                     <div className={`text-sm font-semibold ${idx === activeChapter ? 'text-brand-text' : 'text-brand-text-secondary'}`}>
                       {chapter.label}

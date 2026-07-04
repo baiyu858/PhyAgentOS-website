@@ -46,10 +46,9 @@ const problems = [
     <section
       ref={sectionRef}
       id="problems"
-      className="relative py-24 lg:py-32 overflow-hidden"
+      className="relative py-12 lg:py-16 overflow-hidden"
     >
       <div className="absolute inset-0 bg-grid opacity-[0.05]" />
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-border to-transparent" />
 
       <div className="relative z-10 px-6 sm:px-8 lg:px-16 xl:px-24">
         <div className="max-w-7xl mx-auto">
@@ -57,10 +56,10 @@ const problems = [
             label={t.problemSolution.label}
             title={t.problemSolution.title}
             highlight={t.problemSolution.highlight}
-            description="Four fundamental challenges that have blocked embodied intelligence, and how PhyAgentOS solves each one."
+            description={t.problemSolution.description}
           />
 
-          <div className="mt-20 grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-6">
             {problems.map((item, index) => {
               const Icon = item.icon;
               return (

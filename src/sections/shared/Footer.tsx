@@ -60,14 +60,14 @@ const footerLinks = {
                   className="px-4 py-2.5 rounded-xl border border-brand-border text-brand-text-secondary hover:text-brand-text hover:border-brand-accent/30 hover:bg-brand-bg-tertiary transition-all duration-300 flex items-center gap-2 text-sm"
                 >
                   <Github className="w-4 h-4" />
-                  Star on GitHub
+                  {t.footer.starOnGithub}
                 </a>
                 <a
                   href="mailto:contact@phyagentos.org"
                   className="px-4 py-2.5 rounded-xl border border-brand-border text-brand-text-secondary hover:text-brand-text hover:border-brand-accent/30 hover:bg-brand-bg-tertiary transition-all duration-300 flex items-center gap-2 text-sm"
                 >
                   <Mail className="w-4 h-4" />
-                  Contact
+                  {t.footer.contact}
                 </a>
               </div>
             </div>
@@ -75,7 +75,7 @@ const footerLinks = {
             {/* Product */}
             <div className="lg:col-span-2 lg:col-start-7">
               <h4 className="text-sm font-semibold uppercase tracking-wider mb-5 text-brand-text">
-                Product
+                {t.footer.product}
               </h4>
               <ul className="space-y-3">
                 {footerLinks.product.map((link) => (
@@ -94,7 +94,7 @@ const footerLinks = {
             {/* Resources */}
             <div className="lg:col-span-2">
               <h4 className="text-sm font-semibold uppercase tracking-wider mb-5 text-brand-text">
-                Resources
+                {t.footer.resources}
               </h4>
               <ul className="space-y-3">
                 {footerLinks.resources.map((link) => (
@@ -116,7 +116,7 @@ const footerLinks = {
             {/* Community */}
             <div className="lg:col-span-2">
               <h4 className="text-sm font-semibold uppercase tracking-wider mb-5 text-brand-text">
-                Community
+                {t.footer.community}
               </h4>
               <ul className="space-y-3">
                 {footerLinks.community.map((link) => (
@@ -151,7 +151,7 @@ const footerLinks = {
               <div className="flex flex-wrap justify-center sm:justify-start items-center gap-3 text-xs text-brand-text-tertiary">
                 <span>&copy; {currentYear} PhyAgentOS</span>
                 <span className="hidden sm:inline">·</span>
-                <span>MIT License</span>
+                <span>MIT</span>
                 <span className="hidden sm:inline">·</span>
                 <span className="flex items-center gap-1">
                   {t.footer.madeWith} <Heart className="w-3 h-3 text-brand-accent" /> by{' '}
@@ -206,7 +206,7 @@ const footerLinks = {
 
             {/* Credits */}
             <div className="mt-6 text-center text-xs text-brand-text-tertiary/60">
-              Built with React, Three.js & GSAP
+              {t.footer.basedOn}
             </div>
           </div>
         </div>

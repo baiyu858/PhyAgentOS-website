@@ -36,6 +36,7 @@ export interface TranslationShape {
     label: string;
     titleLine1: string;
     titleLine2: string;
+    titleLine3: string;
     subtitle: string;
     description: string;
     getStarted: string;
@@ -224,9 +225,10 @@ export const translations: Record<Lang, TranslationShape> = {
     },
     hero: {
       label: 'Cognitive-Physical Decoupling · Session-Centered Runtime',
-      titleLine1: 'Self-Evolving Physical Agent',
-      titleLine2: 'Operating System',
-      subtitle: 'PhyAgentOS - A unified, transparent, and auditable runtime foundation for physical agents',
+      titleLine1: 'Self-Evolving',
+      titleLine2: 'Physical Agent',
+      titleLine3: 'Operating System',
+      subtitle: 'A unified, transparent, and auditable runtime foundation for physical agents',
       description: 'Build, deploy, and orchestrate embodied AI agents through a unified Session protocol that runs identically across debug, simulation, and real-robot targets, with complete auditability via Markdown + YAML file protocols.',
       getStarted: 'Get Started',
       watchDemo: 'Watch Demo',
@@ -602,9 +604,10 @@ export const translations: Record<Lang, TranslationShape> = {
     },
     hero: {
       label: '认知-物理解耦 · 会话中心化运行时',
-      titleLine1: '自进化物理智能体',
-      titleLine2: '操作系统',
-      subtitle: 'PhyAgentOS-统一、透明、可审计的的物理智能体运行底座',
+      titleLine1: '自进化',
+      titleLine2: '物理智能体',
+      titleLine3: '操作系统',
+      subtitle: '统一、透明、可审计的的物理智能体运行底座',
       description: '通过统一的 Session 协议构建、部署并编排具身智能体，在调试、仿真与真机目标上行为完全一致；借助 Markdown + YAML 文件协议实现全链路可审计。',
       getStarted: '快速开始',
       watchDemo: '观看演示',

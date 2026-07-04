@@ -94,22 +94,18 @@ export default function Hero() {
         ref={contentRef}
         className="relative z-10 flex min-h-[92svh] items-end px-6 pb-12 pt-28 sm:px-8 lg:px-16 lg:pb-16 xl:px-24"
       >
-        <div className="mx-auto grid w-full max-w-7xl items-end gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(360px,0.72fr)]">
-          <div className="max-w-4xl">
-            <div className="hero-animate mb-6 inline-flex items-center gap-2 rounded-full border border-brand-accent/25 bg-brand-bg-secondary/60 px-4 py-2 text-xs font-mono uppercase tracking-[0.22em] text-brand-accent-light backdrop-blur-xl">
-              <span className="h-2 w-2 rounded-full bg-brand-accent shadow-[0_0_18px_var(--color-accent)]" />
-              {t.hero.label}
-            </div>
-
+        <div className="mx-auto grid w-full max-w-7xl items-end gap-10 lg:grid-cols-[minmax(0,1.18fr)_minmax(340px,0.64fr)]">
+          <div className="max-w-5xl">
             <h1
-              className={`hero-animate max-w-5xl break-words font-display font-bold leading-[0.98] tracking-tight text-brand-text sm:text-[clamp(3.3rem,8vw,8.6rem)] sm:leading-[0.94] ${
+              className={`hero-animate max-w-5xl font-display font-bold tracking-tight text-brand-text ${
                 lang === 'zh'
-                  ? 'text-[clamp(1.85rem,9vw,8.6rem)]'
-                  : 'text-[clamp(2.35rem,10vw,8.6rem)]'
+                  ? 'break-words text-[clamp(1.85rem,9vw,8.6rem)] leading-[0.98] sm:text-[clamp(3.3rem,8vw,8.6rem)] sm:leading-[0.94]'
+                  : 'text-[clamp(2.25rem,8vw,6.05rem)] leading-[1.08] sm:text-[clamp(3rem,6.45vw,6.05rem)] sm:leading-[1.08]'
               }`}
             >
-              {t.hero.titleLine1}
-              <span className="mt-2 block text-gradient">{t.hero.titleLine2}</span>
+              <span className={`block ${lang === 'en' ? 'whitespace-nowrap' : ''}`}>{t.hero.titleLine1}</span>
+              <span className={`mt-2 block ${lang === 'en' ? 'whitespace-nowrap' : ''}`}>{t.hero.titleLine2}</span>
+              <span className={`mt-2 block text-gradient ${lang === 'en' ? 'whitespace-nowrap' : ''}`}>{t.hero.titleLine3}</span>
             </h1>
 
             <p className="hero-animate mt-7 max-w-3xl text-xl leading-relaxed text-brand-text-secondary sm:text-2xl">
@@ -149,10 +145,7 @@ export default function Hero() {
           <aside className="hero-animate w-full max-w-full overflow-hidden rounded-lg border border-brand-border bg-brand-bg-secondary/72 p-4 shadow-2xl backdrop-blur-2xl">
             <div className="mb-4 flex items-center justify-between gap-4">
               <div>
-                <p className="text-xs font-mono uppercase tracking-[0.22em] text-brand-accent">
-                  {lang === 'zh' ? '运行证据' : 'Runtime Evidence'}
-                </p>
-                <h2 className="mt-1 font-display text-2xl font-semibold text-brand-text">
+                <h2 className="font-display text-2xl font-semibold text-brand-text">
                   {lang === 'zh' ? '会话闭环演示' : 'Session Loop Demo'}
                 </h2>
               </div>

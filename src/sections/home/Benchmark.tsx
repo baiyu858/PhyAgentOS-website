@@ -20,10 +20,9 @@ const stats = [
   { value: 100, suffix: '%', label: t.benchmark.stats[3].label, description: t.benchmark.stats[3].description },
 ];
   return (
-    <section id="benchmark" className="relative py-24 lg:py-32 overflow-hidden">
+    <section id="benchmark" className="relative py-12 lg:py-16 overflow-hidden">
       <div className="absolute inset-0 bg-brand-bg-secondary/40" />
       <div className="absolute inset-0 bg-grid opacity-[0.05]" />
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-border to-transparent" />
 
       <div className="relative z-10 px-6 sm:px-8 lg:px-16 xl:px-24">
         <div className="max-w-7xl mx-auto">
@@ -32,13 +31,13 @@ const stats = [
               label={t.benchmark.label}
               title={t.benchmark.title}
               highlight={t.benchmark.highlight}
-              description="Target-session results on the LIBERO benchmark, with every run traceable through SESSIONS.md and LESSONS.md."
+              description={t.benchmark.description}
             />
           </ScrollReveal>
 
           {/* Stats Grid */}
           <ScrollReveal delay={0.1}>
-            <div className="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+            <div className="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
               {stats.map((stat, index) => (
                 <div
                   key={index}
@@ -59,11 +58,11 @@ const stats = [
 
           {/* Charts */}
           <ScrollReveal delay={0.2}>
-            <div className="mt-16 grid lg:grid-cols-2 gap-8">
+            <div className="mt-10 grid lg:grid-cols-2 gap-8">
               {/* Success Rate Chart */}
               <div className="p-6 sm:p-8 rounded-lg bg-brand-bg-secondary/82 border border-brand-border shadow-card hover:shadow-card-hover transition-shadow duration-500">
                 <h3 className="text-lg font-semibold text-brand-text mb-2">{t.benchmark.chart1Title}</h3>
-                <p className="text-sm text-brand-text-tertiary mb-8">Real-target session completion on LIBERO benchmark suite</p>
+                <p className="text-sm text-brand-text-tertiary mb-8">{t.benchmark.chart1Subtitle}</p>
                 <div className="h-64">
                   <ResponsiveContainer width="100%" height="100%">
                     <BarChart data={benchmarkData} layout="vertical" margin={{ left: 0, right: 20 }}>
@@ -92,7 +91,7 @@ const stats = [
               {/* Code Lines Chart */}
               <div className="p-6 sm:p-8 rounded-lg bg-brand-bg-secondary/82 border border-brand-border shadow-card hover:shadow-card-hover transition-shadow duration-500">
                 <h3 className="text-lg font-semibold text-brand-text mb-2">{t.benchmark.chart2Title}</h3>
-                <p className="text-sm text-brand-text-tertiary mb-8">Lines to add a new robot target (relative scale, one Target Adapter)</p>
+                <p className="text-sm text-brand-text-tertiary mb-8">{t.benchmark.chart2Subtitle}</p>
                 <div className="h-64">
                   <ResponsiveContainer width="100%" height="100%">
                     <BarChart data={benchmarkData} layout="vertical" margin={{ left: 0, right: 20 }}>
@@ -123,9 +122,9 @@ const stats = [
           {/* Note */}
           <ScrollReveal delay={0.3}>
             <p className="mt-8 text-center text-xs text-brand-text-tertiary">
-              * Benchmarks evaluated on the LIBERO target suite. Full methodology and SESSIONS.md traces are available in our{' '}
+              {t.benchmark.note}{' '}
               <a href="https://github.com/PhyAgentOS/PhyAgentOS" target="_blank" rel="noopener noreferrer" className="text-brand-accent hover:underline">
-                documentation
+                {t.benchmark.documentation}
               </a>.
             </p>
           </ScrollReveal>
