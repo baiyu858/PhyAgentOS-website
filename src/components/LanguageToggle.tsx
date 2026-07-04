@@ -44,7 +44,7 @@ export default function LanguageToggle() {
         className="group w-14 h-14 rounded-full glass-strong border border-brand-border shadow-large flex items-center justify-center transition-all duration-300 hover:border-brand-accent/40 hover:scale-105"
       >
         <Languages className="w-6 h-6 text-brand-accent-dark transition-transform duration-300 group-hover:rotate-12" />
-        <span className="absolute -bottom-0.5 -right-0.5 w-6 h-6 rounded-full bg-brand-accent text-brand-text-on-accent text-[10px] font-mono font-bold flex items-center justify-center border-2 border-brand-bg">
+        <span className="absolute -bottom-0.5 -right-0.5 w-6 h-6 rounded-full bg-brand-accent text-brand-text-on-accent text-xs font-mono font-bold flex items-center justify-center border-2 border-brand-bg">
           {lang === 'en' ? '中' : 'EN'}
         </span>
       </button>

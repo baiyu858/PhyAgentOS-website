@@ -410,7 +410,7 @@ export default function Hackathon() {
                       className="gsap-item flex items-start gap-4 p-5 rounded-xl border border-brand-border bg-brand-text/[0.03] hover:bg-brand-text/[0.04] transition-colors"
                     >
                       <span
-                        className={`flex-shrink-0 px-2.5 py-0.5 rounded text-[11px] font-semibold uppercase tracking-wider ${
+                        className={`flex-shrink-0 px-2.5 py-0.5 rounded text-xs font-semibold uppercase tracking-wider ${
                           req.required
                             ? 'bg-brand-accent/15 text-brand-accent-dark border border-brand-accent/20'
                             : 'bg-brand-text/[0.03] text-brand-text-secondary border border-brand-border'

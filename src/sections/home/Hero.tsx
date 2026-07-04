@@ -120,7 +120,7 @@ export default function Hero() {
               {t.hero.description}
             </p>
 
-            <div className="hero-animate mt-9 flex flex-wrap gap-3">
+            <div className="hero-animate mt-9 grid max-w-sm grid-cols-1 gap-3 sm:flex sm:max-w-none sm:flex-wrap">
               {resourcePills.map((item) => {
                 const Icon = item.icon;
                 return (
@@ -135,10 +135,10 @@ export default function Hero() {
                     }}
                     target={item.href.startsWith('http') ? '_blank' : undefined}
                     rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                    className="group inline-flex shrink-0 items-center gap-2 rounded-full border border-brand-border bg-brand-bg-secondary/70 px-4 py-2.5 text-sm font-medium text-brand-text-secondary backdrop-blur-xl transition-all duration-300 hover:border-brand-accent/45 hover:text-brand-text hover:shadow-glow-soft"
+                    className="group inline-flex min-w-0 items-center justify-center gap-2 rounded-full border border-brand-border bg-brand-bg-secondary/70 px-3 py-2.5 text-sm font-medium text-brand-text-secondary backdrop-blur-xl transition-all duration-300 hover:border-brand-accent/45 hover:text-brand-text hover:shadow-glow-soft sm:justify-start sm:px-4"
                   >
                     <Icon className="h-4 w-4 text-brand-accent" />
-                    {item.label}
+                    <span className="truncate">{item.label}</span>
                     <ArrowRight className="h-3.5 w-3.5 opacity-45 transition-transform group-hover:translate-x-0.5 group-hover:opacity-100" />
                   </a>
                 );
@@ -185,7 +185,7 @@ export default function Hero() {
                   <div className="font-display text-2xl font-bold leading-none text-brand-text sm:text-3xl">
                     {metric.value}
                   </div>
-                  <div className="mt-2 text-[11px] font-medium leading-tight text-brand-text-tertiary sm:text-xs">
+                  <div className="mt-2 text-xs font-medium leading-tight text-brand-text-tertiary">
                     {metric.label}
                   </div>
                 </div>

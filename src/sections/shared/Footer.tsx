@@ -205,7 +205,7 @@ const footerLinks = {
             </div>
 
             {/* Credits */}
-            <div className="mt-6 text-center text-[11px] text-brand-text-tertiary/60">
+            <div className="mt-6 text-center text-xs text-brand-text-tertiary/60">
               Built with React, Three.js & GSAP
             </div>
           </div>
